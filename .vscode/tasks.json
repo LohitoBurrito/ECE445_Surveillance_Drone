@@ -10,7 +10,8 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-IC:/Users/lohit/boost_1_86_0/boost_1_86_0"
+                "-I", "C:/Users/lohit/boost_1_86_0/boost_1_86_0",
+                "-lws2_32", "-pthread"
             ],
             "options": {
                 "cwd": "C:\\MinGW\\bin"
