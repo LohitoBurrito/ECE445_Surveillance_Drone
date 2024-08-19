@@ -1,38 +1,77 @@
 #include <boost/beast/core.hpp>
 #include <boost/beast/websocket.hpp>
+#include <boost/asio/ip/tcp.hpp>
+#include <boost/asio/io_context.hpp>
 #include <iostream>
 #include <string>
 #include <thread>
+#include <memory>
 
-namespace ip = boost::asio::ip; // namespace with multiple types and functions under it
-using tcp = ip::tcp; // type tcp
+// Namespace aliases
+namespace ip = boost::asio::ip; 
+namespace websocket = boost::beast::websocket;
 
+// Alias for TCP socket
+using tcp = ip::tcp;
+
+// Standard library namespaces
 using namespace std;
 
-// SOURCE: https://www.youtube.com/watch?v=3elKoMMuJBA
-// SOURCE: https://www.youtube.com/watch?v=ZSefPfZqxpo&t=1976s
-
+// Main function
 int main() {
-    
-    // Port and Address
+    // Address and port
     auto const address = ip::make_address("127.0.0.1");
-    unsigned short const port = 5000;
+    unsigned short port = 5000;
 
-    // Used to keep track of all of the tasks and makes sure everything gets done
+    // IO context for managing asynchronous operations
     boost::asio::io_context ioc{1};
 
-    // The acceptor accepts incoming connections
+    // Acceptor for incoming connections
     tcp::acceptor acceptor{ioc, {address, port}};
 
-    while (1) {
-        // Instantiate a Socket
+    while (true) {
+        // Instantiate a socket to handle incoming connections
         tcp::socket socket{ioc};
 
-        // Wait for an incoming connection
+        // Accept an incoming connection
         acceptor.accept(socket);
 
-        // A Connection got accepted
-        cout << "socket accepted" << endl;
-    }
+        // Log that a connection has been accepted
+        cout << "Socket accepted" << endl;
+    
+        // Create and detach a thread to handle the WebSocket connection
+        std::thread{[socket = std::move(socket)]() mutable {
+            try {
+                // Instantiate a WebSocket stream
+                websocket::stream<tcp::socket> ws {std::move(socket)};
 
+                // Accept the WebSocket handshake
+                ws.accept();
+
+                // Buffer for reading incoming messages
+                boost::beast::flat_buffer buffer;
+
+                while (true) {
+                    // Read a message from the WebSocket
+                    ws.read(buffer);
+
+                    // Convert the buffer to a string and output it
+                    auto output = boost::beast::buffers_to_string(buffer.data());
+                    cout << output << endl;
+
+                    // Echo the message back to the client
+                    ws.write(buffer.data());
+
+                    // Clear the buffer for the next message
+                    buffer.clear();
+                }
+            } catch (boost::beast::system_error const& e) {
+                if (e.code() != boost::beast::websocket::error::closed) {
+                    cerr << "Error: " << e.what() << endl;
+                } else {
+                    cout << "Socked Closed" << endl;
+                }
+            }
+        }}.detach();
+    }
 }
