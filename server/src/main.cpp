@@ -1,70 +1,49 @@
 #include <boost/beast/core.hpp>
 #include <boost/beast/websocket.hpp>
-#include <boost/asio/ip/tcp.hpp>
-#include <boost/asio/io_context.hpp>
+#include <boost/asio/dispatch.hpp>
+#include <boost/asio/strand.hpp>
+#include <algorithm>
+#include <cstdlib>
+#include <functional>
 #include <iostream>
+#include <memory>
 #include <string>
 #include <thread>
-#include <memory>
+#include <vector>
 
 #include "../include/commandControl.h"
 
-// Namespace aliases
-namespace ip = boost::asio::ip; 
-namespace websocket = boost::beast::websocket;
-namespace beast = boost::beast;
+namespace beast = boost::beast;         
+namespace http = beast::http;            
+namespace websocket = beast::websocket;  
+namespace net = boost::asio;             
+using tcp = boost::asio::ip::tcp;       
 
-// Alias for TCP socket
-using tcp = ip::tcp;
-
-// Standard library namespaces
 using namespace std;
 
-
 // Main function
-int main() {
-    boost::asio::io_context ioc;
+int main(int argc, char* argv[]) {
 
-    shared_ptr<CommandControl> cc = make_shared<CommandControl>();
+    if (argc != 4) {
+        cerr << "Missing Arguments" << endl;
+        return EXIT_FAILURE;
+    }
 
-    thread s1 ([&] () { bootConnection(ioc, 5000, cc); } );
-    thread s2 ([&] () { bootConnection(ioc, 5001, cc); } );
+    auto const addr = net::ip::make_address(argv[1]);
+    auto const port_esp32 = static_cast<unsigned short>(atoi(argv[2]));
+    auto const port_gui = static_cast<unsigned short>(atoi(argv[3]));
+
+    net::io_context ioc {};
+
+    shared_ptr<CommandControl> cc = make_shared<CommandControl>(addr, ioc, port_esp32, port_gui);
+    
+    thread thread_gui(&CommandControl::bootGUI, cc);
+    thread thread_esp32(&CommandControl::bootESP32, cc);
+    thread_gui.join();
+    thread_esp32.join();
 
     ioc.run();
 
-    s1.join();
-    s2.join();
+    return EXIT_SUCCESS;
 
 }
-
-void bootConnection(boost::asio::io_context& ioc, unsigned short port, const shared_ptr<CommandControl>& cc) {
-
-    auto const address = ip::make_address("127.0.0.1");
-
-    tcp::acceptor acceptor{ioc, {address, port}}; 
-
-    function<void()> CommandControlLoop = [&] () {
-        acceptor.async_accept(
-            [&] (beast::error_code ec, tcp::socket socket) {
-                if (!ec) {
-
-                    if (port == 5000) {
-                        cout << "Connected GUI" << endl;
-                        cc -> connectGUI(socket); 
-                    } else {
-                        cout << "Connected ESP32" << endl;
-                        cc -> connectESP32(socket);
-                    }
-
-                    CommandControlLoop();
-
-                } else {
-                    cerr << "Error: " << ec.message() << endl;
-                }
-            }
-        );
-    };
-
-    CommandControlLoop();
-}
-

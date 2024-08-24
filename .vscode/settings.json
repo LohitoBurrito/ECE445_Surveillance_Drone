@@ -148,6 +148,8 @@
     "*.ipp": "cpp",
     "deque": "cpp",
     "ranges": "cpp",
-    "span": "cpp"
+    "span": "cpp",
+    "set": "cpp",
+    "unordered_set": "cpp"
   }
 }

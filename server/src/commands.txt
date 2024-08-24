@@ -1,3 +1,7 @@
 g++ -I C:/Users/lohit/boost_1_86_0/boost_1_86_0 main.cpp -pthread -lws2_32 -o websocket
 
 websocket.exe
+
+g++ -I C:/Users/lohit/boost_1_86_0/boost_1_86_0 main.cpp commandControl.cpp -pthread -lws2_32 -lwsock32 -o websocket
+
+commandControl.exe

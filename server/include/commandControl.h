@@ -1,27 +1,24 @@
-
 #include <boost/beast/core.hpp>
 #include <boost/beast/websocket.hpp>
-#include <boost/asio/ip/tcp.hpp>
-#include <boost/asio/io_context.hpp>
+#include <boost/asio/dispatch.hpp>
+#include <boost/asio/strand.hpp>
+#include <algorithm>
+#include <cstdlib>
+#include <functional>
+#include <iostream>
 #include <memory>
+#include <string>
+#include <thread>
 #include <queue>
 #include <vector>
-#include <mutex>
 
-// Namespace aliases
-namespace ip = boost::asio::ip; 
-namespace websocket = boost::beast::websocket;
-namespace beast = boost::beast;
+namespace beast = boost::beast;         // from <boost/beast.hpp>
+namespace http = beast::http;           // from <boost/beast/http.hpp>
+namespace websocket = beast::websocket; // from <boost/beast/websocket.hpp>
+namespace net = boost::asio;            // from <boost/asio.hpp>
+using tcp = boost::asio::ip::tcp;       // from <boost/asio/ip/tcp.hpp>4
 
-// Alias for TCP socket
-using tcp = ip::tcp;
-
-// Standard library namespaces
 using namespace std;
-struct ErrorCodes {
-    int error;
-    int success;
-};
 
 struct DataPackets {
     vector<vector<tuple<int, int, int>>> frame;
@@ -31,36 +28,25 @@ struct DataPackets {
     double roll;
 };
 
-class CommandControl : enable_shared_from_this<CommandControl> {
+class CommandControl : public enable_shared_from_this<CommandControl> {
     private:
-        
-        queue<beast::flat_buffer> dataPacketQueue;
-        queue<beast::flat_buffer> commandQueue;
-        beast::flat_buffer readDataPacketBuffer;
-        beast::flat_buffer writeDataPacketBuffer;
-        beast::flat_buffer readCommandBuffer;
-        beast::flat_buffer writeCommandBuffer;
-        
-        mutex dataPacketMutex;
-        mutex commandMutex;
 
-        ErrorCodes errorCodes;
-        shared_ptr<websocket::stream<tcp::socket>> guiWebsocket;
-        shared_ptr<websocket::stream<tcp::socket>> esp32Websocket;
+        tcp::acceptor acceptorESP32;
+        shared_ptr<websocket::stream<tcp::socket>> websocketESP32;
+        tcp::acceptor acceptorGUI;
+        shared_ptr<websocket::stream<tcp::socket>> websocketGUI;
 
+        net::io_context& ioc;
+        beast::flat_buffer bufferCommand;
+        beast::flat_buffer bufferDataPacket;
 
     public:
-        CommandControl();
-        void connectGUI(tcp::socket& socket);
-        void connectESP32(tcp::socket& socket);
-        void onAcceptGUI(beast::error_code ec);
-        void onAcceptESP32(beast::error_code ec);
-        void CommandControl::doRecieveCommand();
-        void CommandControl::onRecieveCommand(beast::error_code ec, std::size_t bytes_transferred);
-        void CommandControl::doSendCommand();
-        void CommandControl::onSendCommand(beast::error_code ec, std::size_t bytes_transferred);
-        void CommandControl::doRetrieveFrames();
-        void CommandControl::onRetrieveFrames(beast::error_code ec, std::size_t bytes_transferred);
-        void CommandControl::doSendFrames();
-        void CommandControl::onSendFrames(beast::error_code ec, std::size_t bytes_transferred);
+        CommandControl(net::ip::address addr, net::io_context& ioc, unsigned short port_esp32, unsigned short port_gui);
+        void bootESP32();
+        void connectESP32(beast::error_code ec, tcp::socket& socket); 
+        void acceptESP32(beast::error_code ec);
+        void bootGUI();
+        void connectGUI(beast::error_code ec, tcp::socket& socket); 
+        void acceptGUI(beast::error_code ec);
+        
 };

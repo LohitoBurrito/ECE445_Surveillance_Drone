@@ -1,165 +1,111 @@
-#include <commandControl.h>
 #include <boost/beast/core.hpp>
 #include <boost/beast/websocket.hpp>
-#include <boost/asio/ip/tcp.hpp>
-#include <boost/asio/io_context.hpp>
+#include <boost/asio/dispatch.hpp>
+#include <boost/asio/strand.hpp>
+#include <algorithm>
+#include <cstdlib>
+#include <functional>
 #include <iostream>
+#include <memory>
 #include <string>
 #include <thread>
-#include <memory>
+#include <queue>
+#include <vector>
 
-// Namespace aliases
-namespace ip = boost::asio::ip; 
-namespace websocket = boost::beast::websocket;
+#include "../include/commandControl.h"
 
-// Alias for TCP socket
-using tcp = ip::tcp;
+namespace beast = boost::beast;         // from <boost/beast.hpp>
+namespace http = beast::http;           // from <boost/beast/http.hpp>
+namespace websocket = beast::websocket; // from <boost/beast/websocket.hpp>
+namespace net = boost::asio;            // from <boost/asio.hpp>
+using tcp = boost::asio::ip::tcp;       // from <boost/asio/ip/tcp.hpp>4
 
-// Standard library namespaces
 using namespace std;
 
-CommandControl::CommandControl () {
-    CommandControl::errorCodes.error = -1;
-    CommandControl::errorCodes.success = 0;
+void pass(string text) {
+    cout << "\033[32m" << text << "\033[0m" << endl;
 }
 
-void CommandControl::connectESP32 (tcp::socket& socket) {
-    esp32Websocket = make_shared<websocket::stream<tcp::socket>>(move(socket));
-    esp32Websocket->async_accept (
+void warning(string text) {
+    cerr << "\033[33m" << text << "\033[0m" << endl;
+}
+
+void error(string text) {
+    cerr << "\033[31m" << text << "\033[0m" << endl;
+}
+
+CommandControl::CommandControl(
+    net::ip::address addr,
+    net::io_context& ioc, 
+    unsigned short port_esp32,
+    unsigned short port_gui
+) : ioc(ioc), acceptorESP32(ioc, {addr, port_esp32}), acceptorGUI(ioc, {addr, port_gui}) {}
+
+void CommandControl::bootESP32() {
+    pass("[ESP32] ... Starting Boot");
+    acceptorESP32.async_accept(
+        ioc,
+        [self{shared_from_this()}, this] (beast::error_code ec, tcp::socket socket) {
+            connectESP32(ec, socket);
+        }
+    );
+}
+
+void CommandControl::connectESP32(beast::error_code ec, tcp::socket& socket) {
+    if (ec) {
+        error("[ESP32] ... TCP Connection Error");
+        bootESP32();
+    } else {
+        pass("[ESP32] ... TCP Connection Secured");
+    }
+    websocketESP32 = make_shared<websocket::stream<tcp::socket>>(move(socket));
+    websocketESP32->async_accept(
         beast::bind_front_handler(
-            &CommandControl::onAcceptESP32,
+            &CommandControl::acceptESP32,
             shared_from_this()
         )
     );
 }
 
-void CommandControl::connectGUI (tcp::socket& socket) {
-    guiWebsocket = make_shared<websocket::stream<tcp::socket>>(move(socket));
-    guiWebsocket->async_accept (
+void CommandControl::acceptESP32(beast::error_code ec) {
+    if (ec) {
+        error("[ESP32] ... Websocket Connection Error");
+    } else {
+        pass("[ESP32] ... Fully Connected Websocket");
+    }
+}
+
+void CommandControl::bootGUI() {
+    pass("[GUI] ... Starting Boot");
+    acceptorGUI.async_accept(
+        ioc,
+        [self{shared_from_this()}, this] (beast::error_code ec, tcp::socket socket) {
+            connectGUI(ec, socket);
+        }
+    );
+}
+
+void CommandControl::connectGUI(beast::error_code ec, tcp::socket& socket) {
+    if (ec) {
+        error("[GUI] ... TCP Connection Error");
+        bootESP32();
+    } else {
+        pass("[GUI] ... TCP Connection Secured");
+    }
+    websocketGUI = make_shared<websocket::stream<tcp::socket>>(move(socket));
+    websocketGUI->async_accept(
         beast::bind_front_handler(
-            &CommandControl::onAcceptGUI,
+            &CommandControl::acceptGUI,
             shared_from_this()
         )
     );
 }
 
-void CommandControl::onAcceptESP32(beast::error_code ec) {
+void CommandControl::acceptGUI(beast::error_code ec) {
     if (ec) {
-        std::cerr << "ESP32 accept error: " << ec.message() << std::endl;
-        return;
+        error("[GUI] ... Websocket Connection Error");
+    } else {
+        pass("[GUI] ... Fully Connected Websocket");
     }
-    doRetrieveFrames();
 }
 
-void CommandControl::onAcceptGUI(beast::error_code ec) {
-    if (ec) {
-        std::cerr << "GUI accept error: " << ec.message() << std::endl;
-        return;
-    }
-    doRecieveCommand();
-}
-
-// 
-
-void CommandControl::doRetrieveFrames() {
-    esp32Websocket->async_read(
-        readDataPacketBuffer,
-        beast::bind_front_handler(
-            &CommandControl::onRetrieveFrames,
-            shared_from_this()
-        )
-    );
-}
-
-void CommandControl::onRetrieveFrames(beast::error_code ec, std::size_t bytes_transferred) {
-    if (ec) {
-        std::cerr << "GUI accept error: " << ec.message() << std::endl;
-        return;
-    }
-
-    if (bytes_transferred != 0) {
-        lock_guard<mutex> lock(dataPacketMutex);
-        dataPacketQueue.push(readDataPacketBuffer);
-        writeDataPacketBuffer = dataPacketQueue.front();
-    }
-
-    doSendCommand();
-}
-
-void CommandControl::doSendCommand() {
-    esp32Websocket->async_write(
-        writeCommandBuffer,
-        beast::bind_front_handler(
-            &CommandControl::onSendCommand,
-            shared_from_this()
-        )
-    );
-}
-
-void CommandControl::onSendCommand(beast::error_code ec, std::size_t bytes_transferred) {
-    if (ec) {
-        std::cerr << "GUI accept error: " << ec.message() << std::endl;
-        return;
-    }
-
-    if (bytes_transferred != 0) {
-        lock_guard<mutex> lock(commandMutex);
-        commandQueue.pop();
-        writeCommandBuffer = commandQueue.front();
-    }
-
-    doRetrieveFrames();
-}
-
-// 
-
-void CommandControl::doRecieveCommand() {
-
-    guiWebsocket->async_read(
-        readCommandBuffer,
-        beast::bind_front_handler(
-            &CommandControl::onRecieveCommand,
-            shared_from_this()
-        )
-    );
-}
-
-void CommandControl::onRecieveCommand(beast::error_code ec, std::size_t bytes_transferred) {
-    if (ec) {
-        std::cerr << "GUI accept error: " << ec.message() << std::endl;
-        return;
-    }
-
-    if (bytes_transferred != 0) {
-        lock_guard<mutex> lock(commandMutex);
-        commandQueue.push(readCommandBuffer);
-        writeCommandBuffer = commandQueue.front();
-    }
-
-    doSendFrames();
-}
-
-void CommandControl::doSendFrames() {
-    guiWebsocket->async_write(
-        writeDataPacketBuffer,
-        beast::bind_front_handler(
-            &CommandControl::onSendFrames,
-            shared_from_this()
-        )
-    );
-}
-
-void CommandControl::onSendFrames(beast::error_code ec, std::size_t bytes_transferred) {
-    if (ec) {
-        std::cerr << "GUI accept error: " << ec.message() << std::endl;
-        return;
-    }
-
-    if (bytes_transferred != 0) {
-        lock_guard<mutex> lock(dataPacketMutex);
-        dataPacketQueue.pop();
-        writeDataPacketBuffer = dataPacketQueue.front();   
-    }
-
-    doRecieveCommand();
-}
