@@ -37,75 +37,162 @@ void error(string text) {
 CommandControl::CommandControl(
     net::ip::address addr,
     net::io_context& ioc, 
-    unsigned short port_esp32,
-    unsigned short port_gui
-) : ioc(ioc), acceptorESP32(ioc, {addr, port_esp32}), acceptorGUI(ioc, {addr, port_gui}) {}
+    unsigned short port_read_command,
+    unsigned short port_write_command,
+    unsigned short port_read_data_packet,
+    unsigned short port_write_data_packet
+) : ioc(ioc), 
+    acceptorReadCommand(ioc, {addr, port_read_command}), 
+    acceptorWriteCommand(ioc, {addr, port_write_command}),
+    acceptorReadDataPacket(ioc, {addr, port_read_data_packet}),
+    acceptorWriteDataPacket(ioc, {addr, port_write_data_packet})  {
 
-void CommandControl::bootESP32() {
-    pass("[ESP32] ... Starting Boot");
-    acceptorESP32.async_accept(
+}
+
+/* -------------------------------------------  Boot Up Code ------------------------------------------- */
+
+void CommandControl::bootReadCommand() {
+    pass("[Read Command] ... Starting Boot");
+    acceptorReadCommand.async_accept(
         ioc,
         [self{shared_from_this()}, this] (beast::error_code ec, tcp::socket socket) {
-            connectESP32(ec, socket);
+            connectReadCommand(ec, socket);
         }
     );
 }
 
-void CommandControl::connectESP32(beast::error_code ec, tcp::socket& socket) {
+void CommandControl::connectReadCommand(beast::error_code ec, tcp::socket& socket) {
     if (ec) {
-        error("[ESP32] ... TCP Connection Error");
-        bootESP32();
+        error("[Read Command] ... TCP Connection Error");
+        bootReadCommand();
     } else {
-        pass("[ESP32] ... TCP Connection Secured");
+        pass("[Read Command] ... TCP Connection Secured");
     }
-    websocketESP32 = make_shared<websocket::stream<tcp::socket>>(move(socket));
-    websocketESP32->async_accept(
+    websocketReadCommand = make_shared<websocket::stream<tcp::socket>>(move(socket));
+    websocketReadCommand->async_accept(
         beast::bind_front_handler(
-            &CommandControl::acceptESP32,
+            &CommandControl::acceptReadCommand,
             shared_from_this()
         )
     );
 }
 
-void CommandControl::acceptESP32(beast::error_code ec) {
+void CommandControl::acceptReadCommand(beast::error_code ec) {
     if (ec) {
-        error("[ESP32] ... Websocket Connection Error");
+        error("[Read Command] ... Websocket Connection Error");
     } else {
-        pass("[ESP32] ... Fully Connected Websocket");
+        pass("[Read Command] ... Fully Connected Websocket");
+        doReadCommandValue();
     }
 }
 
-void CommandControl::bootGUI() {
-    pass("[GUI] ... Starting Boot");
-    acceptorGUI.async_accept(
+void CommandControl::bootWriteCommand() {
+    pass("[Write Command] ... Starting Boot");
+    acceptorWriteCommand.async_accept(
         ioc,
         [self{shared_from_this()}, this] (beast::error_code ec, tcp::socket socket) {
-            connectGUI(ec, socket);
+            connectWriteCommand(ec, socket);
         }
     );
 }
 
-void CommandControl::connectGUI(beast::error_code ec, tcp::socket& socket) {
+void CommandControl::connectWriteCommand(beast::error_code ec, tcp::socket& socket) {
     if (ec) {
-        error("[GUI] ... TCP Connection Error");
-        bootESP32();
+        error("[Write Command] ... TCP Connection Error");
+        bootWriteCommand();
     } else {
-        pass("[GUI] ... TCP Connection Secured");
+        pass("[Write Command] ... TCP Connection Secured");
     }
-    websocketGUI = make_shared<websocket::stream<tcp::socket>>(move(socket));
-    websocketGUI->async_accept(
+    websocketWriteCommand = make_shared<websocket::stream<tcp::socket>>(move(socket));
+    websocketWriteCommand->async_accept(
         beast::bind_front_handler(
-            &CommandControl::acceptGUI,
+            &CommandControl::acceptWriteCommand,
             shared_from_this()
         )
     );
 }
 
-void CommandControl::acceptGUI(beast::error_code ec) {
+void CommandControl::acceptWriteCommand(beast::error_code ec) {
     if (ec) {
-        error("[GUI] ... Websocket Connection Error");
+        error("[Write Command] ... Websocket Connection Error");
+        return;
     } else {
-        pass("[GUI] ... Fully Connected Websocket");
+        pass("[Write Command] ... Fully Connected Websocket");
+        doWriteCommandValue();
     }
 }
 
+/* -------------------------------------------  Data Communication Code ------------------------------------------- */
+
+void CommandControl::doReadCommandValue() {
+    websocketReadCommand->async_read(
+        bufferReadCommand,
+        beast::bind_front_handler(
+            &CommandControl::onReadCommandValue,
+            shared_from_this()
+        )
+    );
+}
+
+void CommandControl::onReadCommandValue(beast::error_code ec, size_t bytes_transferred) {
+    if (ec) {
+        error("[Read Command] ... Read Command Error");
+    } else if (bytes_transferred == 0) {
+        warning("[Read Command] ... Zero Bytes Read");
+        doReadCommandValue();
+    } else {
+        {
+            lock_guard<mutex> lock(mutexCommand);
+            queueCommand.push(bufferReadCommand);
+        }
+        bufferReadCommand.clear();
+        doReadCommandValue();
+    }
+}
+
+void CommandControl::doWriteCommandValue() {
+    websocketWriteCommand->async_write(
+        bufferWriteCommand.data(),
+        beast::bind_front_handler(
+            &CommandControl::onWriteCommandValue,
+            shared_from_this()
+        )
+    );
+}
+
+void CommandControl::onWriteCommandValue(beast::error_code ec, size_t bytes_transferred) {
+    if (ec) {
+        error("[Write Command] ... Write Command Error");
+    } else if (bytes_transferred == 0) {
+        warning("[Write Command] ... Zero Bytes Written");
+    } else {
+        this_thread::sleep_for(chrono::milliseconds(1000));
+        pass("[Write Command] ... " + to_string(bytes_transferred) + " Bytes Written");
+    }
+    {
+        lock_guard<mutex> lock(mutexCommand); 
+        bufferWriteCommand.clear();
+        if (!queueCommand.empty()) {
+            bufferWriteCommand = queueCommand.front();
+            queueCommand.pop();
+        }
+    }
+    
+    doWriteCommandValue();
+}
+
+void CommandControl::doWriteDataPacketValue() {
+
+}
+
+void CommandControl::onWriteDataPacketValue(beast::error_code ec, size_t bytes_transferred) {
+
+}
+
+void CommandControl::doReadDataPacketValue() {
+
+}
+
+void CommandControl::onReadDataPacketValue(beast::error_code ec, size_t bytes_transferred) {
+
+}

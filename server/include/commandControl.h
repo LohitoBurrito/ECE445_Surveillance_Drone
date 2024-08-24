@@ -20,7 +20,7 @@ using tcp = boost::asio::ip::tcp;       // from <boost/asio/ip/tcp.hpp>4
 
 using namespace std;
 
-struct DataPackets {
+struct DataPacket {
     vector<vector<tuple<int, int, int>>> frame;
     double altitude;
     double yaw;
@@ -31,22 +31,53 @@ struct DataPackets {
 class CommandControl : public enable_shared_from_this<CommandControl> {
     private:
 
-        tcp::acceptor acceptorESP32;
-        shared_ptr<websocket::stream<tcp::socket>> websocketESP32;
-        tcp::acceptor acceptorGUI;
-        shared_ptr<websocket::stream<tcp::socket>> websocketGUI;
+        tcp::acceptor acceptorReadCommand;
+        tcp::acceptor acceptorWriteCommand;
+        tcp::acceptor acceptorReadDataPacket;
+        tcp::acceptor acceptorWriteDataPacket;
+
+        shared_ptr<websocket::stream<tcp::socket>> websocketReadCommand;
+        shared_ptr<websocket::stream<tcp::socket>> websocketWriteCommand;
+        shared_ptr<websocket::stream<tcp::socket>> websocketReadDataPacket;
+        shared_ptr<websocket::stream<tcp::socket>> websocketWriteDataPacket;
 
         net::io_context& ioc;
-        beast::flat_buffer bufferCommand;
-        beast::flat_buffer bufferDataPacket;
+        beast::flat_buffer bufferReadCommand;
+        beast::flat_buffer bufferWriteCommand;
+        beast::flat_buffer bufferReadDataPacket;
+        beast::flat_buffer bufferWriteDataPacket;
+
+        mutex mutexCommand;
+        mutex mutexDataPacket;  
+
+        queue<beast::flat_buffer> queueCommand;
+        queue<DataPacket> queueDataPacket;
 
     public:
-        CommandControl(net::ip::address addr, net::io_context& ioc, unsigned short port_esp32, unsigned short port_gui);
-        void bootESP32();
-        void connectESP32(beast::error_code ec, tcp::socket& socket); 
-        void acceptESP32(beast::error_code ec);
-        void bootGUI();
-        void connectGUI(beast::error_code ec, tcp::socket& socket); 
-        void acceptGUI(beast::error_code ec);
+        CommandControl(
+            net::ip::address addr, 
+            net::io_context& ioc, 
+            unsigned short port_read_command,
+            unsigned short port_write_command,
+            unsigned short port_read_data_packet,
+            unsigned short port_write_data_packet
+        );
+
+        void bootReadCommand();
+        void connectReadCommand(beast::error_code ec, tcp::socket& socket); 
+        void acceptReadCommand(beast::error_code ec);
+
+        void bootWriteCommand();
+        void connectWriteCommand(beast::error_code ec, tcp::socket& socket); 
+        void acceptWriteCommand(beast::error_code ec);
         
+        void doReadCommandValue();
+        void onReadCommandValue(beast::error_code ec, size_t bytes_transferred);
+        void doWriteCommandValue();
+        void onWriteCommandValue(beast::error_code ec, size_t bytes_transferred);
+
+        void doWriteDataPacketValue();
+        void onWriteDataPacketValue(beast::error_code ec, size_t bytes_transferred);
+        void doReadDataPacketValue();
+        void onReadDataPacketValue(beast::error_code ec, size_t bytes_transferred);
 };
