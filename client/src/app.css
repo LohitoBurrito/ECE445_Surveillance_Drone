@@ -108,6 +108,13 @@ body {
     
 }
 
+.left .active, .up .active, .down .active, .right .active {
+    background-color: transparent;
+    border: none;
+    font-size: 80px;
+}
+
+
 .left button, .up button, .down button, .right button {
     background-color: transparent;
     border: none;
