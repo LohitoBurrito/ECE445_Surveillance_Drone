@@ -46,8 +46,8 @@ int main(int argc, char* argv[]) {
         port_writeDataPacket
     );
     
-    thread thread_read_command(&CommandControl::bootReadCommand, cc);
-    thread thread_write_command(&CommandControl::bootWriteCommand, cc);
+    thread thread_read_command(&CommandControl::bootReadGUI, cc);
+    thread thread_write_command(&CommandControl::bootWriteESP32, cc);
     // thread thread_read_data_packet(&CommandControl::bootReadDataPacket, cc);
     // thread thread_write_data_packet(&CommandControl::bootWriteDataPacket, cc);
     

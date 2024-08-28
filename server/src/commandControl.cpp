@@ -2,6 +2,7 @@
 #include <boost/beast/websocket.hpp>
 #include <boost/asio/dispatch.hpp>
 #include <boost/asio/strand.hpp>
+#include <WinSock2.h>
 #include <algorithm>
 #include <cstdlib>
 #include <functional>
@@ -11,6 +12,7 @@
 #include <thread>
 #include <queue>
 #include <vector>
+#include <condition_variable>
 
 #include "../include/commandControl.h"
 
@@ -42,42 +44,42 @@ CommandControl::CommandControl(
     unsigned short port_read_data_packet,
     unsigned short port_write_data_packet
 ) : ioc(ioc), 
-    acceptorReadCommand(ioc, {addr, port_read_command}), 
-    acceptorWriteCommand(ioc, {addr, port_write_command}),
-    acceptorReadDataPacket(ioc, {addr, port_read_data_packet}),
-    acceptorWriteDataPacket(ioc, {addr, port_write_data_packet})  {
+    acceptorReadGUI(ioc, {addr, port_read_command}), 
+    acceptorWriteESP32(ioc, {addr, port_write_command}),
+    acceptorReadESP32(ioc, {addr, port_read_data_packet}),
+    acceptorWriteGUI(ioc, {addr, port_write_data_packet})  {
 
 }
 
 /* -------------------------------------------  Boot Up Code ------------------------------------------- */
 
-void CommandControl::bootReadCommand() {
+void CommandControl::bootReadGUI() {
     pass("[Read Command] ... Starting Boot");
-    acceptorReadCommand.async_accept(
-        ioc,
+    acceptorReadGUI.async_accept(
+        ioc, 
         [self{shared_from_this()}, this] (beast::error_code ec, tcp::socket socket) {
-            connectReadCommand(ec, socket);
+            connectReadGUI(ec, socket);
         }
     );
 }
 
-void CommandControl::connectReadCommand(beast::error_code ec, tcp::socket& socket) {
+void CommandControl::connectReadGUI(beast::error_code ec, tcp::socket& socket) {
     if (ec) {
         error("[Read Command] ... TCP Connection Error");
-        bootReadCommand();
+        bootReadGUI();
     } else {
         pass("[Read Command] ... TCP Connection Secured");
     }
-    websocketReadCommand = make_shared<websocket::stream<tcp::socket>>(move(socket));
-    websocketReadCommand->async_accept(
+    websocketReadGUI = make_shared<websocket::stream<tcp::socket>>(move(socket));
+    websocketReadGUI->async_accept(
         beast::bind_front_handler(
-            &CommandControl::acceptReadCommand,
+            &CommandControl::acceptReadGUI,
             shared_from_this()
         )
     );
 }
 
-void CommandControl::acceptReadCommand(beast::error_code ec) {
+void CommandControl::acceptReadGUI(beast::error_code ec) {
     if (ec) {
         error("[Read Command] ... Websocket Connection Error");
     } else {
@@ -86,46 +88,55 @@ void CommandControl::acceptReadCommand(beast::error_code ec) {
     }
 }
 
-void CommandControl::bootWriteCommand() {
+void CommandControl::bootWriteESP32() {
     pass("[Write Command] ... Starting Boot");
-    acceptorWriteCommand.async_accept(
+    acceptorWriteESP32.async_accept(
         ioc,
         [self{shared_from_this()}, this] (beast::error_code ec, tcp::socket socket) {
-            connectWriteCommand(ec, socket);
+            acceptWriteESP32(ec, socket);
         }
     );
 }
 
-void CommandControl::connectWriteCommand(beast::error_code ec, tcp::socket& socket) {
+void CommandControl::acceptWriteESP32(beast::error_code ec, tcp::socket& socket) {
     if (ec) {
         error("[Write Command] ... TCP Connection Error");
-        bootWriteCommand();
+        bootWriteESP32();
     } else {
         pass("[Write Command] ... TCP Connection Secured");
-    }
-    websocketWriteCommand = make_shared<websocket::stream<tcp::socket>>(move(socket));
-    websocketWriteCommand->async_accept(
-        beast::bind_front_handler(
-            &CommandControl::acceptWriteCommand,
-            shared_from_this()
-        )
-    );
-}
-
-void CommandControl::acceptWriteCommand(beast::error_code ec) {
-    if (ec) {
-        error("[Write Command] ... Websocket Connection Error");
-        return;
-    } else {
-        pass("[Write Command] ... Fully Connected Websocket");
+        socketWriteESP32 = make_shared<tcp::socket>(move(socket));
         doWriteCommandValue();
     }
+}
+
+void CommandControl::bootReadESP32() {
+
+}
+
+void CommandControl::connectReadESP32(beast::error_code ec, tcp::socket& socket) {
+
+}
+
+void CommandControl::acceptReadESP32(beast::error_code ec) {
+
+}
+
+void CommandControl::bootWriteGUI() {
+
+}
+
+void CommandControl::connectWriteGUI(beast::error_code ec, tcp::socket& socket) {
+
+} 
+
+void CommandControl::acceptWriteGUI(beast::error_code ec) {
+
 }
 
 /* -------------------------------------------  Data Communication Code ------------------------------------------- */
 
 void CommandControl::doReadCommandValue() {
-    websocketReadCommand->async_read(
+    websocketReadGUI->async_read(
         bufferReadCommand,
         beast::bind_front_handler(
             &CommandControl::onReadCommandValue,
@@ -141,17 +152,19 @@ void CommandControl::onReadCommandValue(beast::error_code ec, size_t bytes_trans
         warning("[Read Command] ... Zero Bytes Read");
         doReadCommandValue();
     } else {
+        pass("[Read Command] ... " + to_string(bytes_transferred) + " Bytes Read");
         {
             lock_guard<mutex> lock(mutexCommand);
             queueCommand.push(bufferReadCommand);
         }
+        conditionCommand.notify_one();
         bufferReadCommand.clear();
         doReadCommandValue();
     }
 }
 
 void CommandControl::doWriteCommandValue() {
-    websocketWriteCommand->async_write(
+    socketWriteESP32->async_write_some(
         bufferWriteCommand.data(),
         beast::bind_front_handler(
             &CommandControl::onWriteCommandValue,
@@ -164,20 +177,19 @@ void CommandControl::onWriteCommandValue(beast::error_code ec, size_t bytes_tran
     if (ec) {
         error("[Write Command] ... Write Command Error");
     } else if (bytes_transferred == 0) {
-        warning("[Write Command] ... Zero Bytes Written");
+        // warning("[Write Command] ... Zero Bytes Written");
     } else {
-        this_thread::sleep_for(chrono::milliseconds(1000));
         pass("[Write Command] ... " + to_string(bytes_transferred) + " Bytes Written");
     }
     {
-        lock_guard<mutex> lock(mutexCommand); 
+        lock_guard<mutex> lock(mutexCommand);
+
         bufferWriteCommand.clear();
         if (!queueCommand.empty()) {
             bufferWriteCommand = queueCommand.front();
-            queueCommand.pop();
+            queueCommand.pop();            
         }
     }
-    
     doWriteCommandValue();
 }
 

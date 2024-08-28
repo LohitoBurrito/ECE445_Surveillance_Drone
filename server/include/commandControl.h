@@ -11,6 +11,7 @@
 #include <thread>
 #include <queue>
 #include <vector>
+#include <condition_variable>
 
 namespace beast = boost::beast;         // from <boost/beast.hpp>
 namespace http = beast::http;           // from <boost/beast/http.hpp>
@@ -30,16 +31,17 @@ struct DataPacket {
 
 class CommandControl : public enable_shared_from_this<CommandControl> {
     private:
+        tcp::acceptor acceptorReadGUI;
+        tcp::acceptor acceptorWriteESP32;
+        tcp::acceptor acceptorReadESP32;
+        tcp::acceptor acceptorWriteGUI;
 
-        tcp::acceptor acceptorReadCommand;
-        tcp::acceptor acceptorWriteCommand;
-        tcp::acceptor acceptorReadDataPacket;
-        tcp::acceptor acceptorWriteDataPacket;
+        shared_ptr<websocket::stream<tcp::socket>> websocketReadGUI;
+        shared_ptr<websocket::stream<tcp::socket>> websocketWriteGUI;
 
-        shared_ptr<websocket::stream<tcp::socket>> websocketReadCommand;
-        shared_ptr<websocket::stream<tcp::socket>> websocketWriteCommand;
-        shared_ptr<websocket::stream<tcp::socket>> websocketReadDataPacket;
-        shared_ptr<websocket::stream<tcp::socket>> websocketWriteDataPacket;
+        shared_ptr<tcp::socket> socketReadESP32;
+        shared_ptr<tcp::socket> socketWriteESP32;
+
 
         net::io_context& ioc;
         beast::flat_buffer bufferReadCommand;
@@ -53,6 +55,8 @@ class CommandControl : public enable_shared_from_this<CommandControl> {
         queue<beast::flat_buffer> queueCommand;
         queue<DataPacket> queueDataPacket;
 
+        condition_variable conditionCommand;
+
     public:
         CommandControl(
             net::ip::address addr, 
@@ -63,14 +67,21 @@ class CommandControl : public enable_shared_from_this<CommandControl> {
             unsigned short port_write_data_packet
         );
 
-        void bootReadCommand();
-        void connectReadCommand(beast::error_code ec, tcp::socket& socket); 
-        void acceptReadCommand(beast::error_code ec);
+        void bootReadGUI();
+        void connectReadGUI(beast::error_code ec, tcp::socket& socket); 
+        void acceptReadGUI(beast::error_code ec);
 
-        void bootWriteCommand();
-        void connectWriteCommand(beast::error_code ec, tcp::socket& socket); 
-        void acceptWriteCommand(beast::error_code ec);
+        void bootWriteESP32();
+        void acceptWriteESP32(beast::error_code ec, tcp::socket& socket); 
         
+        void bootReadESP32();
+        void connectReadESP32(beast::error_code ec, tcp::socket& socket); 
+        void acceptReadESP32(beast::error_code ec);
+
+        void bootWriteGUI();
+        void connectWriteGUI(beast::error_code ec, tcp::socket& socket); 
+        void acceptWriteGUI(beast::error_code ec);
+
         void doReadCommandValue();
         void onReadCommandValue(beast::error_code ec, size_t bytes_transferred);
         void doWriteCommandValue();
