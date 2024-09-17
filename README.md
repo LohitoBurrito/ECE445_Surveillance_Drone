@@ -4,7 +4,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 
 ## Table of Contents
 
-* [08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook](08/26/24---09/15/24:-logging-work-completed-before-starting-notebook)
+* [08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook](#08/26/24---09/15/24:-logging-work-completed-before-starting-notebook)
 
 ### 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
