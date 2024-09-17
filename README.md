@@ -6,7 +6,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 
 
 
-### 8/26/24 - 9/15/24: Logging Previously Completed Work
+### [8/26/24 - 9/15/24: Logging Previously Completed Work](https://gitlab.engr.illinois.edu/ece445/example-project/-/tree/master/notebooks/alex?ref_type=heads)
 
 TODO
 
