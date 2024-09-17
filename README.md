@@ -4,33 +4,16 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 
 ## Table of Contents
 
+* [08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook](08/26/24---09/15/24:-logging-work-completed-before-starting-notebook)
 
-
-### 8/26/24 - 9/15/24: Logging Work Completed Before Starting Notebook
-
-TODO
-
-### 9/16/24: Working on Project Proposal
+### 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
 TODO
 
-### 9/17/24: Working on Project Proposal
+### 09/16/24: Working on Project Proposal
 
 TODO
 
+### 09/17/24: Working on Project Proposal
 
-
-## Table of Contents
-
-1. [Day 1 - September 1, 2024](#day-1---september-1-2024)
-2. [Day 2 - September 2, 2024](#day-2---september-2-2024)
-3. [Day 3 - September 3, 2024](#day-3---september-3-2024)
-
-## Day 1 - September 1, 2024
-Log details for Day 1...
-
-## Day 2 - September 2, 2024
-Log details for Day 2...
-
-## Day 3 - September 3, 2024
-Log details for Day 3...
+TODO
