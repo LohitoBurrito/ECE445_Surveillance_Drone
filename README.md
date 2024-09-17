@@ -8,10 +8,13 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 
 TODO
 
+
 ### 9/16/24: Working on Project Proposal
 
 TODO
 
+
 ### 9/17/24: Working on Project Proposal
 
 TODO
+
