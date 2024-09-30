@@ -25,11 +25,13 @@ After meeting with our TA and receiving some feedback on our Project Proposal, w
 
 Today, our group met at and completed the Team Contract. We had some discussion with regards to how we planned to handle conflict, make decisions, and keep ourselves accountable during the completion of this project, but other than that we completed the document with relative ease. I worked primarily on the group expectations, conflict resolution, and project planning sections.
 
-## 9/24/24: Contributed to Circuit Schematic
+## 9/24/24: Researched MPU6050 IMU Circuit Schematic
 
 I spent some time today before our meeting with our TA to review the current circuit schematic we have designed. I reviewed the array of sensors we needed and found some online examples of schematics for the MPU6050, which is the IMU we have decided to go with since it is very popular in embedded applications, low cost, and widely availiable. Another added plus of the MPU6050 is that I have some experience interfacing with the software drivers for it through RSO experience.
+
 ![1457053860374](https://github.com/user-attachments/assets/5ab0187a-c3c9-471c-9dee-b950a7fed238)
 
+I sent this schematic to Lohit, who latered added it into our design.
 
 ## 9/29/24: Worked on Design Document
 
