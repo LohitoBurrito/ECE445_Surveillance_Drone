@@ -4,11 +4,12 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 
 ## Table of Contents
 
-* [08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook](#08/26/24---09/15/24:-Logging-Work-Completed-Before-Starting-Notebook)
-* [09/16/24: Working on Project Proposal](#09/16/24:-Working-on-Project-Proposal)
-* [09/17/24: Completed Project Proposal](#09/17/24:-Completed-Project-Proposal)
-* [09/18/24: Completed Team Contract](#09/18/24:-Completed-Team-Contract)
-* [09/24/24: Researched MPU6050 IMU Circuit Schematic](#09/24/24:-Researched-MPU6050-IMU-Circuit-Schematic)
+* [08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook](#082624---091524-logging-work-completed-before-starting-notebook)
+* [09/16/24: Working on Project Proposal](#091624-working-on-project-proposal)
+* [09/17/24: Completed Project Proposal](#091724-completed-project-proposal)
+* [09/18/24: Completed Team Contract](#091824-completed-team-contract)
+* [09/24/24: Researched MPU6050 IMU Circuit Schematic](#092424-researched-mpu6050-imu-circuit-schematic)
+* [09/29/24: Worked on Design Document](#092924-worked-on-design-document)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
