@@ -34,6 +34,8 @@ I spent some time today before our meeting with our TA to review the current cir
 
 I sent this schematic to Lohit, who latered added it into our design.
 
+Our meeting with the TA was very productive and helpful. Since neither I nor my groupmates have much experience with PCB design, we are quite concerned with if we going about it the right way and if our schematic is any good. We plan to send our schematic to the TA later this week so that she can review it and give us feedback. We also will get confirmation on whether breakout boards (and ESCs) are allowed in our design, as the SIM7600 is an extremely complex module to design around.
+
 ## 09/29/24: Worked on Design Document
 
 I spent much of my time today working on our project's design document. I began by reviewing the provided documentation and examples on the assignment from the course website, taking note of key elements we would need to include. Then, I created the document and made the basic outline. I ported over much of the information from the proposal that could be re-used, such as information for the Introduction and Ethics and Safety. However, I re-read the feedback Professor Fliflet provided us on our initial Project Proposal and realized we would need to discuss, as a team, to make some serious adjustments to our project. It seems that the professor is concerned about the scope of our project and implied that the building a drone AND creating the sophisticated software suite may be too much for this class. I am now exploring the option of adjusting our project to be focused on creating the software suite and the drone electronics, rather than a flying drone itself. I am not sure if this is enough to be a project for this class, though, so I have contacted our TA for feedback.
