@@ -10,6 +10,8 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [09/18/24: Completed Team Contract](#091824-completed-team-contract)
 * [09/24/24: Researched MPU6050 IMU Circuit Schematic](#092424-researched-mpu6050-imu-circuit-schematic)
 * [09/29/24: Worked on Design Document](#092924-worked-on-design-document)
+* [09/30/24: Worked on Design Document](#093024-worked-on-design-document)
+* [10/01/24: Shifted Project Focus](#100124-shifted-project-focus)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -52,6 +54,8 @@ We decided to set up some time to meet with our TA today in order to review some
 <img width="675" alt="Screenshot 2024-10-02 at 12 43 19 AM" src="https://github.com/user-attachments/assets/2d58b98e-4dc1-4f46-9778-69e3b0b3958d">
 
 <img width="425" alt="Screenshot 2024-10-02 at 12 44 48 AM" src="https://github.com/user-attachments/assets/1cfd05a5-c71c-4306-91bf-ebe24034d9ab">
+
+I also began reviewing our first draft of the schematic and PCB mockup that Lohit completed.
 
 ## 10/01/24: Shifted Project Focus
 
