@@ -25,7 +25,7 @@ After meeting with our TA and receiving some feedback on our Project Proposal, w
 
 <img width="1230" alt="Screenshot 2024-10-02 at 12 19 34 AM" src="https://github.com/user-attachments/assets/38aad503-229a-4ffb-b165-183d9358f492">
 
-Here is a quick visual diagram of the main components of our drone system. The crucial part here, and what makes our drone stand out, is the cellular connectivity that is used as a medium for communication between the drone and the local software running on a laptop. This will be the most challenging feature to implement.
+Here is a quick visual diagram I made of the main components of our drone system. The crucial part here, and what makes our drone stand out, is the cellular connectivity that is used as a medium for communication between the drone and the local software running on a laptop. This will be the most challenging feature to implement.
 
 ## 09/18/24: Completed Team Contract
 
