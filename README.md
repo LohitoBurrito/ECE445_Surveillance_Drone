@@ -23,6 +23,10 @@ Today, I spent most of my time working on the Project Proposal. Specifically, I 
 
 After meeting with our TA and receiving some feedback on our Project Proposal, we were able to complete it and submit within a few more hours of work. I ended up keeping the high-level requirments with what I had originally written, as I felt they were the best quantifiable measures for our project that were not related to the drone itself. With clarification from our TA, we completed the Tolerance Analysis section by analyzing data transmission rates with the SIM7600. After Adi finished writing the Ethics and Safety section, we reviewed our work and submitted the document.
 
+<img width="1230" alt="Screenshot 2024-10-02 at 12 19 34 AM" src="https://github.com/user-attachments/assets/38aad503-229a-4ffb-b165-183d9358f492">
+
+Here is a quick visual diagram of the main components of our drone system. The crucial part here, and what makes our drone stand out, is the cellular connectivity that is used as a medium for communication between the drone and the local software running on a laptop. This will be the most challenging feature to implement.
+
 ## 09/18/24: Completed Team Contract
 
 Today, our group met at and completed the Team Contract. We had some discussion with regards to how we planned to handle conflict, make decisions, and keep ourselves accountable during the completion of this project, but other than that we completed the document with relative ease. I worked primarily on the group expectations, conflict resolution, and project planning sections.
