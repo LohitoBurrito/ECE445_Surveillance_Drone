@@ -60,3 +60,11 @@ I also began reviewing our first draft of the schematic and PCB mockup that Lohi
 ## 10/01/24: Shifted Project Focus
 
 Unexpectedly, we got more feedback from Profesor Fliflet on our Project Proposal. It seems clear that he wants us to give more details on the specifics of our drone itself, which is not something we focused on. During our weekly meeting with our TA later this day, we discussed this. We decided that, since the main selling point of our project is the core software and electronics (the "guts"), not the flying drone, we would instead shift the focus of the project to be centered around the software/electronics working inside of a drone instead of a drone that flys. This would help to reduce the scope of our project to make it more manageable. If we happen to have extra time, we could then experiment with trying to get the drone flying well enough for a demo.
+
+## 10/02/24: Worked on Design Document
+
+TODO
+
+## 10/03/24: Completed Design Document and Proposal Revisions
+
+TODO
