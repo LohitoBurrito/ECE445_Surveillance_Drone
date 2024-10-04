@@ -12,6 +12,8 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [09/29/24: Worked on Design Document](#092924-worked-on-design-document)
 * [09/30/24: Worked on Design Document](#093024-worked-on-design-document)
 * [10/01/24: Shifted Project Focus](#100124-shifted-project-focus)
+* [10/02/24: Worked on Design Document](#100224-worked-on-design-document)
+* [10/03/24: Completed Design Document and Proposal Revisions](#100324-completed-design-document-and-proposal-revisions)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -63,8 +65,8 @@ Unexpectedly, we got more feedback from Profesor Fliflet on our Project Proposal
 
 ## 10/02/24: Worked on Design Document
 
-TODO
+Our group had a lot of discussions today on whether or not we want to actually build a physical drone for the final demo of the project. Ultimately, we came to a consensus that, although we will not include any drone-specific requirments in the High-Level Requirments list, since it is very hard to estimate how well our drone's in-flight performance will be right now, we will still plan to test and demo our drone in the air. This once again puts a flying drone as the end goal of our project. After this, we spent many hours working on the Design Document. I worked primarily on the software analyses for the MPU-6050 IMU, BMP280 barometer, and OV7670 image sensor, which meant that I described how the embedded software would interact with these devices. I then wrote an R-V table for these sensing modules. By the end of the day, we had about 2/3 of the document completed.
 
 ## 10/03/24: Completed Design Document and Proposal Revisions
 
-TODO
+Today my group and I wrapped up the Design Document, which required several more hours of work. I first constructed a diagram for the embedded controls software state machine and wrote descriptions for each state. I then constructed our schedule for the remainder of the semester and assigned tasks to each member. I wrapped up by writing some ideas on how we plan to perform in-flight tests and demos, and also spent a lot of time formatting the document. All in all, the Design Document was 42 pages long. During Adi's development of the power subsystem hardware breakdown, we realized that the OV7670 image sensor required a 3V Vcc. Unfortunately, the rest of our schematic uses either 12V, 5V, or 3.3V, so we may need to find a different camera if this one proves unsuitable. After completing the Design Document, I spent a little time porting over the changes to the Project Proposal and submitted both.
