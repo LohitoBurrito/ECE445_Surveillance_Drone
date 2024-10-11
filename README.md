@@ -70,3 +70,11 @@ Our group had a lot of discussions today on whether or not we want to actually b
 ## 10/03/24: Completed Design Document and Proposal Revisions
 
 Today my group and I wrapped up the Design Document, which required several more hours of work. I first constructed a diagram for the embedded controls software state machine and wrote descriptions for each state. I then constructed our schedule for the remainder of the semester and assigned tasks to each member. I wrapped up by writing some ideas on how we plan to perform in-flight tests and demos, and also spent a lot of time formatting the document. All in all, the Design Document was 42 pages long. During Adi's development of the power subsystem hardware breakdown, we realized that the OV7670 image sensor required a 3V Vcc. Unfortunately, the rest of our schematic uses either 12V, 5V, or 3.3V, so we may need to find a different camera if this one proves unsuitable. After completing the Design Document, I spent a little time porting over the changes to the Project Proposal and submitted both.
+
+## 10/08/24: 
+
+TODO
+
+## 10/11/24:
+
+TODO
