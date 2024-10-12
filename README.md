@@ -73,8 +73,12 @@ Today my group and I wrapped up the Design Document, which required several more
 
 ## 10/08/24: 
 
-TODO
+TODO. TA meeting and Design Review feedback
 
 ## 10/11/24:
 
-TODO
+TODO. Worked on drone wings. PCB review feedback.
+
+## 10/12/24:
+
+TODO. Worked on drone wings and fuselage. Found ESC.
