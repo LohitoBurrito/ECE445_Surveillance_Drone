@@ -82,3 +82,7 @@ TODO. Worked on drone wings. PCB review feedback.
 ## 10/12/24:
 
 TODO. Worked on drone wings and fuselage. Found ESC.
+
+## 10/14/24:
+
+TODO. Reviewed PCB and imported into KiCAD.
