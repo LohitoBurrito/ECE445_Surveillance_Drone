@@ -86,3 +86,7 @@ TODO. Worked on drone wings and fuselage. Found ESC.
 ## 10/14/24:
 
 TODO. Reviewed PCB and imported into KiCAD.
+
+## 10/15/24:
+
+TODO. Met with TA. Need to fix PCB before ordering. Started coding with ESP32 S3 Devkit. Implemented basic code for blinking an LED, sweeping a servo, and multithreading.
