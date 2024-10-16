@@ -83,9 +83,14 @@ Today Lohit and I attended the PCB Review session to receive feedback on our cur
 
 Our group then spent a couple of hours at the Siebel Center for Design constructing the second drone wing. The first had already been made the day before out of foam board purchased at Dollar General, so creating the second was simply a matter of replicating the dimensions of the first. The wing is roughly 7 inches in width towards the center, and tapers off to about 6 inches at the end. We also cut slits in the wings for the ailerons, and taped over the edges for improved aerodynamics.
 
-## 10/12/24:
+## 10/12/24: Imported PCB to KiCAD and Explored ESCs
 
-TODO. Worked on drone wings and fuselage. Found ESC.
+After researching online about what the easiest way to move an EasyEDA project into KiCAD would be, [this Reddit post](https://www.reddit.com/r/KiCad/comments/1bxg5ph/importing_easyeda_projects/#) provided information on KiCAD 8.0's built-in feature to import an EasyEDA project backup as a KiCAD project. This meant that we would not need to spend hours recreating our design. After following the instructions and runnings the DRC, there were a few errors related to the board's dimensions that were easily resolvable. However, we had about 350 warnings that showed up. About 250 of them were related to KiCAD not finding the proper footprints for parts we used, which we expected since that was the main reason why we originally used EasyEDA over KiCAD. There were a significant amount of warnings about "negative solder paste margin is larger than pad; no solder paste mask will be generated" that we could not find much information online about. For now, I think we will be able to ignore these warnings and see if they cause an issue while ordering the PCB.
+
+I spent some time researching a possible ESC we would like to buy for our brushless motor. The main requirments is that it should be compatible with up to a 6S battery, output a 5V supply, and be relatively inexpensive. The 5V supply is crucial, as it allows us to not need a second voltage regulator (we already have one for converting 5V to 3.3V). [This ESC](https://shop.tmotor.com/products/fixed-wing-esc-at55a-2-6s), by Tmotor, should be a good choice.
+
+Additionally, Adi and Lohit completed the contruction of the drone's fuselage and attached the wings we had made earlier.
+
 <img width="830" alt="Screenshot 2024-10-16 at 12 00 39 PM" src="https://github.com/user-attachments/assets/f9477451-1033-4991-a60c-f26b1cdf703e">
 
 ## 10/14/24:
