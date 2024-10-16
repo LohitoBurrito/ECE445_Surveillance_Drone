@@ -77,9 +77,13 @@ During our TA meeting this week, we spent the majority of the time disucssing th
 
 ![pinout](https://github.com/user-attachments/assets/ea4415ec-5362-4be4-8fad-ee926dee6889)
 
-## 10/11/24:
+## 10/11/24: PCB Review and Drone Wing Construction
 
-TODO. Worked on drone wings. PCB review feedback.
+Today Lohit and I attended the PCB Review session to receive feedback on our current design. After sitting down with a TA, he informed us that there were a set of specific DRC criteria we would need to meet before being able to submit a PCB order. While we had previously been verifying our PCB with EasyEDA's DRC, it's parameters were not the same as the KiCAD parameters the TA provided us. So, we realized we would need to spend time porting our design over into KiCAD so that we could ensure it passes the specific DRC requirments. Additionally, the TA mentioned that, due to the scope of our project, it might be a good idea to look into pre-made drone shells that we could then install our electronics into. I spent some time looking into this, but found that most off-the-shelf options were for quadcopter drones. This would turn out to be too expensive, as even though the drone frame would only be about $20-30 to purchase, it would then require four motors and four ESCs, which are expensive. I did, however, see that we could laser cut a drone frame from an online design if our own design fails to be operational.
+
+Our group then spent a couple of hours at the Siebel Center for Design constructing the second drone wing. The first had already been made the day before out of foam board purchased at Dollar General, so creating the second was simply a matter of replicating the dimensions of the first. The wing is roughly 7 inches in width towards the center, and tapers off to about 6 inches at the end. We also cut slits in the wings for the ailerons, and taped over the edges for improved aerodynamics. Below is a picture of the drone, taken a few days later after the fuselage was added and wings were attached.
+
+<img width="830" alt="Screenshot 2024-10-16 at 12 00 39 PM" src="https://github.com/user-attachments/assets/f9477451-1033-4991-a60c-f26b1cdf703e">
 
 ## 10/12/24:
 
