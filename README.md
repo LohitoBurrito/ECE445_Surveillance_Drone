@@ -14,6 +14,11 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/01/24: Shifted Project Focus](#100124-shifted-project-focus)
 * [10/02/24: Worked on Design Document](#100224-worked-on-design-document)
 * [10/03/24: Completed Design Document and Proposal Revisions](#100324-completed-design-document-and-proposal-revisions)
+* [10/08/24: Design Review Feedback](#100824-design-review-feedback)
+* [10/11/24: PCB Review and Drone Wing Construction](#101124-pcb-review-and-drone-wing-construction)
+* [10/12/24: Imported PCB to KiCAD and Explored ESCs](#101224-imported-pcb-to-kicad-and-explored-escs)
+* [10/14/24: DRC Warnings and Obtained ESP32 Devkit](#101424-drc-warnings-and-obtained-esp32-devkit)
+* [10/15/24: Attempted PCB Order and Began Programming ESP32 Devkit](#101524-attempted-PCB-order-and-began-programming-esp32-devkit)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -95,7 +100,7 @@ Additionally, Adi and Lohit completed the contruction of the drone's fuselage an
 
 <img width="830" alt="Screenshot 2024-10-16 at 12 00 39 PM" src="https://github.com/user-attachments/assets/f9477451-1033-4991-a60c-f26b1cdf703e">
 
-## 10/14/24: DRC Warnings and ESP32 S3 Devkit
+## 10/14/24: DRC Warnings and Obtained ESP32 S3 Devkit
 
 I met with our TA during her scheduled office hours to discuss my concerns with the DRC warnings. She was also not sure about how to resolve them, so we decided to go ahead and try to order the PCB tomorrow. If it causes and issue, we will resolve them and re-order the PCB during the following week's PCB order. During the PCB Review last Friday, I also learned that the class offers ESP32 S3 Devkits for us to checkout, so I reqested one from our TA. Since the PCB may not come in for another 1-2 weeks, I can at least begin coding the initial control loop and basic interfaces with sensors and servos with this Devkit.
 
@@ -103,4 +108,4 @@ I met with our TA during her scheduled office hours to discuss my concerns with 
 
 Today we had another meeting with our TA to review our PCB and order it. Our current PCB design uses four layers: a TopLayer, Inner1 (3.3V layer), Inner2 (GND layer), and BottomLayer. This made tracing our board much easier and allowed us to use a much more compact design. While we had previously heard that designs with greater than two layers were generally not recommended, we figured the complexity of our design justified it, and by our cost estimates with JLCPCB, the price increase would not be too significant. However, after we sent our PCB files to our TA, it turns out that making a four layer board with PCBWAY dramatically increases the price (over $50 for 10 boards) and would thus not be possible. We concluded that we would need to spend time simplifying our design down to two layers and order the PCB the following week. 
 
-After our meeting, I spent some time running basic sketches on the ESP32 Devkit to ensure its operation. I first began by simply blinking its onboard RGB LED, which is accessed through IO48. Then, I went to the 445 lab room and obtained a servo and some LEDs. Using code I referenced online from [this website](https://dronebotworkshop.com/esp32-servo/), I wrote code to sweep a servo from 0 to 180 degrees, then 180 back to 0 degrees. I verfied the code by connected the servo to a 5V supply pin, GND pin, and GPIO pin on the Devkit and successfully ran the code. Then, I wanted to explore the idea of multithreading with RTOS. Since our drone will need to be sending and receiving data from the Firebase cloud storage with minimal latency, I decided that running these two tasks on two threads would be optimal. The Arduino IDE provides an example sketch for accomplishing this with FreeRTOS, and using code from [this website](https://randomnerdtutorials.com/esp32-dual-core-arduino-ide/) as a refernce, I wrote code to run two tasks on two seperate cores on the microcontroller. The first blinked an LED  every 500ms, and the second blinked an LED every 100ms. After connecting two LEDs to GPIO pins on the Devkit, I verified this worked.
+After our meeting, I spent some time running basic sketches on the ESP32 Devkit to ensure its operation. I first began by simply blinking its onboard RGB LED, which is accessed through IO48. Then, I went to the 445 lab room and obtained a servo and some LEDs. Using code I referenced online from [this website](https://dronebotworkshop.com/esp32-servo/), I wrote code to sweep a servo from 0 to 180 degrees, then 180 back to 0 degrees. I verfied the code by connected the servo to a 5V supply pin, GND pin, and GPIO pin on the Devkit and successfully ran the code. Then, I wanted to explore the idea of multithreading with RTOS. Since our drone will need to be sending and receiving data from the Firebase cloud storage with minimal latency, I decided that running these two tasks on two threads would be optimal. The Arduino IDE provides an example sketch for accomplishing this with FreeRTOS, and using code from [this website](https://randomnerdtutorials.com/esp32-dual-core-arduino-ide/) as a reference, I wrote code to run two tasks on two seperate cores on the microcontroller. The first blinked an LED  every 500ms, and the second blinked an LED every 100ms. After connecting two LEDs to GPIO pins on the Devkit, I verified this worked.
