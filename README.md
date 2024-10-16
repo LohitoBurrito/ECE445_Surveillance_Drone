@@ -69,11 +69,13 @@ Our group had a lot of discussions today on whether or not we want to actually b
 
 ## 10/03/24: Completed Design Document and Proposal Revisions
 
-Today my group and I wrapped up the Design Document, which required several more hours of work. I first constructed a diagram for the embedded controls software state machine and wrote descriptions for each state. I then constructed our schedule for the remainder of the semester and assigned tasks to each member. I wrapped up by writing some ideas on how we plan to perform in-flight tests and demos, and also spent a lot of time formatting the document. All in all, the Design Document was 42 pages long. During Adi's development of the power subsystem hardware breakdown, we realized that the OV7670 image sensor required a 3V Vcc. Unfortunately, the rest of our schematic uses either 12V, 5V, or 3.3V, so we may need to find a different camera if this one proves unsuitable. After completing the Design Document, I spent a little time porting over the changes to the Project Proposal and submitted both.
+Today my group and I wrapped up the Design Document, which required several more hours of work. I first constructed a diagram for the embedded controls software state machine and wrote descriptions for each state. I then wrote our schedule for the remainder of the semester and assigned tasks to each member. I wrapped up by writing some ideas on how we plan to perform in-flight tests and demos, and also spent a lot of time formatting the document. All in all, the Design Document was 42 pages long. During Adi's development of the power subsystem hardware breakdown, we realized that the OV7670 image sensor required a 3V Vcc. Unfortunately, the rest of our schematic uses either 12V, 5V, or 3.3V, so we may need to find a different camera if this one proves unsuitable. After completing the Design Document, I spent a little time porting over the changes to the Project Proposal and submitted both.
 
-## 10/08/24: 
+## 10/08/24: Design Review Feedback
 
-TODO. TA meeting and Design Review feedback
+During our TA meeting this week, we spent the majority of the time disucssing the feedback we received during our group's Design Review yesterday. It is still very clear the Professor Fliflet is concerned with what problem we are actually trying to solve, the scope of our project, and our high-level requirments list. Our TA, Manvi, suggested we stick with the original plan to have the software suite integrated with the electronics as a demoable Phase 1 of the project, then have the flying drone as a Phase 2. This way, we limit the scope of our project while also giving us an opportunity to get some potential bonus points. Additionally, we reviewed some concerns I had with regards to the SIM7600 and ESCs. Since these are both quite complex modules and their reliable operation is crucial to the safe operation of the drone, I really think we should buy off-the-shelf versions of these components instead of trying to integrate them into our PCB. For now, we will plan to add them to our PCB, but will buy them if it doesn't work out. Pictured below is the pinout for the SIM7600, for example.
+
+![pinout](https://github.com/user-attachments/assets/ea4415ec-5362-4be4-8fad-ee926dee6889)
 
 ## 10/11/24:
 
