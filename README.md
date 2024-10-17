@@ -94,7 +94,11 @@ After researching online about what the easiest way to move an EasyEDA project i
 
 I spent some time researching a possible ESC we would like to buy for our brushless motor. The main requirments is that it should be compatible with up to a 6S battery, output a 5V supply, and be relatively inexpensive. The 5V supply is crucial, as it allows us to not need a second voltage regulator (we already have one for converting 5V to 3.3V). [This ESC](https://shop.tmotor.com/products/fixed-wing-esc-at55a-2-6s), by Tmotor, should be a good choice.
 
-I also explored the idea of adding the SIM7600 to our PCB, however it does not seem like this will be possible. Due to the sheer complexity of the module, there are not many online schematics for breakout boards for it. I did manage to add 
+I also explored the idea of adding the SIM7600 to our PCB, however it does not seem like this will be possible. Due to the sheer complexity of the module, there are not many online schematics for breakout boards for it. I did manage to find one example for a schematic, as seen below:
+
+<img width="1150" alt="Screenshot 2024-10-16 at 7 57 00 PM" src="https://github.com/user-attachments/assets/026b96aa-701c-4c6c-a7b7-37424838db89">
+
+While not all of the submodules in this schematic are necessary for our purposes, implementing the ones we need would still prove to be too complex and exceed the size limitations of our PCB. We are limited to a 10cm by 10cm board, so adding the SIM7600 would not fit.
 
 Additionally, Adi and Lohit completed the contruction of the drone's fuselage and attached the wings we had made earlier.
 
