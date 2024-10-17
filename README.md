@@ -19,6 +19,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/12/24: Imported PCB to KiCAD and Explored ESCs](#101224-imported-pcb-to-kicad-and-explored-escs)
 * [10/14/24: DRC Warnings and Obtained ESP32 Devkit](#101424-drc-warnings-and-obtained-esp32-devkit)
 * [10/15/24: Attempted PCB Order and Began Programming ESP32 Devkit](#101524-attempted-PCB-order-and-began-programming-esp32-devkit)
+* [10/16/24: Ordered SIM7600 and Servos](#101624-ordered-sim7600-and-servos)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
