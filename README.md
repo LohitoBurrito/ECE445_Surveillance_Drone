@@ -21,6 +21,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/15/24: Attempted PCB Order and Began Programming ESP32 Devkit](#101524-attempted-PCB-order-and-began-programming-esp32-devkit)
 * [10/16/24: Ordered SIM7600 and Servos](#101624-ordered-sim7600-and-servos)
 * [10/21/24: Revised PCB and Ordered Image Sensor](#102124-revised-pcb-and-ordered-image-sensor)
+* [10/23/24: Tested Servos and Reviewed Parts List](#102324-tested-servos-and-reviewed-parts-list)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -127,3 +128,12 @@ Today I worked with Lohit to convert our existing four layer PCB design to a two
 <img width="420" alt="Screenshot 2024-10-22 at 10 57 54 AM" src="https://github.com/user-attachments/assets/79faacf9-fb06-4798-a1cd-5cd26a78d9ee">
 
 I also submitted the order for the OV7670 image sensors we will be using as cameras on our drone. We had selected a 2 pack of these sensors off Amazon while writing our Design Document, and this seemed to be a suitable option. We will need to spend more time this week ordering the batteries, ESC, motor, and all of the PCB components that are not availiable through the ECE department.
+
+
+## 10/23/24: Tested Servos and Reviewed Parts List
+
+Since we recently received the servos and SIM7600 that we ordered, I quickly validated the operation of the servos we got using with the ESP32 Devkit and the code I had written to test a servo earlier. As I expected, the code worked and the servos responded as properly. Below is quick image of the setup I created for the test:
+
+![img2](https://github.com/user-attachments/assets/966920d6-e94d-4023-b064-32b06fd7d764)
+
+During Tuesday's meeting with our TA, I discovered that the BMP280, the barometetric sensor we planed to use, was obsolete and no longer sold. As a last minute change before the PCB order, we swapped our design to use the BME280, which is very similar to the BMP280 except for the fact that it has the ability to also measure humidity. Incorporating the chip into our schematic and PCB was fairly plug and play, as it was also an I2C device and used the same connections. I also found that many of the parts that we planned to use on our PCB were not availiable through the ECE department, whether that be through the Electronics Shop or ECE Supply Center. As a result, I spent time today making a Google sheet that lists all of the parts and whether we will need to make an online order to get them. I believe most of the resistors and capacitors can be gotten through the Electronics Shop, but I will need to check their size/package to ensure this.
