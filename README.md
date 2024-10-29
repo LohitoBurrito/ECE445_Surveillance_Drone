@@ -22,6 +22,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/16/24: Ordered SIM7600 and Servos](#101624-ordered-sim7600-and-servos)
 * [10/21/24: Revised PCB and Ordered Image Sensor](#102124-revised-pcb-and-ordered-image-sensor)
 * [10/23/24: Tested Servos and Reviewed Parts List](#102324-tested-servos-and-reviewed-parts-list)
+* [10/28/24: Updated PCB Parts List and Submitted Orders](#102824-updated-pcb-parts-list-and-submitted-orders)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
