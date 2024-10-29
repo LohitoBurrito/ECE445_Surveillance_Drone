@@ -137,3 +137,7 @@ Since we recently received the servos and SIM7600 that we ordered, I quickly val
 ![img2](https://github.com/user-attachments/assets/966920d6-e94d-4023-b064-32b06fd7d764)
 
 During Tuesday's meeting with our TA, I discovered that the BMP280, the barometetric sensor we planed to use, was obsolete and no longer sold. As a last minute change before the PCB order, we swapped our design to use the BME280, which is very similar to the BMP280 except for the fact that it has the ability to also measure humidity. Incorporating the chip into our schematic and PCB was fairly plug and play, as it was also an I2C device and used the same connections. I also found that many of the parts that we planned to use on our PCB were not availiable through the ECE department, whether that be through the Electronics Shop or ECE Supply Center. As a result, I spent time today making a Google sheet that lists all of the parts and whether we will need to make an online order to get them. I believe most of the resistors and capacitors can be gotten through the Electronics Shop, but I will need to check their size/package to ensure this.
+
+## 10/28/24: Updated PCB Parts List and Submitted Orders
+
+TODO
