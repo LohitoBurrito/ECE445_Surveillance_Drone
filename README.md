@@ -140,4 +140,6 @@ During Tuesday's meeting with our TA, I discovered that the BMP280, the baromete
 
 ## 10/28/24: Updated PCB Parts List and Submitted Orders
 
-TODO
+I spent most of my time today going through the Google sheet I had made last week for our parts list and confirming where each part would need to be ordered from. Most of the capacitors, some of the resistors, and most of the ICs we would need to use for our PCB would not be directly obtainable from the ECE department, and originally I had thought that we would need to buy them on our own. However, I worked with Lohit and together we were able to find suitable replacements for the aforementioned parts. This process was quite time consuming, as it involved checking various datasheets and confirming that size/dimensions would not be an issue. After much effort, we had compiled a list of parts that could entirely be obtained either from the Electronics Shop, or ordering through the ECE department from an accepted vendor.
+
+I also briefly helped Adi with the initial programming of the SIM7600 with our ESP32 DevKit. We are able to directly connect the breakout board for the SIM7600 with TX/RX, power, and GND pins on the Devkit. Using the sim card from Adi's phone and use starter code from an online website as a reference, we also began to attempt writing code that would simply ping a website. It is a work in progress.
