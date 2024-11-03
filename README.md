@@ -23,6 +23,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/21/24: Revised PCB and Ordered Image Sensor](#102124-revised-pcb-and-ordered-image-sensor)
 * [10/23/24: Tested Servos and Reviewed Parts List](#102324-tested-servos-and-reviewed-parts-list)
 * [10/28/24: Updated PCB Parts List and Submitted Orders](#102824-updated-pcb-parts-list-and-submitted-orders)
+* [10/31/24: Tested Servo Control Using Cellular Network](#103124-tested-servo-control-using-cellular-network)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -147,5 +148,15 @@ I also briefly helped Adi with the initial programming of the SIM7600 with our E
 
 ## 10/31/24: Tested Servo Control Using Cellular Network
 
-TODO
+Over the past few days Lohit was able to expand on the SIM7600 code and connect it to the Firebase cloud storage we are using as an intermediary between the drone and the backend software. Using various networking protocols, the embedded code running on the ESP32 can now talk to and receive commands from the user via the frontend UI. We wanted to test whether we could get some basic drone commands to be received and processed.
+
+![3E2DEC0A-7B20-4023-91B1-904AE681A93F](https://github.com/user-attachments/assets/1839896c-988a-4087-a76b-187fcafb5a9d)
+
+We integrated the cellular code Lohit and Adi had written with the servo and multithreading code I had written. Furthermore, I wrote basic code that writes to specific servos (we had six connected to the ESP32) depending on which input command from the user had been received (roll, pitch, yaw). After troubleshooting some network/communication issues, we were able to successfully have an input command be received by the drone, and have the drone accordingly write to certain servos.
+
+One thing that we noticed during our testing was that the latency between the command being inputted and the drone writting to the servos varied quite drastically depending on how strong the cellular connection was. At its best, the latency was about 2 seconds, but it was as bad as 12 seconds at its worst. This might pose a challenge when we attempt to transmit video frames, since they will be much greater data packets.
+
+## 11/02/24: Began Soldering PCB and Coded Camera
+
+
 
