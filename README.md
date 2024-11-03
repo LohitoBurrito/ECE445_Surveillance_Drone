@@ -158,5 +158,6 @@ One thing that we noticed during our testing was that the latency between the co
 
 ## 11/02/24: Began Soldering PCB and Coded Camera
 
+Today we received the parts we had ordered from DigiKey and SparkFun and began soldering some of the components onto our board. Since we are still awaiting some parts from the Electronics Shop (namely the ESP32 itself), we would be unable to test the board today. I spent most of my time working with Adi to solder on all of the capacitors. One thing we will want to change for a future PCB order is increasing the size of certain SMD components, as some as so small they become very tedious to solder on.
 
-
+I also briefly helped Lohit with the initial code for the OV7670 image sensor. This module is very complex and requires a lot more effort to interface with than we had originally thought. We are in the process of using online references, such as [this](https://github.com/espressif/esp32-camera/tree/master) from Espressif, to get the camera working.
