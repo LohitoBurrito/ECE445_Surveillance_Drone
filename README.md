@@ -25,6 +25,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/28/24: Updated PCB Parts List and Submitted Orders](#102824-updated-pcb-parts-list-and-submitted-orders)
 * [10/31/24: Tested Servo Control Using Cellular Network](#103124-tested-servo-control-using-cellular-network)
 * [11/02/24: Began Soldering PCB and Coded Camera](#110224-began-soldering-pcb-and-coded-camera)
+* [11/03/24: Worked On Camera Software Integration](#110324-worked-on-camera-software-integration)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -162,3 +163,9 @@ One thing that we noticed during our testing was that the latency between the co
 Today we received the parts we had ordered from DigiKey and SparkFun and began soldering some of the components onto our board. Since we are still awaiting some parts from the Electronics Shop (namely the ESP32 itself), we would be unable to test the board today. I spent most of my time working with Adi to solder on all of the capacitors. One thing we will want to change for a future PCB order is increasing the size of certain SMD components, as some as so small they become very tedious to solder on.
 
 I also briefly helped Lohit with the initial code for the OV7670 image sensor. This module is very complex and requires a lot more effort to interface with than we had originally thought. We are in the process of using online references, such as [this](https://github.com/espressif/esp32-camera/tree/master) from Espressif, to get the camera working.
+
+## 11/03/24: Worked on Camera Software Integration
+
+I spent many hours today working on the software integration of the OV7670 image sensor into our embedded code. Most of the code followed a similar structure to the examples we found from the Espressif library above, which proved very useful as much of the hardware interaction is luckily abstracted away in provided functions. From a high level, the overall software needed for the camera is as follows: initialize camera configuration -> declare image buffer -> read data from image -> convert buffer to JPEG -> transmit JPEG buffer to Firebase.
+
+The first three steps in the process were fairly straightforward, except for some configuration parameters we needed to play around with (image resolution, data encoding). The challenge we are facing now is with transmitting the data to Firebase. We are currently trying to capture a 160x120 image in an RGB565 format. With these settings, we would require (19200 pixels)(2 bytes per pixel) = 38400 bytes of data per frame. Unfortunately, the ESP32 does not have enough onboard memory to support this large of a data structure, and moreover Firebase is not able to make much sense out of a frame buffer. Instead, we want to convert the image to a JPEG for data compression and Firebase compatibility. While there were a couple of availiable JPEG encoders online, they are all quite difficult to use. However, I currently think we have the encoder working and need to focus on getting this JPEG buffer transmitted.
