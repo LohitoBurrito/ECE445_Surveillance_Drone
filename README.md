@@ -26,6 +26,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/31/24: Tested Servo Control Using Cellular Network](#103124-tested-servo-control-using-cellular-network)
 * [11/02/24: Began Soldering PCB and Coded Camera](#110224-began-soldering-pcb-and-coded-camera)
 * [11/03/24: Worked On Camera Software Integration](#110324-worked-on-camera-software-integration)
+* [11/05/24: Continue Camera Software Development](#110524-continued-camera-software-development)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -169,3 +170,9 @@ I also briefly helped Lohit with the initial code for the OV7670 image sensor. T
 I spent many hours today working on the software integration of the OV7670 image sensor into our embedded code. Most of the code followed a similar structure to the examples we found from the Espressif library above, which proved very useful as much of the hardware interaction is luckily abstracted away in provided functions. From a high level, the overall software needed for the camera is as follows: initialize camera configuration -> declare image buffer -> read data from image -> convert buffer to JPEG -> transmit JPEG buffer to Firebase.
 
 The first three steps in the process were fairly straightforward, except for some configuration parameters we needed to play around with (image resolution, data encoding). The challenge we are facing now is with transmitting the data to Firebase. We are currently trying to capture a 160x120 image in an RGB565 format. With these settings, we would require (19200 pixels)(2 bytes per pixel) = 38400 bytes of data per frame. Unfortunately, the ESP32 does not have enough onboard memory to support this large of a data structure, and moreover Firebase is not able to make much sense out of a frame buffer. Instead, we want to convert the image to a JPEG for data compression and Firebase compatibility. While there were a couple of availiable JPEG encoders online, they are all quite difficult to use. However, I currently think we have the encoder working and need to focus on getting this JPEG buffer transmitted.
+
+## 11/05/24: Continued Camera Software Development
+
+Today I spent more time working on the code required to interface with and obtain image frames from the OV7670 image sensor. From when I last worked on the code, Adi was able to transmit the JPEG buffer output from the JPEG encoder to Firebase and view the image. Unfortunately, the image we are receiving is very noisy and garbage. After spending numerous hours trying different variations of code and configuration settings, we noticed that the Espressif library we were using for configuring and encoding the camera data mention that they only work FIFO-capable variants of cameras. Unfortunately, the OV7670 we had purchased did not have the necessary FIFO chip to enable this. We determined that this was likely the cause of our issues, since the code should be right given that we are using functions provided by Espressif themselves. So, we decided to order another OV7670 off of Amazon, but this one having the FIFO chip, and put our camera debugging on hold for now. 
+
+I then spent the rest of my time completing the Individual Progress Report. 
