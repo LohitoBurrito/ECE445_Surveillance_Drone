@@ -27,7 +27,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/02/24: Began Soldering PCB and Coded Camera](#110224-began-soldering-pcb-and-coded-camera)
 * [11/03/24: Worked On Camera Software Integration](#110324-worked-on-camera-software-integration)
 * [11/05/24: Continue Camera Software Development](#110524-continued-camera-software-development)
-* [11/09/24: Revised Design Document and Retrieved Working Camera Frame](#110624-revised-design-document-and-retrieved-working-camera-frame)
+* [11/08/24: Revised Design Document and Retrieved Working Camera Frame](#110824-revised-design-document-and-retrieved-working-camera-frame)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
