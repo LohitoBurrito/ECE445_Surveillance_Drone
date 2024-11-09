@@ -27,6 +27,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/02/24: Began Soldering PCB and Coded Camera](#110224-began-soldering-pcb-and-coded-camera)
 * [11/03/24: Worked On Camera Software Integration](#110324-worked-on-camera-software-integration)
 * [11/05/24: Continue Camera Software Development](#110524-continued-camera-software-development)
+* [11/09/24: Revised Design Document and Retrieved Working Camera Frame](#110624-revised-design-document-and-retrieved-working-camera-frame)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -176,3 +177,9 @@ The first three steps in the process were fairly straightforward, except for som
 Today I spent more time working on the code required to interface with and obtain image frames from the OV7670 image sensor. From when I last worked on the code, Adi was able to transmit the JPEG buffer output from the JPEG encoder to Firebase and view the image. Unfortunately, the image we are receiving is very noisy and garbage. After spending numerous hours trying different variations of code and configuration settings, we noticed that the Espressif library we were using for configuring and encoding the camera data mention that they only work FIFO-capable variants of cameras. Unfortunately, the OV7670 we had purchased did not have the necessary FIFO chip to enable this. We determined that this was likely the cause of our issues, since the code should be right given that we are using functions provided by Espressif themselves. So, we decided to order another OV7670 off of Amazon, but this one having the FIFO chip, and put our camera debugging on hold for now. 
 
 I then spent the rest of my time completing the Individual Progress Report. 
+
+## 11/08/24: Revised Design Document and Retrieved Working Camera Frame
+
+Today I worked with Adi to revise our Design Document for the regrade. We had received feedback from our TA that we should update our high-level requirments list to have more requirments for the hardware of our drone. Initially, we had three requirments, where two of them had to do with the software subsystems of the drone and only one was related to the hardware. So, I worked to add a high level requirment for the drone's power subsystem, and another related to the drone's ability to quickly repond to user inputted commands. In total, we now have three hardware-related requirments, and two software-related requirments. Another piece of feedback we received was to add more figures to the subsystem breakdown sections of the report, so we did so.
+
+Following the arrival of the new OV7670 with the FIFO chip, Adi and Lohit were able to successfully run the drivers for a FIFO OV7670 and retrieve a correct image. While there is some discoloration that needs some more fine-tuning, this is certainly a step in the right direction. We are now working to re-implement the JPEG encoder so that we can send a much higher quality image to Firebase.
