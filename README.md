@@ -197,4 +197,4 @@ After all of our hand soldering was completed, Lohit completed the remaining sol
 
 ![75311329759__EF377142-1707-40EF-AA3C-D20F680E3B47](https://github.com/user-attachments/assets/4b5088be-a1fc-4254-a9b2-e31b4fbe103f)
 
-As you can see above, we have not yet placed the C15 and U1 components onto the board. This is because, for the C15 capacitor, we had requested a .01uF capacitor fromt the E-shop but received a .1uF instead, so we are waiting to get our corrected replacement. For the U1, which is an addressable RGB LED, it appears the sizing of the chip we got is incorrect and may need modifications.
+As you can see above, the pins on components such as U4 are so small that we would not have been able to get them soldered down without the use of the oven. Additionally, we have not yet placed the C15 and U1 components onto the board. This is because, for the C15 capacitor, we had requested a .01uF capacitor fromt the E-shop but received a .1uF instead, so we are waiting to get our corrected replacement. For the U1, which is an addressable RGB LED, it appears the sizing of the chip we got is incorrect and may need modifications.
