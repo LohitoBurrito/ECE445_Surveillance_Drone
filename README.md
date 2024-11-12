@@ -28,6 +28,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/03/24: Worked On Camera Software Integration](#110324-worked-on-camera-software-integration)
 * [11/05/24: Continue Camera Software Development](#110524-continued-camera-software-development)
 * [11/08/24: Revised Design Document and Retrieved Working Camera Frame](#110824-revised-design-document-and-retrieved-working-camera-frame)
+* [11/12/24: Cleaned Up Software and Completed Most of Soldering](#111224-cleaned-up-software-and-completed-most-of-soldering)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -183,3 +184,17 @@ I then spent the rest of my time completing the Individual Progress Report.
 Today I worked with Adi to revise our Design Document for the regrade. We had received feedback from our TA that we should update our high-level requirments list to have more requirments for the hardware of our drone. Initially, we had three requirments, where two of them had to do with the software subsystems of the drone and only one was related to the hardware. So, I worked to add a high level requirment for the drone's power subsystem, and another related to the drone's ability to quickly repond to user inputted commands. In total, we now have three hardware-related requirments, and two software-related requirments. Another piece of feedback we received was to add more figures to the subsystem breakdown sections of the report, so we did so.
 
 Following the arrival of the new OV7670 with the FIFO chip, Adi and Lohit were able to successfully run the drivers for a FIFO OV7670 and retrieve a correct image. While there is some discoloration that needs some more fine-tuning, this is certainly a step in the right direction. We are now working to re-implement the JPEG encoder so that we can send a much higher quality image to Firebase.
+
+## 11/12/24: Cleaned Up Software and Completed Most of Soldering
+
+Over the past couple of days, Adi and Lohit have worked to iron out most of the issues with the OV7670. We are now able to quite reliably capture and upload images to Firebase. While the quality is a bit lower than we would like, we can look into improving it later on after we have most of the other software components completed. We have found that, occasionally, the system bugs out and stops transmitting frames after 8-10 image uploads. We are not sure if this is an issue with the OV7670, the SIM7600, or the ESP32 itself, but we have found that a temporary fix it just re-initializing the camera whenever this error is encountered.
+
+I spent a significant amount of time working on completing the soldering of other components with Adi. We have decided to use the oven to perform most of the tedious soldering tasks, so we mostly just needed to apply solder to the solder pads, then solder down one pin of each component onto the pad. This would keep it in place and allow the other pins to solder onto their respective pads in the oven.
+
+![IMG_1563](https://github.com/user-attachments/assets/9b623518-7526-4311-a7f6-c73f33e1b7b9)
+
+After all of our hand soldering was completed, Lohit completed the remaining soldering by putting it in the oven at a specific temperature for a certain amount of time.
+
+![75311329759__EF377142-1707-40EF-AA3C-D20F680E3B47](https://github.com/user-attachments/assets/4b5088be-a1fc-4254-a9b2-e31b4fbe103f)
+
+As you can see above, we have not yet placed the C15 and U1 components onto the board. This is because, for the C15 capacitor, we had requested a .01uF capacitor fromt the E-shop but received a .1uF instead, so we are waiting to get our corrected replacement. For the U1, which is an addressable RGB LED, it appears the sizing of the chip we got is incorrect and may need modifications.
