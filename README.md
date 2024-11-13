@@ -29,6 +29,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/05/24: Continue Camera Software Development](#110524-continued-camera-software-development)
 * [11/08/24: Revised Design Document and Retrieved Working Camera Frame](#110824-revised-design-document-and-retrieved-working-camera-frame)
 * [11/12/24: Cleaned Up Software and Completed Most of Soldering](#111224-cleaned-up-software-and-completed-most-of-soldering)
+* [11/12/24: Completed Soldering and Attempted To Flash Board](#111224-completed-soldering-and-attempted-to-flash-board)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -193,8 +194,14 @@ I spent a significant amount of time working on completing the soldering of othe
 
 ![IMG_1563](https://github.com/user-attachments/assets/9b623518-7526-4311-a7f6-c73f33e1b7b9)
 
-After all of our hand soldering was completed, Lohit completed the remaining soldering by putting it in the oven at a specific temperature for a certain amount of time.
+After all of our hand soldering was completed, Lohit completed the remaining soldering by putting it in the oven at 220 degrees celsius for about 20 minutes.
 
 ![75311329759__EF377142-1707-40EF-AA3C-D20F680E3B47](https://github.com/user-attachments/assets/4b5088be-a1fc-4254-a9b2-e31b4fbe103f)
 
 As you can see above, the pins on components such as U4 are so small that we would not have been able to get them soldered down without the use of the oven. Additionally, we have not yet placed the C15 and U1 components onto the board. This is because, for the C15 capacitor, we had requested a .01uF capacitor fromt the E-shop but received a .1uF instead, so we are waiting to get our corrected replacement. For the U1, which is an addressable RGB LED, it appears the sizing of the chip we got is incorrect and may need modifications.
+
+## 11/13/24: Completed Soldering and Attempted to Flash Board
+
+Although we were missing two components to go on our board, the .01uF capacitor and addressable RGB LED, I decided to see if this could be worked around. After looking through the bins of availiable spare parts in the 445 room, I found a few .01uF capacitors, however they were either 402 or 805 packages and we needed 601. Nevertheless, we found that the 805 package capacitor would still be able to fit on the PCB's designated solder pads, so we went ahead and soldered it onto our board. Futhermore, since the RGB LED's circuit only connected to the ESP32 via an IO port (that we could disable), we decided to forego the LED for now.
+
+We encountered several issues upon trying to connect and flash to the board, however. For one, the USB connector had not soldered on properly in the oven, so it fell off when we connected a cable to it. Unfortunately, it also pulled off a solder pad for one of the pins, however this pin was unused and should not pose an issue. We had to re-solder the connecter using a heat gun, since the pads and pins were too small for a regular solder iron to melt solder onto. After we fixed this issue, we tried to connect to the board once again. However, we are unable to detect the board through the Arduino IDE, and some basic probing with a multimeter shows that we are not getting the right voltages where they need to be. We will need to spend significant time debugging the board.
