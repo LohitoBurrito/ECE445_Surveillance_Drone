@@ -29,7 +29,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/05/24: Continue Camera Software Development](#110524-continued-camera-software-development)
 * [11/08/24: Revised Design Document and Retrieved Working Camera Frame](#110824-revised-design-document-and-retrieved-working-camera-frame)
 * [11/12/24: Cleaned Up Software and Completed Most of Soldering](#111224-cleaned-up-software-and-completed-most-of-soldering)
-* [11/12/24: Completed Soldering and Attempted To Flash Board](#111224-completed-soldering-and-attempted-to-flash-board)
+* [11/12/24: Completed Soldering and Attempted to Flash Board](#111224-completed-soldering-and-attempted-to-flash-board)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -200,7 +200,7 @@ After all of our hand soldering was completed, Lohit completed the remaining sol
 
 As you can see above, the pins on components such as U4 are so small that we would not have been able to get them soldered down without the use of the oven. Additionally, we have not yet placed the C15 and U1 components onto the board. This is because, for the C15 capacitor, we had requested a .01uF capacitor fromt the E-shop but received a .1uF instead, so we are waiting to get our corrected replacement. For the U1, which is an addressable RGB LED, it appears the sizing of the chip we got is incorrect and may need modifications.
 
-## 11/13/24: Completed Soldering and Attempted to Flash Board
+## 11/12/24: Completed Soldering and Attempted to Flash Board
 
 Although we were missing two components to go on our board, the .01uF capacitor and addressable RGB LED, I decided to see if this could be worked around. After looking through the bins of availiable spare parts in the 445 room, I found a few .01uF capacitors, however they were either 402 or 805 packages and we needed 601. Nevertheless, we found that the 805 package capacitor would still be able to fit on the PCB's designated solder pads, so we went ahead and soldered it onto our board. Futhermore, since the RGB LED's circuit only connected to the ESP32 via an IO port (that we could disable), we decided to forego the LED for now.
 
