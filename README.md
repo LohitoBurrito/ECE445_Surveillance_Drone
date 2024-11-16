@@ -30,6 +30,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/08/24: Revised Design Document and Retrieved Working Camera Frame](#110824-revised-design-document-and-retrieved-working-camera-frame)
 * [11/12/24: Cleaned Up Software and Completed Most of Soldering](#111224-cleaned-up-software-and-completed-most-of-soldering)
 * [11/13/24: Completed Soldering and Attempted to Flash Board](#111324-completed-soldering-and-attempted-to-flash-board)
+* [11/15/24: Began Programming Board and Removed BME280](#111524-began-programming-board-and-removed-bme280)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -205,3 +206,17 @@ As you can see above, the pins on components such as U4 are so small that we wou
 Although we were missing two components to go on our board, the .01uF capacitor and addressable RGB LED, I decided to see if this could be worked around. After looking through the bins of availiable spare parts in the 445 room, I found a few .01uF capacitors, however they were either 402 or 805 packages and we needed 601. Nevertheless, we found that the 805 package capacitor would still be able to fit on the PCB's designated solder pads, so we went ahead and soldered it onto our board. Futhermore, since the RGB LED's circuit only connected to the ESP32 via an IO port (that we could disable), we decided to forego the LED for now.
 
 We encountered several issues upon trying to connect and flash to the board, however. For one, the USB connector had not soldered on properly in the oven, so it fell off when we connected a cable to it. Unfortunately, it also pulled off a solder pad for one of the pins, however this pin was unused and should not pose an issue. We had to re-solder the connecter using a heat gun, since the pads and pins were too small for a regular solder iron to melt solder onto. After we fixed this issue, we tried to connect to the board once again. However, we are unable to detect the board through the Arduino IDE, and some basic probing with a multimeter shows that we are not getting the right voltages where they need to be. We will need to spend significant time debugging the board.
+
+## 11/15/24: Began Programming Board and Removed BME280
+
+Lohit was able to identify and resolve some of the main issues that plagued our board, preventing us from being able to flash it previously. As it turns out, we had mistakenly forgotten to apply solder to the TXD0 pin on the CP2102 USB-to-UART chip. Additionally, there were two pins on the ESP32 that had conjoined solder, creating a short. After fixing the solder issues, we are now able to interface with the ESP through the Arduino IDE and program it.
+
+![75320246908__58B76AE0-162E-4E7F-8C8E-A86BEB972976](https://github.com/user-attachments/assets/bdfe839e-7f3f-4d1b-a494-55520fbff535)
+
+We have been able to begin programming the IMU. Using widely availiable online libraries for interfacing with the MPU-6050, we were successfully able to obtain gyroscopic and accelerometer data from the sensor. In the following week, I plan to perform the R-V testing on the IMU to verify its functionality.
+
+There are a few issues with our board, however. We've noticed that the BME280 barometric sensor on it appears to be faulty, likely due to a short. We are unable to interface with it through software, even after considerable time spent debugging. Additionally, we've realized that we will need to order a new ESP32 chip. Although our current chip is functionally sound, it turns out that it is not the right variant that we need. 
+
+![image](https://github.com/user-attachments/assets/5e9b63e0-3aca-42a5-aa41-c6bc81295e02)
+
+For our OV7670 code to work, we need to make memory allocations into the chip's onboard PSRAM. The ESP32 Devkit we used was able to do this because the variant of the chip it used had onboard PSRAM. However, the variant that we are using on our PCB, that we got from the E-shop, only has flash memory. As such, we need to swap it our for a version with PSRAM.
