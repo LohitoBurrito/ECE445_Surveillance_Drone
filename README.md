@@ -29,7 +29,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/05/24: Continue Camera Software Development](#110524-continued-camera-software-development)
 * [11/08/24: Revised Design Document and Retrieved Working Camera Frame](#110824-revised-design-document-and-retrieved-working-camera-frame)
 * [11/12/24: Cleaned Up Software and Completed Most of Soldering](#111224-cleaned-up-software-and-completed-most-of-soldering)
-* [11/13/24: Completed Soldering and Attempted to Flash Board](#111224-completed-soldering-and-attempted-to-flash-board)
+* [11/13/24: Completed Soldering and Attempted to Flash Board](#111324-completed-soldering-and-attempted-to-flash-board)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
