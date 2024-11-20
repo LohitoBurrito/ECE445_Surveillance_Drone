@@ -31,6 +31,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/12/24: Cleaned Up Software and Completed Most of Soldering](#111224-cleaned-up-software-and-completed-most-of-soldering)
 * [11/13/24: Completed Soldering and Attempted to Flash Board](#111324-completed-soldering-and-attempted-to-flash-board)
 * [11/15/24: Began Programming Board and Removed BME280](#111524-began-programming-board-and-removed-bme280)
+* [11/19/24: Completed Production of Functional PCB](#111924-completed-production-of-functional-pcb)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -220,3 +221,7 @@ There are a few issues with our board, however. We've noticed that the BME280 ba
 ![image](https://github.com/user-attachments/assets/5e9b63e0-3aca-42a5-aa41-c6bc81295e02)
 
 For our OV7670 code to work, we need to make memory allocations into the chip's onboard PSRAM. The ESP32 Devkit we used was able to do this because the variant of the chip it used had onboard PSRAM. However, the variant that we are using on our PCB, that we got from the E-shop, only has flash memory. As such, we need to swap it our for a version with PSRAM.
+
+## 11/19/24: Completed Production of Functional PCB
+
+We received our newly ordered BME280 and ESP32 S3 Wroom (with PSRAM) recently and were able to finally solder on the new components. We used a heat gun, set to a temperature of 500 degrees Fahrenheit, to melt the solder on the old ESP32 and pried it off with some pliers. We had already previously used removed the old BME280 following a similar process. Then, after using copper to remove the old solder off the solder pads for the components, we carefully placed the new microcontroller and barometer. Since the ESP has external pins, we were able to simply resolder it on manually with a solder iron (as opposed to using the oven, as we had the previous time), and cleaned it up with a healthy amount of flux to ensure there were no connected pins. The BME, however, has its pins on the underside of the device. We decided to set the heatgun to 450 degrees Fahrenheit and resolder it back on that way. After doing so, we plugged in the freshly completed PCB into our laptops and were able to successfully interface with the BME. Using existing code we had written for the MPU-6050 and SIM7600, we first validated the basic functionality of the ESP32 and ensured that we were able to make allocations within its PSRAM. Then, using basic code to interface with a BME280 using provided functions from a library, we successfully obtained pressure and temperature data from the sensor. Our PCB is finally completely working as intended. We will now need to connect it to the external electronics and begin putting it all together within the drone shell we previously constructed.
