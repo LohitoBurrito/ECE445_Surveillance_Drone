@@ -33,6 +33,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/15/24: Began Programming Board and Removed BME280](#111524-began-programming-board-and-removed-bme280)
 * [11/19/24: Completed Production of Functional PCB](#111924-completed-production-of-functional-pcb)
 * [11/28/24: Ordered Battery, Motor, and ESC for Completion of Drone](#112824-ordered-battery-motor-and-esc-for-completion-of-drone)
+* [11/29/24: Worked on Final Demo Script, Final Report, and Final Presentation](#112924-worked-on-final-demo-script-final-report-and-final-presentation)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
