@@ -34,6 +34,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/19/24: Completed Production of Functional PCB](#111924-completed-production-of-functional-pcb)
 * [11/28/24: Ordered Battery, Motor, and ESC for Completion of Drone](#112824-ordered-battery-motor-and-esc-for-completion-of-drone)
 * [11/29/24: Worked on Final Demo Script, Final Report, and Final Presentation](#112924-worked-on-final-demo-script-final-report-and-final-presentation)
+* [12/02/24: Completed Production of Functional PCB](#120224-soldered-new-pcb)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -240,7 +241,7 @@ Following our Mock Final Demo with our TA the previous week, we received several
 
 I also created the bare skeleton for the Final Report and Final Presentation. I anticipate spending much more time on these following our Final Demo.
 
-## 12/02/24: Resoldered New PCB
+## 12/02/24: Soldered New PCB
 
 Unfortunately while attempting to flash new code onto our PCB, the USB-B connector broke off the board. Although this had previously happened, we were able to simply re-solder on the connector last time and everything worked just fine. However, this time the connector removed some of the solder pads from the PCB when it came off. This made it impossible to attempt to re-apply solder and reattach the connector, since there would be no good contacts made. Thus, with two days remaining before our final demo, we were forced to resolder a new PCB. Luckily, we were able to simply remove a lot of the components from our old PCB and put them on our new one, with the exception of a few key components such as the ESP32. We were able to get all components soldered onto the board with relatively no trouble, however, we do need to wait and get a new USB-B connector before we can test this new PCB.
 
