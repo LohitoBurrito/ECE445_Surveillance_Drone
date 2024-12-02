@@ -239,3 +239,8 @@ At the current stage, the hardware and software development is near completion. 
 Following our Mock Final Demo with our TA the previous week, we received several points of feedback to improve on. Most were related to us needing to have better organization and flow. To help remedy this, I created a loose script for us to practice and follow. Each section of the demo is divided up amongst ourselves, and there are brief bulletpoints for us to focus on for each part.
 
 I also created the bare skeleton for the Final Report and Final Presentation. I anticipate spending much more time on these following our Final Demo.
+
+## 12/02/24: Resoldered New PCB
+
+Unfortunately while attempting to flash new code onto our PCB, the USB-B connector broke off the board. Although this had previously happened, we were able to simply re-solder on the connector last time and everything worked just fine. However, this time the connector removed some of the solder pads from the PCB when it came off. This made it impossible to attempt to re-apply solder and reattach the connector, since there would be no good contacts made. Thus, with two days remaining before our final demo, we were forced to resolder a new PCB. Luckily, we were able to simply remove a lot of the components from our old PCB and put them on our new one, with the exception of a few key components such as the ESP32. We were able to get all components soldered onto the board with relatively no trouble, however, we do need to wait and get a new USB-B connector before we can test this new PCB.
+
