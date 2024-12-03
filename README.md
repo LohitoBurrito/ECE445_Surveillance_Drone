@@ -34,7 +34,8 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/19/24: Completed Production of Functional PCB](#111924-completed-production-of-functional-pcb)
 * [11/28/24: Ordered Battery, Motor, and ESC for Completion of Drone](#112824-ordered-battery-motor-and-esc-for-completion-of-drone)
 * [11/29/24: Worked on Final Demo Script, Final Report, and Final Presentation](#112924-worked-on-final-demo-script-final-report-and-final-presentation)
-* [12/02/24: Soldered New PCB](#120224-soldered-new-pcb)
+* [12/01/24: Soldered New PCB](#120124-soldered-new-pcb)
+* [12/02/24: Tested Motor, Battery, and Prepared Drone for Installation](#120224-tested-motor-battery-and-prepared-drone-for-installation)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -241,7 +242,18 @@ Following our Mock Final Demo with our TA the previous week, we received several
 
 I also created the bare skeleton for the Final Report and Final Presentation. I anticipate spending much more time on these following our Final Demo.
 
-## 12/02/24: Soldered New PCB
+## 12/01/24: Soldered New PCB
 
 Unfortunately while attempting to flash new code onto our PCB, the USB-B connector broke off the board. Although this had previously happened, we were able to simply re-solder on the connector last time and everything worked just fine. However, this time the connector removed some of the solder pads from the PCB when it came off. This made it impossible to attempt to re-apply solder and reattach the connector, since there would be no good contacts made. Thus, with two days remaining before our final demo, we were forced to resolder a new PCB. Luckily, we were able to simply remove a lot of the components from our old PCB and put them on our new one, with the exception of a few key components such as the ESP32. We were able to get all components soldered onto the board with relatively no trouble, however, we do need to wait and get a new USB-B connector before we can test this new PCB.
 
+## 12/02/24: Tested Motor, Battery, and Prepared Drone for Installation
+
+After soldering on a new USB-B connector to our new PCB and sorting out some soldering issues with our BME280, we were able to successfully connect to, inteface with, and flash new code onto the ESP32. Following this, I worked to test the new battery, motor, ESC, and battery charger we had purchased. I chose to first test these components on the ESP32 Devkit first, to avoid the risk of frying our PCB. The setup was as follows: everytime I needed to flash new code onto the Devkit, I would do so via the USB-B connector. Otherwise, the Devkit would be disconnected from the laptop entirely. Instead, the ESC would supply 5V and GND to the Devkit, while in turn the Devkit would supply the PWM control signal to the ESC that went to the battery. Additionally, the ESC would supply the motor with the necessary 10A it needed for operation. The battery 12V battery was then connected to the ESC via a T-connector. To interface with the ESC/motor, I followed the instructions from the product's Amazon page to properly calibrate the ESC:
+
+<img width="835" alt="Screenshot 2024-12-03 at 12 02 46 PM" src="https://github.com/user-attachments/assets/6ff65ee9-b25f-4195-aff5-835fb156101e">
+
+So, the code I wrote first set the motor RPM to max, then to min, with sufficient time delay between them. Then, I was able to freely write any motor RPM I wanted to.
+
+The second main task I worked on was preparing the drone for the installation of the various hardware components that would go into it, such as the servos and primary electronics. Since the flaps on the wings will need to be controlled by servos, ideally these sevos are hidden within the wing itself. So, I outlined the dimensions of a servo at the center point of each flap on the wing and used a knife to cut out a very precise hole where the servo could be placed.
+
+![IMG_1657](https://github.com/user-attachments/assets/a3ac1b0c-3612-4c0f-bcba-653793402dad)
