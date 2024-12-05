@@ -36,6 +36,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/29/24: Worked on Final Demo Script, Final Report, and Final Presentation](#112924-worked-on-final-demo-script-final-report-and-final-presentation)
 * [12/01/24: Soldered New PCB](#120124-soldered-new-pcb)
 * [12/02/24: Tested Motor, Battery, and Prepared Drone for Installation](#120224-tested-motor-battery-and-prepared-drone-for-installation)
+* [12/01/24: Completed Production of Drone](#120324-completed-production-of-drone)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -257,3 +258,30 @@ So, the code I wrote first set the motor RPM to max, then to min, with sufficien
 The second main task I worked on was preparing the drone for the installation of the various hardware components that would go into it, such as the servos and primary electronics. Since the flaps on the wings will need to be controlled by servos, ideally these sevos are hidden within the wing itself. So, I outlined the dimensions of a servo at the center point of each flap on the wing and used a knife to cut out a very precise hole where the servo could be placed.
 
 ![IMG_1657](https://github.com/user-attachments/assets/a3ac1b0c-3612-4c0f-bcba-653793402dad)
+
+## 12/03/24: Completed Production of Drone
+
+With the Final Demo being the next day, our group spent most of our time putting together all of the various parts of our drone to produce the finished product. This meant that we had to combine all of the hardware and software components together and perform thorough testing. On the software side, the main thing that took up a majority of our time was attempting to integrate the OV7670 code into the code for the rest of the software-controlled parts (SIM7600, sensors, data transmission, motor, servos). We encountered a very strange issue where the microcontroller would continuously bootloop when all of this code was run. My best guess as to the source of the issue is that it is memory related, and we are likely inducing a memory leak or overflowing the stack. Due to our extreme time constraint, we had to forego including the camera code,
+
+On the hardware side of things, there were many small tasks related to the physical drone body that still needed to be completed. For example, many small bits of the exterior of the drone needed to be covered up. This meant I spent time measuring our the dimensions of the additional coverings, and then cutting them out of foam board.
+
+![IMG_1664](https://github.com/user-attachments/assets/5792dcfc-bb30-4a93-88eb-81b48196342a)
+
+Other things that needed to be done included 3D printing additional mounts and fittings for the drone. We had previously already printed a "cage" that went inside the drone and would securely hold the SIm7600, PCB, and camera. 
+
+![IMG_1662](https://github.com/user-attachments/assets/f1790065-3e4b-4fb6-bfa7-e3f626eeea74)
+
+However, the last 3D printable part we needed was a motor mount that would go towards the front of the drone and would contain holes for the motor's brace to screw in to. After creating a quick CAD model, we printed and installed this piece using hot glue.
+
+![IMG_1668](https://github.com/user-attachments/assets/30ea1ea0-bef0-4954-ab0b-1a155b40eaf8)
+
+After doing so, we then added the remaining electrical components to the inside of the drone, such as the ESC, battery, GNSS antenna, and cellular antenna.
+
+![IMG_1675](https://github.com/user-attachments/assets/38ee7b27-600f-4df1-be74-d4866ea58187)
+
+Due to our severe time limitations, we were not able to put a complete bow on everything we wanted to. For example, although the servos were attached to the drone, we did not attach the pushrods for them to actually control the wings and flaps. Furthermore, we had additional issues with frying two of the servos, leading to many bootloop issues. In the end, though, our finished drone had four operational servos, a semi-functioning camera, could receive input from the user from the frontend UI, and could transmit gyroscopic, pressure, and longitudinal/lattitudinal data to the user.
+
+![IMG_1676](https://github.com/user-attachments/assets/fb8d686f-1780-4bd8-b87a-6bad7731844d)
+
+![IMG_1677](https://github.com/user-attachments/assets/b236efb5-b2c1-4dcc-9e91-558af486a34a)
+
