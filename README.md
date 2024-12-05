@@ -36,7 +36,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/29/24: Worked on Final Demo Script, Final Report, and Final Presentation](#112924-worked-on-final-demo-script-final-report-and-final-presentation)
 * [12/01/24: Soldered New PCB](#120124-soldered-new-pcb)
 * [12/02/24: Tested Motor, Battery, and Prepared Drone for Installation](#120224-tested-motor-battery-and-prepared-drone-for-installation)
-* [12/01/24: Completed Production of Drone](#120324-completed-production-of-drone)
+* [12/03/24: Completed Production of Drone](#120324-completed-production-of-drone)
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
