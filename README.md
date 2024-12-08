@@ -24,3 +24,15 @@ The meeting with the TA led us to make some discoveries with the tolerance analy
 ## 09/18/24: Completed Team Contract
 
 Today, our group gathered and signed the Team Contract. We had some discussions about how we planned to handle disagreement, make choices, and hold ourselves responsible throughout the course of this project, but other than that, we produced our work very easily. I worked on the Project Description, Ground Rules, and End-of-term Agreement sections. 
+
+## 09/24/24: Started Researching into the SIM7600 Module
+
+We had a great meeting with the TA today, where we discussed the current scope of the project, and came up at a reasonable middle ground. We were also able to discuss the logistics of the PCB order and design since none of us are particularly proficient in that regard. We also had a discussion regarding the SIM7600 and the scope of actually soldering one ourself. Upon further investigation of the module, we concluded that with our current set of knowledge and expertise, it would be nearly impossible to be able to design one from the ground up. We requested to have that part ordered for us separately, so hopefully that is okay. After the meeting, I really started researching how to code the SIM7600 and how capable it will be in terms of realistically being able to send and receive most of the data we wished to gather. I had a really good intuition that we would be able to get HTML based connection working on the SIM7600 and go to a lower abstraction from there if truly needed.
+
+## 09/29/24: Started writing the Design Document
+
+Kevin started the document for us by copying over some of the things we already wrote for the project proposal. I spent a lot of my time today going over the stuff we already wrote and making sure to read all the feedback we got from Prof. Fliflet. He made a fair point of wanting a lot more details from us regarding what the final product will be. Now, it is clear that the drone will be a very hard project to achieve sonsidering the fact that we need to have it flying and have the complex software suite working. Me and Kevin talked a bit regaarding this and we are exploring the option to switch the focus of our project to only have the software suite as our main point of focus.
+
+## 09/30/24: More work on the Design Document
+
+We were having a lot of issues truly deducing the scope of our project, so we decided to have a meeting with our TA to discuss it thoroughly. She was able to give us some great feedback on how to narrow down our focus. We came up with the compromise that the drone needs to have two phases, where the first phase will be to finish the software suite fully, and the second focusing on actually getting the drone to fly. After the meeting we switched focus to the design document to incorporate this new advice and reafactor some of the older advice we had gotten. We reviewed some of the older design documents to get a good sense of what was expected from us. The main concern for me was the revision of some of the solutions for solving ethical problems, and the main one here was the 
