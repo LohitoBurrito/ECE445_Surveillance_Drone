@@ -47,5 +47,7 @@ We had our TA meeting today, where we discussed a lot of the feedback we reciece
 ## 10/02/24: Feedback + Design Document
 
 We recieved a lot of feedback upon how we wrote our project proposal. The main issue was the fact that we did not include a lot of details regarding the drone itself. In other words, we only focused on writing about the softweare suite of the drone and the PCB with little to no information on what the drone will actually look like or how it fly. We took this advice and made sure to write down everything we discussed so far alongside some visuals to better show what the overall drone will look like, and how we are planning on actually flying it inclusing some of the aerodynamics. We also spent a couple of hours today going through what we had written so far in the design document, and wrote more regaridng the R/V tables and high level requirements. I was able to get through a lot of the description for the SIM7600 inclusing the specific requirements for the module to work, and some of the logistics regarding the power subsystem.
+
 ![image](https://github.com/user-attachments/assets/590777e8-254c-462e-855b-e25064d6f37c)
+
 We made considerable progress today, but were unable to finish the whole report, so we plan on meeting up tomorrow to finalize the rest of it and give it one last overview before submission.
