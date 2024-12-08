@@ -19,7 +19,7 @@ I spent a good chunk of the time today writing the Project Proposal. To be speci
 
 ## 09/17/24: Completed Project Proposal
 
-The meeting with the TA led us to make some discoveries with the tolerance analysis, so we went through it again and refined some details. I finished up the ethics section, and we were good to submit. We gave it one last check by reading it over and submitted.
+The meeting with the TA led us to make some discoveries with the tolerance analysis, so we went through it again and refined some details. Specifically the data transfer rate we could afford ot send and recieve was a bit off. I researched the different types of JPEG compression tecniques, and got set on one that allowed us to retain most of the image quality while allowing for a little bit of headroom for anything we did not account for just yet. I finished up the ethics section, and we were good to submit. We gave it one last check by reading it over and submitted.
 
 ## 09/18/24: Completed Team Contract
 
@@ -35,4 +35,11 @@ Kevin started the document for us by copying over some of the things we already 
 
 ## 09/30/24: More work on the Design Document
 
-We were having a lot of issues truly deducing the scope of our project, so we decided to have a meeting with our TA to discuss it thoroughly. She was able to give us some great feedback on how to narrow down our focus. We came up with the compromise that the drone needs to have two phases, where the first phase will be to finish the software suite fully, and the second focusing on actually getting the drone to fly. After the meeting we switched focus to the design document to incorporate this new advice and reafactor some of the older advice we had gotten. We reviewed some of the older design documents to get a good sense of what was expected from us. The main concern for me was the revision of some of the solutions for solving ethical problems, and the main one here was the 
+We were having a lot of issues truly deducing the scope of our project, so we decided to have a meeting with our TA to discuss it thoroughly. She was able to give us some great feedback on how to narrow down our focus. We came up with the compromise that the drone needs to have two phases, where the first phase will be to finish the software suite fully, and the second focusing on actually getting the drone to fly. After the meeting we switched focus to the design document to incorporate this new advice and reafactor some of the older advice we had gotten. We reviewed some of the older design documents to get a good sense of what was expected from us. We discussed one of the requirements we wrote for the drone which dealt with the drone uptime, and it seemed to be abit unrealistic upon some back and forth with out TA and Prof. Fliflet's advice. The main concern for me was the revision of some of the solutions for solving ethical problems, and the main one here was the absence of an absolute fail safe system. This helped us formulate a new plan of action that signified changing the uptime requirement to something that is more trivial to the safety of our drone. We decided to incorporate an additional servo to our drone that would act as a holster for the parachute to deploy under certain circumstances like network loss, restricted properties, and collision avoidance. This would allow the drone to safely land both through user input in the case where that's feasible and autonomously when bad network conection is observed. 
+
+<img width="674" alt="Screenshot 2024-12-08 at 2 57 48 PM" src="https://github.com/user-attachments/assets/39a3d405-6d33-4304-8a2a-baebcb3de087">
+
+I hadn't worked with the schematic much at this point because my main focus had been to figure out the Arduino software and the SIM7600 interfacing. I reviewed our first draft to realize a wrong pin set high on the pressure sensor, which is ended up getting fixed. 
+
+
+
