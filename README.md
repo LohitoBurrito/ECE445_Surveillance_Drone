@@ -55,6 +55,14 @@ We made considerable progress today, but were unable to finish the whole report,
 
 ## 10/03/24: Finishing up Design Document
 
-Although we had made a significant amount of progress on this report, we weren't able to fully finish it and refine it yesterday. We put in several more hours to finish the report up inclusing all the formatting issues and then content. I wrapped up all the information needed for the network stack inclusing R/V tables, conclusion and the ethics, and helped out with some of the sensor requirements. We were also able to point out some of the last minute issues and swap some of the parts around to incorporate our design and PCB better. The report ended up being 42 pages long, which seemed like quite the feat because of how much effort we put into making it descriptive and accurate.
+Although we had made a significant amount of progress on this report, we weren't able to fully finish it and refine it yesterday. We put in several more hours to finish the report up inclusing all the formatting issues and then content. I wrapped up all the information needed for the network stack inclusing R/V tables, conclusion and the ethics, and helped out with some of the sensor requirements. We were also able to point out some of the last minute issues with the overall power subsystem and swap some of the parts around to incorporate our design and PCB better. The report ended up being 42 pages long, which seemed like quite the feat because of how much effort we put into making it descriptive and accurate.
+
+## 10/08/24: TA Meeting and Design Review feedback
+
+We got a bit of feedback from the design review from the professor today, and it seems like the professor seems very concerned with the scope of our project. We also had a TA meeting today, where this was the main point of discussion. We doubled down on the fact that we would stick to our initial plan of having the electronics and software as a phase one and that would be what we demo at the end of it. We would still keep flying the drone as a phase 2 to ensure that we are within a realistic scope for completion at the end of the semester. We had another long conversation about the attainability of building our own SIM7600 and ESC. The SIM7600 schematic and power board itself are incredibly complex, and we are simply not skilled enough to be able to design much less sauder everything on. We also did a bit of resaearch on the pricing of the module itself on the approved vendors and the pricing of buying the individual components. I spent a lot of time today with Lohit going over a bunch of different drone designs and bought styrofoam. We referenced a specific image for the design of our drone and make our own modifications based off of our pcb design. 
+
+![image](https://github.com/user-attachments/assets/f945cf3b-be19-45c5-90e6-a6258869324c)
+
+
 
 
