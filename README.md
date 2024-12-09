@@ -52,3 +52,9 @@ We recieved a lot of feedback upon how we wrote our project proposal. The main i
 ![image](https://github.com/user-attachments/assets/590777e8-254c-462e-855b-e25064d6f37c)
 
 We made considerable progress today, but were unable to finish the whole report, so we plan on meeting up tomorrow to finalize the rest of it and give it one last overview before submission.
+
+## 10/03/24: Finishing up Design Document
+
+Although we had made a significant amount of progress on this report, we weren't able to fully finish it and refine it yesterday. We put in several more hours to finish the report up inclusing all the formatting issues and then content. I wrapped up all the information needed for the network stack inclusing R/V tables, conclusion and the ethics, and helped out with some of the sensor requirements. We were also able to point out some of the last minute issues and swap some of the parts around to incorporate our design and PCB better. The report ended up being 42 pages long, which seemed like quite the feat because of how much effort we put into making it descriptive and accurate.
+
+
