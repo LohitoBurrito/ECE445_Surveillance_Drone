@@ -81,7 +81,9 @@ We spent a lot of time today figuring out how to hold the wings of our drone pro
 
 ## 10/15/24: TA Meeting + PCB Order
 
+The TA meeting today took a rather unexpected turn due to the nature of our PCB design. We initially started off by using 4 layers, which made tracing a lot easier and the overall complexity of the board more managable considering the size of our pcb was very small. We were unaware of the drastic change in price in corresponence to the number of layer i.e. our 4 layer board came out to be around 55 dollars for 10 board, which was well over the general assigned budget for ordering PCBs. We decided to split the work here, where Lohit would work on redeisgning the board and changing it to 2 layers while keeping the overall size of the board the same because we had already built the fuselage. 
 
+Kevin was able to get a devkit for the ESP32s3, which wa amazing because it would help us do all the pre testing before we put everything on our actual PCB once that comes in. This was the first time I would be writing Arduino code, so I did a little bit of research on the general idea of the language and helped Kevin do the basic testing with the onboard LED on the module. After this, I decided to look more into the exact board to order for the SIM7600 to finalize the board. Meanwhile, Kevin got a lot of the Servo and multitasking code written and loaded onto the ESP, which worked great. This would prove helpful as we had 
 
 
 
