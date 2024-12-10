@@ -73,6 +73,15 @@ Today was a very important day as we were finally able to get our PCB reviewed f
 
 // Include a pic of the wing ?
 
+## 10/12/24: General Drone Body Completion
+
+We spent a lot of time today figuring out how to hold the wings of our drone properly with the body, and were able to come up with a solid plan of execution. We spent 5 hours finishing up this design and being extremely carefuly so as not to make minor calculation errors as this could result in actual issues with the aerodynamics of the drone. At the end of today, we had most of it except the back flaps, and it came out exactly how we wnated it to without any issues at all. After this, I spent a lot of time looking over the various options of SIM7600 module we had to work with. There were way too many options regarding the functionalities and capabilities of the numerous chips I was researching. I was able to find a lot fo details regarding the naming convention of these chips and how certain ones only worked in certain regions. I used this [datasheet](https://download.mikroe.com/documents/datasheets/SIM7600_datasheet.pdf) for a lot of the distinctions and figuring out what we needed out of all of them. The final choice I got set on was the SIM7600A-H, which is the fastest module I could find for sale that had all the antennas we needed to be able to use my specific cellular provider. Next was the question of what housing we would go for i.e. since we were buying a prebuilt breakout board for it, it would make the most sense to have an antenna and a sim card holder attached rather thn having to manually solder that. Meanwhile, Kevin spent some time looking into how we could port over the EasyEDA design over to KiCad, and he was successful to great extent, which meant that we had a lot of the preliminary tasks handled.
+
+![image](https://github.com/user-attachments/assets/366d4a0a-4d2e-4c3f-9f6d-93fa8f2e2209)
+
+## 10/15/24: TA Meeting + PCB Order
+
+
 
 
 
