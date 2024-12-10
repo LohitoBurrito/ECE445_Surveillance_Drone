@@ -63,6 +63,19 @@ We got a bit of feedback from the design review from the professor today, and it
 
 ![image](https://github.com/user-attachments/assets/f945cf3b-be19-45c5-90e6-a6258869324c)
 
+## 10/09/24: Started Building the Drone
+
+I started today off by reviewing the design and made some measurements to start on the drone. I first started off by going to the ECEB to work on it, but noticed the lack of tools and space to do a lot of the cutting since we decided on the wingspan of 100 inches, which excludes the fuselage. The fuselage dimentions were designed based off of the PCB dimenstions from KiCad, but we didnt have the physical PCB, so we made do with a cutout of styrofoam. Me and Lohit descided to go to Seibel Center of Design after discovering about the design lab that was open to all students. They had a wide array of equipment including power tools and 3D printers, which we were able to utilize. We watched a lot of tutorials on the specific criteria of the drone itsself, and successfully made the first wing after some small errors. We had the idea set for the fuselage and the back wings of the plane at this point, but due to a lot of time spent today in researching, we didn't have enough time to finish the whole thing due to the lab hours. After spending this time building the drone, I also realized the scope of this design and whether we would benifit from ordering an already made shell that we would put our hardware into. I discussed with the rest of the team members a bit and we all decided to reseach this on our own end and give it a couple of days to fully understand the pros and cons to this idea. It would make our project much simpler to attain if we were to do this, but it would fully remove the creative element of all the effort we already put into coming up with the design and building it partially. Overall, it was a very productive day and we made some amazing progress towards our end product, but it also gave us something to think about.
+
+## 10/11/24: PCB Review + Wing Completion
+
+Today was a very important day as we were finally able to get our PCB reviewed for the first time since building it. We decided to split the task of building the drone and reviewing the PCB i.e. Kevin and Lohit went to the PCB review while I stayed at SCD to start on the second wing of our drone. I made some solid progress on trying to replicate the wing that we had made a bit earlier, and the team got together after the review to finish it fully. We did end up getting a lot out of the PCB review as we figured out that the nature of DRC requirements was different for different softwares i.e. EasyEDA's DRCs were completely different than KiCad's. The discussion about buying a prebuilt frame for the drone was also put to an end today because of a bit of research on all of our ends and Kevin's final verdict of budget issues. This was a relief as we had a bit more budget to work with now for the more expensive components like the SIM7600 and future unpresedented costs.
+
+// Include a pic of the wing ?
+
+
+
+
 
 
 
