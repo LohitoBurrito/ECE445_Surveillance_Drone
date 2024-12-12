@@ -51,12 +51,25 @@ Today, I spent most of my time working on the Project Proposal. Specifically, I 
 After meeting with our TA and receiving some feedback on our Project Proposal, we were able to complete it and submit within a few more hours of work. I ended up keeping the high-level requirments with what I had originally written, as I felt they were the best quantifiable measures for our project that were not related to the drone itself. With clarification from our TA, we completed the Tolerance Analysis section by analyzing data transmission rates with the SIM7600. After Adi finished writing the Ethics and Safety section, we reviewed our work and submitted the document.
 
 <img width="1230" alt="Screenshot 2024-10-02 at 12 19 34 AM" src="https://github.com/user-attachments/assets/38aad503-229a-4ffb-b165-183d9358f492">
+Figure 1
 
 Here is a quick visual diagram I made of the main components of our drone system. The crucial part here, and what makes our drone stand out, is the cellular connectivity that is used as a medium for communication between the drone and the local software running on a laptop. This will be the most challenging feature to implement.
 
 ## 09/18/24: Completed Team Contract
 
 Today, our group met at and completed the Team Contract. We had some discussion with regards to how we planned to handle conflict, make decisions, and keep ourselves accountable during the completion of this project, but other than that we completed the document with relative ease. I worked primarily on the group expectations, conflict resolution, and project planning sections.
+
+## 09/21/24: Researched Possible Drone Designs
+
+There are many possible options when considering what kind and style of drone to make. Things like quadcopter versus single rotor, V-tail versus flat tail, and wingspan lengths are all important factors to consider when determining how you want your drone to fly and for what purpose.
+
+![1677480375820](https://github.com/user-attachments/assets/4405f71e-8aed-45b5-a327-3afd707036a7)
+
+On the issue of fixed wing versus a multi-rotor design, the decision is quite simple. Although multi-rotor drones are often much faster and offer greater stability in the air, they are much more expensive. Because we are working with a rather limiting $150 budget, we would likely end up spending most of the budget on just the motors and ESCs. 
+
+In terms of drone material, we are pretty set on creating it out of foamboard, which is essentially a compressed styrofoam with paper on both sides. Our online research has shown that it is both cheap and easy to work with, perfect for our needs.
+
+Another thing we want to prioritize in the design of our drone is the wingspan. We want to make sure we maximize this length, because a larger wingspan means much greater stability in the air and allows the drone to fly for much longer distances. This is crucial for the application of the drone, because a first responder might need to fly the drone long distances.
 
 ## 09/24/24: Researched MPU6050 IMU Circuit Schematic
 
@@ -136,6 +149,8 @@ After our meeting, I spent some time running basic sketches on the ESP32 Devkit 
 
 I spent time working with my group today to order some of the basic parts necessary for our drone that I can begin testing on the Devkit. First, we looked at the SIM7600, which proved to have some challenges. The module is sold in different variants, with the one we need being the SIM7600A-H since we are in North America. Unfortunately, there are a limited amount of widely sold breakout boards for this variant, and even fewer sold on websites that the ECE department can purchase from. Only Amazon sold a [viable option](https://www.amazon.com/waveshare-Raspberry-SIM7600A-H-Supports-Telephone/dp/B07Q48WNCF/ref=sr_1_4?crid=KHHXSOBI4PZI&dib=eyJ2IjoiMSJ9.fUs1eMGSX8x5TMUiK2GvwS4l_uzZ0KGObNtxo9jk360-T5rwyMDC8fdyi5CxiJUoyhRh_95h0Xb7WWohbHVpBbbF99vLJEqLzXEObQvhv2tno73wM5H_YA74Litgb-nlNF6tcJ3s4nM7zU_GVTHZllq0BPf-FsNyVqJCZCvU462Lwyh93Mn9uz5Tz7t9GHxDn8umfxF0rmk9rOGeABO1SKpd14yvPwXgjeMVYRhp2R4.JTjdTmrEGmhOkV94ypwdhxKr4qR-3agWQRJ7N3l1qMQ&dib_tag=se&keywords=SIM7600A-H&qid=1729121064&sprefix=sim7600a-h%2Caps%2C80&sr=8-4), but it was extremely expensive and nearly half of our entire budget. For a cheaper alternative, we looked at the SIM7000A, however this module only supported up to 2G and could only transfer data at a rate of 375kbps (whereas the SIM7600 can transfer at around 10Mbps). Unfortunately, our only option was to go with the Amazon offering. Lohit had also previously found some good, small servos off Amazon as well that we decided to purchase, linked [here](https://www.amazon.com/Micro-Servos-Helicopter-Airplane-Controls/dp/B07MLR1498/ref=mp_s_a_1_3?crid=BS5S38CTNWFJ&dib=eyJ2IjoiMSJ9.lRrzFkSvx8GhZXXbAhDTVjP2EBkmoPc78-c-JdjWfKTZ6G91lio_kdzjsWDqFwzZbVMuHW53QXTXvd5kfqbGZxT01VcxdXrQXmVcz2irdLU8r-hZiCjRjDyBukToNBy4xd74BJK_PQM3IyMXwPWK8UFQcaVyQ6iBeXTjT_QOXfQ8Dsqh7YOIkUniuTDJHiwcsXS4pFbd0KSDWaLCZ7v8UQ.yJ2ZDPWrq5zxWtyR6YiXr8_OJHXUBhh5KqmaoInMx0o&dib_tag=se&keywords=servos&qid=1729118694&sprefix=servos%2Caps%2C117&sr=8-3). With about $60 left in our budget, most of this will have to go towards our motor, batteries, and ESC. To stay within budget, we will likely need to purchase cheaper parts that work, but are not powerful enough to actually get the drone to fly.
 
+## 10/19/24:
+
 ## 10/21/24: Revised PCB and Ordered Image Sensor
 
 Today I worked with Lohit to convert our existing four layer PCB design to a two layer PCB so that we could order it tomorrow. We decided to once again make the changes on EasyEDA, then port the design over to KiCAD and resolve any DRC errors. Previously, we had a TopLayer, BottomLayer, 3.3V layer, and GND layer, so we needed to eliminate the 3.3V and GND layers. To do so, we decided to make the BottomLayer and GND layer, and the TopLayer a 3.3V layer. After doing so, making the DRC pass was simply a matter of connected filled 3.3V zones and removing some preexisting vias. We are now ready to order the board tomorrow.
@@ -152,6 +167,8 @@ Since we recently received the servos and SIM7600 that we ordered, I quickly val
 ![img2](https://github.com/user-attachments/assets/966920d6-e94d-4023-b064-32b06fd7d764)
 
 During Tuesday's meeting with our TA, I discovered that the BMP280, the barometetric sensor we planed to use, was obsolete and no longer sold. As a last minute change before the PCB order, we swapped our design to use the BME280, which is very similar to the BMP280 except for the fact that it has the ability to also measure humidity. Incorporating the chip into our schematic and PCB was fairly plug and play, as it was also an I2C device and used the same connections. I also found that many of the parts that we planned to use on our PCB were not availiable through the ECE department, whether that be through the Electronics Shop or ECE Supply Center. As a result, I spent time today making a Google sheet that lists all of the parts and whether we will need to make an online order to get them. I believe most of the resistors and capacitors can be gotten through the Electronics Shop, but I will need to check their size/package to ensure this.
+
+## 10/25/24: 
 
 ## 10/28/24: Updated PCB Parts List and Submitted Orders
 
@@ -230,6 +247,10 @@ For our OV7670 code to work, we need to make memory allocations into the chip's 
 ## 11/19/24: Completed Production of Functional PCB
 
 We received our newly ordered BME280 and ESP32 S3 Wroom (with PSRAM) recently and were able to finally solder on the new components. We used a heat gun, set to a temperature of 500 degrees Fahrenheit, to melt the solder on the old ESP32 and pried it off with some pliers. We had already previously used removed the old BME280 following a similar process. Then, after using copper to remove the old solder off the solder pads for the components, we carefully placed the new microcontroller and barometer. Since the ESP has external pins, we were able to simply resolder it on manually with a solder iron (as opposed to using the oven, as we had the previous time), and cleaned it up with a healthy amount of flux to ensure there were no connected pins. The BME, however, has its pins on the underside of the device. We decided to set the heatgun to 450 degrees Fahrenheit and resolder it back on that way. After doing so, we plugged in the freshly completed PCB into our laptops and were able to successfully interface with the BME. Using existing code we had written for the MPU-6050 and SIM7600, we first validated the basic functionality of the ESP32 and ensured that we were able to make allocations within its PSRAM. Then, using basic code to interface with a BME280 using provided functions from a library, we successfully obtained pressure and temperature data from the sensor. Our PCB is finally completely working as intended. We will now need to connect it to the external electronics and begin putting it all together within the drone shell we previously constructed.
+
+## 11/21/24: Completed Camera Verification
+
+## 11/22/24: Completed MPU-6050 and BME280 Verification
 
 ## 11/28/24: Ordered Battery, Motor, and ESC for Completion of Drone
 
