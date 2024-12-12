@@ -21,6 +21,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/14/24: DRC Warnings and Obtained ESP32 Devkit](#101424-drc-warnings-and-obtained-esp32-devkit)
 * [10/15/24: Attempted PCB Order and Began Programming ESP32 Devkit](#101524-attempted-PCB-order-and-began-programming-esp32-devkit)
 * [10/16/24: Ordered SIM7600 and Servos](#101624-ordered-sim7600-and-servos)
+* [10/19/24: Explored Altitude Calculations From Air Pressure](#101924-explored-altitude-calculations-from-air-pressure)
 * [10/21/24: Revised PCB and Ordered Image Sensor](#102124-revised-pcb-and-ordered-image-sensor)
 * [10/23/24: Tested Servos and Reviewed Parts List](#102324-tested-servos-and-reviewed-parts-list)
 * [10/28/24: Updated PCB Parts List and Submitted Orders](#102824-updated-pcb-parts-list-and-submitted-orders)
