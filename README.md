@@ -24,6 +24,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/19/24: Explored Altitude Calculations From Air Pressure](#101924-explored-altitude-calculations-from-air-pressure)
 * [10/21/24: Revised PCB and Ordered Image Sensor](#102124-revised-pcb-and-ordered-image-sensor)
 * [10/23/24: Tested Servos and Reviewed Parts List](#102324-tested-servos-and-reviewed-parts-list)
+* [10/25/24: Researched Encoders and JPEG Compression](#102524-researched-encoders-and-jpeg-compression)
 * [10/28/24: Updated PCB Parts List and Submitted Orders](#102824-updated-pcb-parts-list-and-submitted-orders)
 * [10/31/24: Tested Servo Control Using Cellular Network](#103124-tested-servo-control-using-cellular-network)
 * [11/02/24: Began Soldering PCB and Coded Camera](#110224-began-soldering-pcb-and-coded-camera)
