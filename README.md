@@ -76,7 +76,7 @@ In terms of drone material, we are pretty set on creating it out of foamboard, w
 
 Another thing we want to prioritize in the design of our drone is the wingspan. We want to make sure we maximize this length, because a larger wingspan means much greater stability in the air and allows the drone to fly for much longer distances. This is crucial for the application of the drone, because a first responder might need to fly the drone long distances.
 
-## 09/24/24: Researched 050 IMU Circuit Schematic
+## 09/24/24: Researched MPU6050 IMU Circuit Schematic
 
 I spent some time today before our meeting with our TA to review the current circuit schematic we have designed. I reviewed the array of sensors we needed and found some online examples of schematics for the MPU-6050, which is the IMU we have decided to go with since it is very popular in embedded applications, low cost, and widely availiable. Another added plus of the MPU-6050 is that I have some experience interfacing with the software drivers for it through RSO experience.
 
