@@ -69,6 +69,7 @@ Today, our group met at and completed the Team Contract. We had some discussion 
 There are many possible options when considering what kind and style of drone to make. Things like quadcopter versus single rotor, V-tail versus flat tail, and wingspan lengths are all important factors to consider when determining how you want your drone to fly and for what purpose.
 
 ![1677480375820](https://github.com/user-attachments/assets/4405f71e-8aed-45b5-a327-3afd707036a7)
+Figure 2
 
 On the issue of fixed wing versus a multi-rotor design, the decision is quite simple. Although multi-rotor drones are often much faster and offer greater stability in the air, they are much more expensive. Because we are working with a rather limiting $150 budget, we would likely end up spending most of the budget on just the motors and ESCs. 
 
@@ -81,6 +82,7 @@ Another thing we want to prioritize in the design of our drone is the wingspan. 
 I spent some time today before our meeting with our TA to review the current circuit schematic we have designed. I reviewed the array of sensors we needed and found some online examples of schematics for the MPU-6050, which is the IMU we have decided to go with since it is very popular in embedded applications, low cost, and widely availiable. Another added plus of the MPU-6050 is that I have some experience interfacing with the software drivers for it through RSO experience.
 
 ![1457053860374](https://github.com/user-attachments/assets/5ab0187a-c3c9-471c-9dee-b950a7fed238)
+Figure 3
 
 I sent this schematic to Lohit, who latered added it into our design.
 
@@ -95,8 +97,10 @@ I spent much of my time today working on our project's Design Document. I began 
 We decided to set up some time to meet with our TA today in order to review some of the feedback we had gotten on the Project Proposal to make sure we were heading in the right direction. I was primarily concerned with the scope of our project and asked questions about how we could reduce it. We got good tips and decided that we would move some of the features we wanted to implement into a "Phase 2" of the drone, so that at least with Phase 1 we would have the core components ready to showcase. We then spent some time working as a group on the Design Document. I reviewed the examples of good Design Documents and took note of key features and well written sections. The document seems to be a lot more technical than I had initially expected. I then began to implement some of the feedback we had gotten on the Proposal into the Introduction portion of our paper, which is relatively the same across the Design Document and Proposal. One piece of feedback that we had gotten was that one of the high-level requirments we had written, which was related to system uptime, was not very good and could be too ambitious. After much discussion, we decided to rewrite this requirment and instead have it be related to a preemptive warning system on the drone to alert the operator to unsafe conditions, which additionally improves the safety of all nearby individuals. We then reviewed the structure of the Design Document as a group and made a plan going forward. Additionally, I was concerned with the safety risks posed by the drone, since it's reliability (with cellular connectivity) is quesitonable. We thought of an idea where we could implement a failsafe in which if a connection between the drone and the software running on a local computer is broken, then the drone could cut the motors and deploy a spring-loaded parachute to safely land.
 
 <img width="675" alt="Screenshot 2024-10-02 at 12 43 19 AM" src="https://github.com/user-attachments/assets/2d58b98e-4dc1-4f46-9778-69e3b0b3958d">
+Figure 4
 
 <img width="425" alt="Screenshot 2024-10-02 at 12 44 48 AM" src="https://github.com/user-attachments/assets/1cfd05a5-c71c-4306-91bf-ebe24034d9ab">
+Figure 5
 
 I also began reviewing our first draft of the schematic and PCB mockup that Lohit completed.
 
@@ -117,6 +121,7 @@ Today my group and I wrapped up the Design Document, which required several more
 During our TA meeting this week, we spent the majority of the time disucssing the feedback we received during our group's Design Review yesterday. It is still very clear the Professor Fliflet is concerned with what problem we are actually trying to solve, the scope of our project, and our high-level requirments list. Our TA, Manvi, suggested we stick with the original plan to have the software suite integrated with the electronics as a demoable Phase 1 of the project, then have the flying drone as a Phase 2. This way, we limit the scope of our project while also giving us an opportunity to get some potential bonus points. Additionally, we reviewed some concerns I had with regards to the SIM7600 and ESCs. Since these are both quite complex modules and their reliable operation is crucial to the safe operation of the drone, I really think we should buy off-the-shelf versions of these components instead of trying to integrate them into our PCB. For now, we will plan to add them to our PCB, but will buy them if it doesn't work out. Pictured below is the pinout for the SIM7600, for example.
 
 ![pinout](https://github.com/user-attachments/assets/ea4415ec-5362-4be4-8fad-ee926dee6889)
+Figure 6
 
 ## 10/11/24: PCB Review and Drone Wing Construction
 
@@ -133,12 +138,14 @@ I spent some time researching a possible ESC we would like to buy for our brushl
 I also explored the idea of adding the SIM7600 to our PCB, however it does not seem like this will be possible. Due to the sheer complexity of the module, there are not many online schematics for breakout boards for it. I did manage to find one example for a schematic, as seen below:
 
 <img width="1150" alt="Screenshot 2024-10-16 at 7 57 00 PM" src="https://github.com/user-attachments/assets/026b96aa-701c-4c6c-a7b7-37424838db89">
+Figure 7
 
 While not all of the submodules in this schematic are necessary for our purposes, implementing the ones we need would still prove to be too complex and exceed the size limitations of our PCB. We are limited to a 10cm by 10cm board, so adding the SIM7600 would not fit.
 
 Additionally, Adi and Lohit completed the contruction of the drone's fuselage and attached the wings we had made earlier.
 
 <img width="830" alt="Screenshot 2024-10-16 at 12 00 39 PM" src="https://github.com/user-attachments/assets/f9477451-1033-4991-a60c-f26b1cdf703e">
+Figure 8
 
 ## 10/14/24: DRC Warnings and Obtained ESP32 Devkit
 
@@ -159,6 +166,7 @@ I spent time working with my group today to order some of the basic parts necess
 I wanted to look more into how we can use the BMP280 to determine the altitude of the drone. We know that the BMP is capable of giving very accurate air pressure measurements in hPa, but the question about how to take this value to then estimate an altitude still remains. After doing some [research online](https://physics.stackexchange.com/questions/333475/how-to-calculate-altitude-from-current-temperature-and-pressure), I came across the following equation that we can use:
 
 <img width="435" alt="Screenshot 2024-12-12 at 11 56 08 AM" src="https://github.com/user-attachments/assets/2bd1f01a-faaf-4417-a6cb-d3bdffab5c20" />
+Figure 9
 
 Here, P is the air pressure in hPa. I am not sure exactly how well this equation will end up estimating the altitude. I am also hoping there is a built in function in an Arduino BMP library we can use to do this.
 
@@ -167,6 +175,7 @@ Here, P is the air pressure in hPa. I am not sure exactly how well this equation
 Today I worked with Lohit to convert our existing four layer PCB design to a two layer PCB so that we could order it tomorrow. We decided to once again make the changes on EasyEDA, then port the design over to KiCAD and resolve any DRC errors. Previously, we had a TopLayer, BottomLayer, 3.3V layer, and GND layer, so we needed to eliminate the 3.3V and GND layers. To do so, we decided to make the BottomLayer and GND layer, and the TopLayer a 3.3V layer. After doing so, making the DRC pass was simply a matter of connected filled 3.3V zones and removing some preexisting vias. We are now ready to order the board tomorrow.
 
 <img width="420" alt="Screenshot 2024-10-22 at 10 57 54 AM" src="https://github.com/user-attachments/assets/79faacf9-fb06-4798-a1cd-5cd26a78d9ee">
+Figure 10
 
 I also submitted the order for the OV7670 image sensors we will be using as cameras on our drone. We had selected a 2 pack of these sensors off Amazon while writing our Design Document, and this seemed to be a suitable option. We will need to spend more time this week ordering the batteries, ESC, motor, and all of the PCB components that are not availiable through the ECE department.
 
@@ -175,6 +184,7 @@ I also submitted the order for the OV7670 image sensors we will be using as came
 Since we recently received the servos and SIM7600 that we ordered, I quickly validated the operation of the servos we got using with the ESP32 Devkit and the code I had written to test a servo earlier. As I expected, the code worked and the servos responded as properly. Below is quick image of the setup I created for the test:
 
 ![img2](https://github.com/user-attachments/assets/966920d6-e94d-4023-b064-32b06fd7d764)
+Figure 11
 
 During Tuesday's meeting with our TA, I discovered that the BMP280, the barometetric sensor we planed to use, was obsolete and no longer sold. As a last minute change before the PCB order, we swapped our design to use the BME280, which is very similar to the BMP280 except for the fact that it has the ability to also measure humidity. Incorporating the chip into our schematic and PCB was fairly plug and play, as it was also an I2C device and used the same connections. I also found that many of the parts that we planned to use on our PCB were not availiable through the ECE department, whether that be through the Electronics Shop or ECE Supply Center. As a result, I spent time today making a Google sheet that lists all of the parts and whether we will need to make an online order to get them. I believe most of the resistors and capacitors can be gotten through the Electronics Shop, but I will need to check their size/package to ensure this.
 
@@ -185,6 +195,7 @@ Though we have not started writing driver code for our camera, I wanted to go ah
 JPEG seems to be a very popular method of compression, but requires an encoder before it can be compressed. Encoding appears to be able to be done with online libraries, so I am not too worried about that. To do some quick and rough calculations, we can use the following equation to estimate how large the compressed image would be:
 
 <img width="782" alt="Screenshot 2024-12-12 at 12 07 48 PM" src="https://github.com/user-attachments/assets/a036cabf-bb03-422d-ae8f-bfd36a8dfced" />
+Figure 12
 
 Here, if we assume a CC, or compression constant, of 2.5, and quality factor of 12, we can solve the equation to find that the compressed image data packet will be just 48,000 bytes.
 
@@ -199,6 +210,7 @@ I also briefly helped Adi with the initial programming of the SIM7600 with our E
 Over the past few days Lohit was able to expand on the SIM7600 code and connect it to the Firebase cloud storage we are using as an intermediary between the drone and the backend software. Using various networking protocols, the embedded code running on the ESP32 can now talk to and receive commands from the user via the frontend UI. We wanted to test whether we could get some basic drone commands to be received and processed.
 
 ![3E2DEC0A-7B20-4023-91B1-904AE681A93F](https://github.com/user-attachments/assets/1839896c-988a-4087-a76b-187fcafb5a9d)
+Figure 13
 
 We integrated the cellular code Lohit and Adi had written with the servo and multithreading code I had written. Furthermore, I wrote basic code that writes to specific servos (we had six connected to the ESP32) depending on which input command from the user had been received (roll, pitch, yaw). After troubleshooting some network/communication issues, we were able to successfully have an input command be received by the drone, and have the drone accordingly write to certain servos.
 
@@ -229,6 +241,7 @@ Today I worked with Adi to revise our Design Document for the regrade. We had re
 Following the arrival of the new OV7670 with the FIFO chip, Adi and Lohit were able to successfully run the drivers for a FIFO OV7670 and retrieve a correct image. While there is some discoloration that needs some more fine-tuning, this is certainly a step in the right direction. We are now working to re-implement the JPEG encoder so that we can send a much higher quality image to Firebase.
 
 <img width="149" alt="Screenshot 2024-12-12 at 2 23 35 PM" src="https://github.com/user-attachments/assets/981f02c9-0727-4a52-90fe-ab0f8b527199" />
+Figure 14
 
 ## 11/12/24: Cleaned Up Software and Completed Most of Soldering
 
@@ -237,10 +250,12 @@ Over the past couple of days, Adi and Lohit have worked to iron out most of the 
 I spent a significant amount of time working on completing the soldering of other components with Adi. We have decided to use the oven to perform most of the tedious soldering tasks, so we mostly just needed to apply solder to the solder pads, then solder down one pin of each component onto the pad. This would keep it in place and allow the other pins to solder onto their respective pads in the oven.
 
 ![IMG_1563](https://github.com/user-attachments/assets/9b623518-7526-4311-a7f6-c73f33e1b7b9)
+Figure 15
 
 After all of our hand soldering was completed, Lohit completed the remaining soldering by putting it in the oven at 220 degrees celsius for about 20 minutes.
 
 ![75311329759__EF377142-1707-40EF-AA3C-D20F680E3B47](https://github.com/user-attachments/assets/4b5088be-a1fc-4254-a9b2-e31b4fbe103f)
+Figure 16
 
 As you can see above, the pins on components such as U4 are so small that we would not have been able to get them soldered down without the use of the oven. Additionally, we have not yet placed the C15 and U1 components onto the board. This is because, for the C15 capacitor, we had requested a .01uF capacitor fromt the E-shop but received a .1uF instead, so we are waiting to get our corrected replacement. For the U1, which is an addressable RGB LED, it appears the sizing of the chip we got is incorrect and may need modifications.
 
@@ -255,12 +270,14 @@ We encountered several issues upon trying to connect and flash to the board, how
 Lohit was able to identify and resolve some of the main issues that plagued our board, preventing us from being able to flash it previously. As it turns out, we had mistakenly forgotten to apply solder to the TXD0 pin on the CP2102 USB-to-UART chip. Additionally, there were two pins on the ESP32 that had conjoined solder, creating a short. After fixing the solder issues, we are now able to interface with the ESP through the Arduino IDE and program it.
 
 ![75320246908__58B76AE0-162E-4E7F-8C8E-A86BEB972976](https://github.com/user-attachments/assets/bdfe839e-7f3f-4d1b-a494-55520fbff535)
+Figure 17
 
 We have been able to begin programming the IMU. Using widely availiable online libraries for interfacing with the MPU-6050, we were successfully able to obtain gyroscopic and accelerometer data from the sensor. In the following week, I plan to perform the R-V testing on the IMU to verify its functionality.
 
 There are a few issues with our board, however. We've noticed that the BME280 barometric sensor on it appears to be faulty, likely due to a short. We are unable to interface with it through software, even after considerable time spent debugging. Additionally, we've realized that we will need to order a new ESP32 chip. Although our current chip is functionally sound, it turns out that it is not the right variant that we need. 
 
 ![image](https://github.com/user-attachments/assets/5e9b63e0-3aca-42a5-aa41-c6bc81295e02)
+Figure 18
 
 For our OV7670 code to work, we need to make memory allocations into the chip's onboard PSRAM. The ESP32 Devkit we used was able to do this because the variant of the chip it used had onboard PSRAM. However, the variant that we are using on our PCB, that we got from the E-shop, only has flash memory. As such, we need to swap it our for a version with PSRAM.
 
@@ -275,16 +292,19 @@ Today I worked on verifying the performance of our OV7670 in accordance with our
 For the first test, I simple retrieved an image from the camera and saved it to my computer.
 
 ![IMG_5418](https://github.com/user-attachments/assets/7790c2fa-4002-46d3-b2e2-a42f80c4532a)
+Figure 19
 
 To verify that the resolution is indeed 160x120, as set in the driver code, all I needed to do was to check the image properties through the MacOS built in file information feature.
 
 <img width="125" alt="Screenshot 2024-12-12 at 2 26 50 PM" src="https://github.com/user-attachments/assets/f5e8fe5e-16f7-4c08-87e7-4a40ea4b333f" />
+Figure 20
 
 Here, we can see that the image is indeed 160x120, satisfying the requirment we have set (although we actually wanted a 640x480 image, this was not possible due to memory constraints). We can also verify that the image the camera is retrieving is indeed in the full RGB color space, which is nice.
 
 Next, I wanted to verify the frame rate at which the camera was capturing images. For a somewhat useful video playback, we need the camera to capture at least 1 FPS, but ideally more close to 2-3 FPS. For reference, most CCTV systems capture at 1-2 FPS. To test this, I wrote a simple script that runs for exactly 20 seconds, and then use a counter to count the number of images the camera captures. I conducted this test for five trials. The results are shown below:
 
 <img width="746" alt="Screenshot 2024-12-12 at 2 30 07 PM" src="https://github.com/user-attachments/assets/76328524-3e94-46b0-85f7-fa9a58f925de" />
+Figure 21
 
 We can see that we are indeed able to obtain above 1 FPS, satisfying our requirment.
 
@@ -295,12 +315,14 @@ Adi and I worked to verify the two sensors we have onboard our PCB: the MPU-6050
 For the first altitude test, I wanted to verify the BME's ability to track small changes in altitude. Although this test was done indoors where air pressure fluctuations are much more minimal, the BME was surprisingly still able to track the changes pretty well. I used a tape measure to verify relative heights and compared the measurement to the BME's reported measurement at five different heights. Below are my findings:
 
 <img width="806" alt="Screenshot 2024-12-12 at 2 37 51 PM" src="https://github.com/user-attachments/assets/7418df83-0df0-4855-839d-4f2557bf61d1" />
+Figure 22
 
 Surprisingly, for all five different trials the BME was able to report a relative altitude that was within 15% margin of error. For the second test, I needed to verify the BME's high altitude performance, given that the drone should be flying at least a couple hundred feet off the ground. To do this, I first found that the ground level in Champaign is about 220m above sea level. At ground level, the BME reported an altitude of 195.60m above sea level, representing a 12% margin of error. Next, I went to the outdoor balcony of the HERE Champaign apartment complex, which is reported to be 254 meters above sea level. At this height, the BME reported an altitude of 249.45m, which is only a 2% margin of error.
 
 Lastly, I needed to verify the temperature readings returned by the BME280. To do this, I simple tested the sensor in three different environments: a fridge, room temperature, and outdoors. I compared the readings from the BME against a thermometer. For all three cases, I noticed a very insignificant amount of error (less than 15% across the board), with most of it stemming from the outdoor test (likely due to windchill induced from wind).
 
 <img width="812" alt="Screenshot 2024-12-12 at 2 43 55 PM" src="https://github.com/user-attachments/assets/59403a5b-1e1b-4a23-bab1-927405248ab9" />
+Figure 23
 
 ## 11/28/24: Ordered Battery, Motor, and ESC for Completion of Drone
 
@@ -323,12 +345,14 @@ Unfortunately while attempting to flash new code onto our PCB, the USB-B connect
 After soldering on a new USB-B connector to our new PCB and sorting out some soldering issues with our BME280, we were able to successfully connect to, inteface with, and flash new code onto the ESP32. Following this, I worked to test the new battery, motor, ESC, and battery charger we had purchased. I chose to first test these components on the ESP32 Devkit first, to avoid the risk of frying our PCB. The setup was as follows: everytime I needed to flash new code onto the Devkit, I would do so via the USB-B connector. Otherwise, the Devkit would be disconnected from the laptop entirely. Instead, the ESC would supply 5V and GND to the Devkit, while in turn the Devkit would supply the PWM control signal to the ESC that went to the battery. Additionally, the ESC would supply the motor with the necessary 10A it needed for operation. The battery 12V battery was then connected to the ESC via a T-connector. To interface with the ESC/motor, I followed the instructions from the product's Amazon page to properly calibrate the ESC:
 
 <img width="835" alt="Screenshot 2024-12-03 at 12 02 46 PM" src="https://github.com/user-attachments/assets/6ff65ee9-b25f-4195-aff5-835fb156101e">
+Figure 24
 
 So, the code I wrote first set the motor RPM to max, then to min, with sufficient time delay between them. Then, I was able to freely write any motor RPM I wanted to.
 
 The second main task I worked on was preparing the drone for the installation of the various hardware components that would go into it, such as the servos and primary electronics. Since the flaps on the wings will need to be controlled by servos, ideally these sevos are hidden within the wing itself. So, I outlined the dimensions of a servo at the center point of each flap on the wing and used a knife to cut out a very precise hole where the servo could be placed.
 
 ![IMG_1657](https://github.com/user-attachments/assets/a3ac1b0c-3612-4c0f-bcba-653793402dad)
+Figure 25
 
 ## 12/03/24: Completed Production of Drone
 
@@ -337,22 +361,27 @@ With the Final Demo being the next day, our group spent most of our time putting
 On the hardware side of things, there were many small tasks related to the physical drone body that still needed to be completed. For example, many small bits of the exterior of the drone needed to be covered up. This meant I spent time measuring our the dimensions of the additional coverings, and then cutting them out of foam board.
 
 ![IMG_1664](https://github.com/user-attachments/assets/5792dcfc-bb30-4a93-88eb-81b48196342a)
+Figure 26
 
 Other things that needed to be done included 3D printing additional mounts and fittings for the drone. We had previously already printed a "cage" that went inside the drone and would securely hold the SIm7600, PCB, and camera. 
 
 ![IMG_1662](https://github.com/user-attachments/assets/f1790065-3e4b-4fb6-bfa7-e3f626eeea74)
+Figure 27
 
 However, the last 3D printable part we needed was a motor mount that would go towards the front of the drone and would contain holes for the motor's brace to screw in to. After creating a quick CAD model, we printed and installed this piece using hot glue.
 
 ![IMG_1668](https://github.com/user-attachments/assets/30ea1ea0-bef0-4954-ab0b-1a155b40eaf8)
+Figure 28
 
 After doing so, we then added the remaining electrical components to the inside of the drone, such as the ESC, battery, GNSS antenna, and cellular antenna.
 
 ![IMG_1675](https://github.com/user-attachments/assets/38ee7b27-600f-4df1-be74-d4866ea58187)
+Figure 29
 
 Due to our severe time limitations, we were not able to put a complete bow on everything we wanted to. For example, although the servos were attached to the drone, we did not attach the pushrods for them to actually control the wings and flaps. Furthermore, we had additional issues with frying two of the servos, leading to many bootloop issues. In the end, though, our finished drone had four operational servos, a semi-functioning camera, could receive input from the user from the frontend UI, and could transmit gyroscopic, pressure, and longitudinal/lattitudinal data to the user.
 
 ![IMG_1676](https://github.com/user-attachments/assets/fb8d686f-1780-4bd8-b87a-6bad7731844d)
+Figure 30
 
 ![IMG_1677](https://github.com/user-attachments/assets/b236efb5-b2c1-4dcc-9e91-558af486a34a)
-
+Figure 31
