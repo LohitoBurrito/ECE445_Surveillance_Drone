@@ -8,6 +8,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [09/16/24: Working on Project Proposal](#091624-working-on-project-proposal)
 * [09/17/24: Completed Project Proposal](#091724-completed-project-proposal)
 * [09/18/24: Completed Team Contract](#091824-completed-team-contract)
+* [09/21/24: Researched Possible Drone Designs](#092124-researched-possible-drone-designs)
 * [09/24/24: Researched MPU6050 IMU Circuit Schematic](#092424-researched-mpu6050-imu-circuit-schematic)
 * [09/29/24: Worked on Design Document](#092924-worked-on-design-document)
 * [09/30/24: Worked on Design Document](#093024-worked-on-design-document)
