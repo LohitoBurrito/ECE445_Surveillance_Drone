@@ -74,9 +74,9 @@ In terms of drone material, we are pretty set on creating it out of foamboard, w
 
 Another thing we want to prioritize in the design of our drone is the wingspan. We want to make sure we maximize this length, because a larger wingspan means much greater stability in the air and allows the drone to fly for much longer distances. This is crucial for the application of the drone, because a first responder might need to fly the drone long distances.
 
-## 09/24/24: Researched MPU6050 IMU Circuit Schematic
+## 09/24/24: Researched 050 IMU Circuit Schematic
 
-I spent some time today before our meeting with our TA to review the current circuit schematic we have designed. I reviewed the array of sensors we needed and found some online examples of schematics for the MPU6050, which is the IMU we have decided to go with since it is very popular in embedded applications, low cost, and widely availiable. Another added plus of the MPU6050 is that I have some experience interfacing with the software drivers for it through RSO experience.
+I spent some time today before our meeting with our TA to review the current circuit schematic we have designed. I reviewed the array of sensors we needed and found some online examples of schematics for the MPU-6050, which is the IMU we have decided to go with since it is very popular in embedded applications, low cost, and widely availiable. Another added plus of the MPU-6050 is that I have some experience interfacing with the software drivers for it through RSO experience.
 
 ![1457053860374](https://github.com/user-attachments/assets/5ab0187a-c3c9-471c-9dee-b950a7fed238)
 
@@ -168,7 +168,6 @@ Today I worked with Lohit to convert our existing four layer PCB design to a two
 
 I also submitted the order for the OV7670 image sensors we will be using as cameras on our drone. We had selected a 2 pack of these sensors off Amazon while writing our Design Document, and this seemed to be a suitable option. We will need to spend more time this week ordering the batteries, ESC, motor, and all of the PCB components that are not availiable through the ECE department.
 
-
 ## 10/23/24: Tested Servos and Reviewed Parts List
 
 Since we recently received the servos and SIM7600 that we ordered, I quickly validated the operation of the servos we got using with the ESP32 Devkit and the code I had written to test a servo earlier. As I expected, the code worked and the servos responded as properly. Below is quick image of the setup I created for the test:
@@ -227,6 +226,8 @@ Today I worked with Adi to revise our Design Document for the regrade. We had re
 
 Following the arrival of the new OV7670 with the FIFO chip, Adi and Lohit were able to successfully run the drivers for a FIFO OV7670 and retrieve a correct image. While there is some discoloration that needs some more fine-tuning, this is certainly a step in the right direction. We are now working to re-implement the JPEG encoder so that we can send a much higher quality image to Firebase.
 
+<img width="149" alt="Screenshot 2024-12-12 at 2 23 35 PM" src="https://github.com/user-attachments/assets/981f02c9-0727-4a52-90fe-ab0f8b527199" />
+
 ## 11/12/24: Cleaned Up Software and Completed Most of Soldering
 
 Over the past couple of days, Adi and Lohit have worked to iron out most of the issues with the OV7670. We are now able to quite reliably capture and upload images to Firebase. While the quality is a bit lower than we would like, we can look into improving it later on after we have most of the other software components completed. We have found that, occasionally, the system bugs out and stops transmitting frames after 8-10 image uploads. We are not sure if this is an issue with the OV7670, the SIM7600, or the ESP32 itself, but we have found that a temporary fix it just re-initializing the camera whenever this error is encountered.
@@ -267,7 +268,37 @@ We received our newly ordered BME280 and ESP32 S3 Wroom (with PSRAM) recently an
 
 ## 11/21/24: Completed Camera Verification
 
-## 11/22/24: Completed MPU-6050 and BME280 Verification
+Today I worked on verifying the performance of our OV7670 in accordance with our R-V table. We need to test two main things: the resolution of the image and the frame rate at which the camera is able to capture frames.
+
+For the first test, I simple retrieved an image from the camera and saved it to my computer.
+
+![IMG_5418](https://github.com/user-attachments/assets/7790c2fa-4002-46d3-b2e2-a42f80c4532a)
+
+To verify that the resolution is indeed 160x120, as set in the driver code, all I needed to do was to check the image properties through the MacOS built in file information feature.
+
+<img width="125" alt="Screenshot 2024-12-12 at 2 26 50 PM" src="https://github.com/user-attachments/assets/f5e8fe5e-16f7-4c08-87e7-4a40ea4b333f" />
+
+Here, we can see that the image is indeed 160x120, satisfying the requirment we have set (although we actually wanted a 640x480 image, this was not possible due to memory constraints). We can also verify that the image the camera is retrieving is indeed in the full RGB color space, which is nice.
+
+Next, I wanted to verify the frame rate at which the camera was capturing images. For a somewhat useful video playback, we need the camera to capture at least 1 FPS, but ideally more close to 2-3 FPS. For reference, most CCTV systems capture at 1-2 FPS. To test this, I wrote a simple script that runs for exactly 20 seconds, and then use a counter to count the number of images the camera captures. I conducted this test for five trials. The results are shown below:
+
+<img width="746" alt="Screenshot 2024-12-12 at 2 30 07 PM" src="https://github.com/user-attachments/assets/76328524-3e94-46b0-85f7-fa9a58f925de" />
+
+We can see that we are indeed able to obtain above 1 FPS, satisfying our requirment.
+
+## 11/22/24: Completed MPU6050 and BME280 Verification
+
+Adi and I worked to verify the two sensors we have onboard our PCB: the MPU-6050 IMU and BME280 barometer. I mostly worked on the BME280 verification, which was a bit of an involved process. The two main features on the sensor that need to be verified are it's ability to estimate altitude from air pressure, and it's ability to measure temperature (although we will not really be needing the temperature measurement). First, I wanted to tackle the altitude testing. I conducted two tests, where the first was run indoors and the second was outdoors. 
+
+For the first altitude test, I wanted to verify the BME's ability to track small changes in altitude. Although this test was done indoors where air pressure fluctuations are much more minimal, the BME was surprisingly still able to track the changes pretty well. I used a tape measure to verify relative heights and compared the measurement to the BME's reported measurement at five different heights. Below are my findings:
+
+<img width="806" alt="Screenshot 2024-12-12 at 2 37 51 PM" src="https://github.com/user-attachments/assets/7418df83-0df0-4855-839d-4f2557bf61d1" />
+
+Surprisingly, for all five different trials the BME was able to report a relative altitude that was within 15% margin of error. For the second test, I needed to verify the BME's high altitude performance, given that the drone should be flying at least a couple hundred feet off the ground. To do this, I first found that the ground level in Champaign is about 220m above sea level. At ground level, the BME reported an altitude of 195.60m above sea level, representing a 12% margin of error. Next, I went to the outdoor balcony of the HERE Champaign apartment complex, which is reported to be 254 meters above sea level. At this height, the BME reported an altitude of 249.45m, which is only a 2% margin of error.
+
+Lastly, I needed to verify the temperature readings returned by the BME280. To do this, I simple tested the sensor in three different environments: a fridge, room temperature, and outdoors. I compared the readings from the BME against a thermometer. For all three cases, I noticed a very insignificant amount of error (less than 15% across the board), with most of it stemming from the outdoor test (likely due to windchill induced from wind).
+
+<img width="812" alt="Screenshot 2024-12-12 at 2 43 55 PM" src="https://github.com/user-attachments/assets/59403a5b-1e1b-4a23-bab1-927405248ab9" />
 
 ## 11/28/24: Ordered Battery, Motor, and ESC for Completion of Drone
 
