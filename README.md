@@ -35,6 +35,8 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/13/24: Completed Soldering and Attempted to Flash Board](#111324-completed-soldering-and-attempted-to-flash-board)
 * [11/15/24: Began Programming Board and Removed BME280](#111524-began-programming-board-and-removed-bme280)
 * [11/19/24: Completed Production of Functional PCB](#111924-completed-production-of-functional-pcb)
+* [11/21/24: Completed Camera Verification](#112124-completed-camera-verification)
+* [11/22/24: Completed MPU6050 and BME280 Verification](#112224-completed-mpu6050-and-bme280-verification)
 * [11/28/24: Ordered Battery, Motor, and ESC for Completion of Drone](#112824-ordered-battery-motor-and-esc-for-completion-of-drone)
 * [11/29/24: Worked on Final Demo Script, Final Report, and Final Presentation](#112924-worked-on-final-demo-script-final-report-and-final-presentation)
 * [12/01/24: Soldered New PCB](#120124-soldered-new-pcb)
