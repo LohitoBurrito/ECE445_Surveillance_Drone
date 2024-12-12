@@ -140,7 +140,7 @@ Additionally, Adi and Lohit completed the contruction of the drone's fuselage an
 
 <img width="830" alt="Screenshot 2024-10-16 at 12 00 39 PM" src="https://github.com/user-attachments/assets/f9477451-1033-4991-a60c-f26b1cdf703e">
 
-## 10/14/24: DRC Warnings and Obtained ESP32 S3 Devkit
+## 10/14/24: DRC Warnings and Obtained ESP32 Devkit
 
 I met with our TA during her scheduled office hours to discuss my concerns with the DRC warnings. She was also not sure about how to resolve them, so we decided to go ahead and try to order the PCB tomorrow. If it causes and issue, we will resolve them and re-order the PCB during the following week's PCB order. During the PCB Review last Friday, I also learned that the class offers ESP32 S3 Devkits for us to checkout, so I reqested one from our TA. Since the PCB may not come in for another 1-2 weeks, I can at least begin coding the initial control loop and basic interfaces with sensors and servos with this Devkit.
 
