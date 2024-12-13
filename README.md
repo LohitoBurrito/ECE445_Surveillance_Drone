@@ -111,7 +111,11 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 
 ## 11/05/24: Camera Software Development testing update
 
+Today, we continued trying to debug our OV7670. We attempted to try to use multiple different techniques such as JPEG encoding and buffering. We also attempted to take our broken JPEG image and convert it to base64 to see if our image was in fact fine all of this while, and none of this ended up working out. 
 
+![image](https://github.com/user-attachments/assets/f4eb6058-e9a3-4e2a-b5d3-d402b1fef66f)
+
+After doing a lot more careful research, we found out that the OV7670 was missing a special chip called a FIFO buffer chip. This chip is mainly used to retrieve a couple frames lines from the OV7670 and store it in this buffer. Since this was missing, all of our OV7670 camera libraries did not end up working out. Therefore, Adi ended up buying a new OV7670 with a fifo buffer chip attached to it. 
 
 ## 11/08/24: Camera Worked
 
@@ -119,6 +123,7 @@ Today, I mainly worked on getting the camera to work. Essentially, we found a li
 
 Library: https://bitluni.net/ov7670-with-fifo
 
+![image](https://github.com/user-attachments/assets/4a913068-d7b3-4db2-b647-f204637beca6)
 ![image](https://github.com/user-attachments/assets/cba158de-d32b-4c33-b8a9-8bf693e9a8b3)
 
 ## 11/13/24: Completed Soldering and attemped to flash board (didnt work)
