@@ -26,7 +26,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/03/24: Worked on Camera Software](#110324-worked-on-camera-software)
 * [11/05/24: Camera Software Development Testing Update](#110524-camera-software-development-testing-update)
 * [11/08/24: Camera Worked](#110824-camera-worked)
-* [11/13/24: Completed Soldering and Attempted to Flash Board (Didn’t Work)](#111324-completed-soldering-and-attempted-to-flash-board-didnt-work)
+* [11/13/24: Completed Soldering and Attempted to Flash Board](#111324-completed-soldering-and-attempted-to-flash-board)
 * [11/14/24: Debugged Board in the morning](#111424-debugged-board-in-the-morning)
 * [11/15/24: Created 3D CAD Models for Gimbal Servo Mount and Board Mounts](#111524-created-3d-cad-models-for-gimbal-servo-mount-and-board-mounts)
 * [11/19/24: Functional PCB with BME280](#111924-functional-pcb-with-bme280)
@@ -161,7 +161,7 @@ Library: https://bitluni.net/ov7670-with-fifo
 ![image](https://github.com/user-attachments/assets/4a913068-d7b3-4db2-b647-f204637beca6)
 ![image](https://github.com/user-attachments/assets/cba158de-d32b-4c33-b8a9-8bf693e9a8b3)
 
-## 11/13/24: Completed Soldering and attemped to flash board (didnt work)
+## 11/13/24: Completed Soldering and attemped to flash board
 
 We spent the entirety of today finishing soldering the board. One thing we noticed is that we were not able to get the multicolor LED on the board due to it being completely different sizes. We ended up deciding that we would omit the multicolor LED from the board overall. This has its own drawback as we could not utilize the gpio pin that the multicolor LED was connected to. We also did not have a 601 package for 0.01 uF capacitor. To go around this, we found an 805 package for this capacitor which we managed to solder on the board. 
 
