@@ -8,6 +8,40 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [09/16/24: Working on Project Proposal](#09/16/24:-Working-on-Project-Proposal)
 * [09/17/24: Completed Project Proposal](#09/17/24:-Completed-Project-Proposal)
 * [09/18/24: Completed Team Contract](#09/18/24:-Completed-Team-Contract)
+* [09/24/24: Started Researching into the SIM7600 Module](#09/24/24:-Started-Researching-into-the-SIM7600-Module)
+* [09/29/24: Started writing the Design Document](#09/29/24:-Started-writing-the-Design-Document)
+* [09/30/24: More work on the Design Document](#09/30/24:-More-work-on-the-Design-Document)
+* [10/01/24: TA Meeting and Project focus](#10/01/24:-TA-Meeting-and-Project-focus)
+* [10/02/24: Feedback + Design Document](#10/02/24:-Feedback-+-Design-Document)
+* [10/03/24: Finishing up Design Document](#10/03/24:-Finishing-up-Design-Document)
+* [10/08/24: TA Meeting and Design Review feedback](#10/08/24:-TA-Meeting-and-Design-Review-feedback)
+* [10/09/24: Started Building the Drone](#10/09/24:-Started-Building-the-Drone)
+* [10/11/24: PCB Review + Wing Completion](#10/11/24:-PCB-Review-+-Wing-Completion)
+* [10/12/24: General Drone Body Completion](#10/12/24:-General-Drone-Body-Completion)
+* [10/15/24: TA Meeting + PCB Order](#10/15/24:-TA-Meeting-+-PCB-Order)
+* [10/16/24: Ordered SIM7600A-H and Servos](#10/16/24:-Ordered-SIM7600A-H-and-Servos)
+* [10/18/24: Basic SIM7600 Code + Carrier Verification](#10/18/24:-Basic-SIM7600-Code-+-Carrier-Verification)
+* [10/23/24: TA Meeting + SIM7600 Arrival](#10/23/24:-TA-Meeting-+-SIM7600-Arrival)
+* [10/25/24: HTTP Send and Receive Testing](#10/25/24:-HTTP-Send-and-Receive-Testing)
+* [10/28/24: Part List Tracking + SIM7600 Dev Board Attachment](#10/28/24:-Part-List-Tracking-+-SIM7600-Dev-Board-Attachment)
+* [10/30/24: Servo Integration](#10/30/24:-Servo-Integration)
+* [11/02/24: Soldering + Camera Testing](#11/02/24:-Soldering-+-Camera-Testing)
+* [11/03/24: Camera](#11/03/24:-Camera)
+* [11/04/24: Camera Again](#11/04/24:-Camera-Again)
+* [11/05/24: Last Look at Camera](#11/05/24:-Last-Look-at-Camera)
+* [11/08/24: Design Document + Camera Updates](#11/08/24:-Design-Document-+-Camera-Updates)
+* [11/11/24: ESP32 Code Update](#11/11/24:-ESP32-Code-Update)
+* [11/12/24: Soldering](#11/12/24:-Soldering)
+* [11/13/24: Testing out The PCB](#11/13/24:-Testing-out-The-PCB)
+* [11/14/24: Testing out The PCB 2.0](#11/14/24:-Testing-out-The-PCB-2.0)
+* [11/19/24: Testing out The PCB 2.0](#11/19/24:-Testing-out-The-PCB-2.0)
+* [11/21/24: Combining Code](#11/21/24:-Combining-Code)
+* [11/22/24: Sensor Verification](#11/22/24:-Sensor-Verification)
+* [11/28/24: Ordering the Last Few Components](#11/28/24:-Ordering-the-Last-Few-Components)
+* [12/01/24: Resoldering](#12/01/24:-Resoldering)
+* [12/02/24: Battery, ESC, Motor Testing](#12/02/24:-Battery,-ESC,-Motor-Testing)
+* [12/03/24: Final Testing + Demo](#12/03/24:-Final-Testing-+-Demo)
+
 
 ## 08/26/24 - 09/15/24: Logging Work Completed Before Starting Notebook
 
@@ -146,7 +180,6 @@ Me and Lohit dished out a lot of the camera and SIM7600 at this point, and we ar
 We spent a lot of time today trying to solder on all the components because we did have most of them at this point, and we had to test this PCB before tomorrow to get a feel of what needs ot changed in the design (tomorrow is the last day to order new PCB). I was able to help solder a lot of the components, after which I helped Lohit with the oven to put in the more complicated components. We did a but of research first on the acceptable temperatures for all the components, after which we were able to oven them and then we attached buttons. We were missing two components at this point, so we decided to put those in tomorrow to test out the PCB because we can only get them tomorrow. This was because we received the wrong capacitor compared to what we had ordered, and the LED was simply faulty.
 
 ## 11/13/24: Testing out The PCB
-
 
 We spent a lot of time today trying to verify our board and resolder whatever it was that we were missing. We ended up taking some pins off of the PCB while trying to connect to it, but we luckily did not use any of the pins that came off. Kevin also found some spare parts in the lab of the part that we were missing and we ended up using that on our board as it fit perfectly. The PCB did not work the first try i.e. power was not supplied to the board, which got us a bit discouraged.
 
