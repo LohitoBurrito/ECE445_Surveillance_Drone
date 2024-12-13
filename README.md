@@ -113,9 +113,17 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 
 ## 11/13/24: Completed Soldering and attemped to flash board (didnt work)
 
-We spent the entirety of today finishing the board
+We spent the entirety of today finishing soldering the board. One thing we noticed is that we were not able to get the multicolor LED on the board due to it being completely different sizes. We ended up deciding that we would omit the multicolor LED from the board overall. This has its own drawback as we could not utilize the gpio pin that the multicolor LED was connected to. We also did not have a 601 package for 0.01 uF capacitor. To go around this, we found an 805 package for this capacitor which we managed to solder on the board. 
+
+Once the rest of the components were on the board, we flashed a simple Serial print code, but when we connected the USB-B connector, the board was not even being powered on. We attempted to probe the board using a multimeter, but this ended up being inneffective and decided to give up after a long night. 
 
 ## 11/14/24: Debugged Board in the morning
+
+I randomly decided to get up early on the morning as I was completely confused why we could not even get 5V from our USB-B connector. I then decided to go to the lab room and stick a spare USB-B connector through the cable and probe the 5V line. This ended up showing 5V on the voltmeter. This made me curious as I was confused why 5V would not be outputted from the USB-B connected on the PCB board. I then looked under a microscope and realized that the pad was not completely soldered. Once I soldered the pad, I was able to get 5V from the USB-B connector. However, the rest of the board was still not powering on, and the LED did not glow. I then realized the LED was completely flipped, so after fixing this issue, I was able to get the led to turn red. Now even after resolving these issues, I still was not able to flash. I went through the Kicad schematic and found our that the D+ and D- pins of the USB-B connector ends up connecting to a D+ and D- on the CP2102 USB-to-UART chip.
+
+![image](https://github.com/user-attachments/assets/05e8fe04-1e95-40a8-aa11-3aaca03ed97c)
+
+After looking under a microscope, I found out that the TX pin and the D+ pin were both not soldered correctly. I simply applied flux and solder to make sure all the pads recieved an even amount of solder. This still did not end up resolving the issue as I was not able to boot. The last issue which I found under the microscope was that GPIO0 was not soldered correctly on the board. After soldering the pin, I was able to get a Serial print from our serial print tester file.
 
 ## 11/15/24: Created 3D CAD Models for Gimbal Servo Mount and Board Mounts
 
