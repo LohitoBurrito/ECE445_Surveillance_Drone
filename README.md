@@ -9,6 +9,34 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [09/16/24: Working on Project Proposal](#09/16/24:-Working-on-Project-Proposal)
 * [09/17/24: Completed Project Proposal](#09/17/24:-Completed-Project-Proposal)
 * [09/18/24: Completed Team Contract](#09/18/24:-Completed-Team-Contract)
+* [09/30/24: Worked on Design Document](#09/30/24-worked-on-design-document)
+* [10/03/24: Design Document](#10/03/24-design-document)
+* [10/08/24: TA Meeting and Design Review Feedback](#10/08/24-ta-meeting-and-design-review-feedback)
+* [10/09/24: Started Building Drone](#10/09/24-started-building-drone)
+* [10/11/24: PCB Review and Wing Completion](#10/11/24-pcb-review-and-wing-completion)
+* [10/12/24: Drone Body Completion](#10/12/24-drone-body-completion)
+* [10/14/24: DRC Warnings and Obtained ESP32 Devboard](#10/14/24-drc-warnings-and-obtained-esp32-devboard)
+* [10/15/24: Attempted PCB Order and Began Programming ESP32 Devkit](#10/15/24-attempted-pcb-order-and-began-programming-esp32-devkit)
+* [10/16/24: Ordered SIM7600 and Servos](#10/16/24-ordered-sim7600-and-servos)
+* [10/21/24: Revised PCB and Ordered Image Sensors](#10/21/24-revised-pcb-and-ordered-image-sensors)
+* [10/23/24: Researched Encoders and JPEG Compression](#10/23/24-researched-encoders-and-jpeg-compression)
+* [10/31/24: Tested Servo Control with SIM7600](#10/31/24-tested-servo-control-with-sim7600)
+* [11/02/24: Began Soldering PCB and Coded Camera](#11/02/24-began-soldering-pcb-and-coded-camera)
+* [11/03/24: Worked on Camera Software Integration](#11/03/24-worked-on-camera-software-integration)
+* [11/05/24: Camera Software Development Continued](#11/05/24-camera-software-development-continued)
+* [11/08/24: Got the Camera to Work](#11/08/24-got-the-camera-to-work)
+* [11/12/24: Software Update and Cleaned up Soldering](#11/12/24-software-update-and-cleaned-up-soldering)
+* [11/13/24: Completed Soldering and Attempted to Flash Board (Didn't Work)](#11/13/24-completed-soldering-and-attempted-to-flash-board-didnt-work)
+* [11/15/24: Began Programming Board and Removed BME280](#11/15/24-began-programming-board-and-removed-bme280)
+* [11/19/24: Completed Production of Functional PCB](#11/19/24-completed-production-of-functional-pcb)
+* [11/21/24: Completed Camera Verification](#11/21/24-completed-camera-verification)
+* [11/22/24: Completed MPU6050 and BME280 Verification](#11/22/24-completed-mpu6050-and-bme280-verification)
+* [11/28/24: Ordered Motor, Battery, ESC](#11/28/24-ordered-motor-battery-esc)
+* [11/29/24: Worked on Final Demo Script and Final Report](#11/29/24-worked-on-final-demo-script-and-final-report)
+* [12/01/24: Soldered New PCB](#12/01/24-soldered-new-pcb)
+* [12/02/24: Tested Motor, Battery, and Prepared Drone for Installation](#12/02/24-tested-motor-battery-and-prepared-drone-for-installation)
+* [12/03/24: Completed Production of Drone](#12/03/24-completed-production-of-drone)
+
 
 ## 08/26/24 - 08/31/24: Created Baseline Boost ASIO C++ Backend and TypeScript Frontend
 
@@ -33,5 +61,86 @@ Today, our group met at and completed the Team Contract. We had some discussion 
 ## 09/24/24: Wrote Baseline Schematic
 
 Today, I wrote a baseline schematic of how the esp32 board should look like. This is essentially a breakout board with no sensors on it. We are planning on discussing whether or not we are allowed to buy the sensor breakout boards for the MPU6050 and BMP280, but according to previous years, it the pcb is complex enough, we are allowed to, but it is very likely that we are not allowed to. It is important to mention that we sourced out circuit schematics for the sensor breakout boards as well so in theory, we can just place it on our original esp32 schematic. 
+
+## 9/30/24: Worked on Design Document
+
+
+## 10/3/24: Design document
+
+
+## 10/8/24: TA Meeting and Design Review feedback
+
+
+## 10/9/24: Started constructing drone
+
+
+## 10/11/24: PCB Review and Wing Design
+
+
+## 10/12/24: Drone Fuselage Completion
+
+
+## 10/14/24: Obtained ESP32 Devboard and Kicad DRC Check
+
+
+## 10/15/24: Attempted PCB Order and Began Programming ESP32 Devkit
+
+
+## 10/16/24: Ordered SIM7600 and Servos
+
+
+## 10/21/24: Revised PCB and Ordered Image Sensors
+
+
+## 10/23/24: Researched Encoders and JPEG Compression
+
+
+## 10/31/24: Tested Servo with SIM7600
+
+
+## 11/02/24: Began Soldering PCB and Programmed Camera
+
+
+## 11/03/24: Worked on Camera Software
+
+
+## 11/05/24: Camera Software Development testing update
+
+
+## 11/08/24: Camera Worked
+
+
+## 11/12/24: Software Update and Cleaned up Soldering
+
+
+## 11/13/24: Completed Soldering and attemped to flash board (didnt work)
+
+
+## 11/15/24: Began Programming board and removed BME280
+
+
+## 11/19/24: Functional PCB with BME280
+
+
+## 11/21/24: Camera Verification
+
+
+## 11/22/24: MPU6050 and BME280 Verification
+
+
+## 11/28/24: Ordered Motor, Battery, ESC
+
+
+## 11/29/24: Worked on Final Demo Script and Final Report
+
+
+## 12/01/24: Soldered New PCB
+
+
+## 12/02/24: Tested Motor, Batter, and Prepared Drone for installation
+
+
+## 12/03/24: Completed Production of Drone
+
 
 
