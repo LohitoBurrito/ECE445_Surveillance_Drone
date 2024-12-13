@@ -194,12 +194,5 @@ We were now able to test the components that we ordered earlier, but the ESC and
 
 ## 12/03/24: Final Testing + Demo 
 
-We tried our best to finish everything today, which included putting the final code in and making sure that everything works before the demo. We spent all day today finishing whatever was left, but we ran into some issues with the code such that the memory allocation seemed to be messing up a lot with the camera frames, and we weren't fully able to upload the image properly. This led us to make some reasonable cuts with the code, and focus on what was there already and perfect that instead. Lohit and Kevin ended up putting everything into the drone while I worked on the code to perfect it, and I got it working very well with everything but the camera, which was unfortunate given all the effort we had already put into this. 
-
-
-
-
-
-
-
+We tried our best to finish everything today, which included putting the final code in and making sure that everything works before the demo. We spent all day today finishing whatever was left, but we ran into some issues with the code such that the memory allocation seemed to be messing up a lot with the camera frames, and we weren't fully able to upload the image properly. This led us to make some reasonable cuts with the code, and focus on what was there already and perfect that instead. Lohit and Kevin ended up putting everything into the drone while I worked on the code to perfect it, and I got it working very well with everything but the camera, which was unfortunate given all the effort we had already put into this. We also weren't able to put some of the finishing touches to this like the pushrods attached ot the servos, two servos fully failing last minute rendering us unable to get new ones. Overall, I think we tried our best, and however the demo goes, I am glad I got to work with the people I did.
 
