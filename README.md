@@ -76,12 +76,16 @@ Today, I wrote a baseline schematic of how the esp32 board should look like. Thi
 
 ## 10/11/24: PCB Review and Wing Design
 
+Kevin and I went to the PCB review session to recieve feedback on our design. However, the one main issue we ran into was that our PCB needed to pass a DRC check. Since we utilized EasyEDA as our PCB design tool, we had slightly different DRC rule checks. This posed to be an issue so we converted our schematic from EasyEDA to Kicad and ran a DRC check from there. We did recieve some feedback in terms of our design, but there were issues that came with implementing the feedback. One of the feedbacks we recieved was to use a 40 Mhz crystal oscillator, but the ESP32 S3 Wroom 1 already has this in-built. We were also asked why we could not just buy a drone shell. The main issue is that quadcopter shells tend to be a lot cheaper than fixed wing drones. A quadcopter also tends to require more motors and escs to be fully functions and utilize more battery.
+
+Our entire group then went to Siebel Center of Design to construct the second drone wing. To do this, we simply had to replicate our first drone wing using our dollar tree foamboard. 
 
 ## 10/12/24: Drone Fuselage Completion
 
 
 ## 10/14/24: Obtained ESP32 Devboard and Kicad DRC Check
 
+We met with our TA during the scheduled weekly meeting to talk about the DRC check. When we ran our DRC check on our Kicad schematic, we were able to remove all of the bugs, but there was approximately over 300 warnings. We also realized we could get a devkit for our ESP32 so we checked one out since the PCB wasn't going to come in for a while.
 
 ## 10/15/24: Attempted PCB Order and Began Programming ESP32 Devkit
 
@@ -137,10 +141,19 @@ Today, I wrote a baseline schematic of how the esp32 board should look like. Thi
 ## 12/01/24: Soldered New PCB
 
 
-## 12/02/24: Tested Motor, Batter, and Prepared Drone for installation
+## 12/02/24: Motor, ESC, and Battery full tested for installation
+
 
 
 ## 12/03/24: Completed Production of Drone
+
+Today, our team combined all of the various components together to create a finished product. This meant installing the hardware within the drone shell and flashing the software. However, we ran into a small issue with the OV7670 not being able to provide us with frames while running the servo and sensor code in parrallel. Essentially what would happen is that our system would boot loop. We realized that our code introduced memory leaks so we decided to leave that out of our finalized software.
+
+We then 3d printed the rest of the mounts which includes both a servo mount for the v-tail and a motor mount. Below are some images of the motor mount, servo mount, and our finalized ESP32 PCB/SIM7600/Gimbal Camera Mount. 
+
+It is also important to note that we were not able to finish attaching everything completely. We were not able to strap the battery, GPS antenna, Cellular antenna, as well as not able to attach the pushrods to the servo for complete aileron/v-tail control. 
+
+
 
 
 
