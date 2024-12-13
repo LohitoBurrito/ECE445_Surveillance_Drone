@@ -71,6 +71,9 @@ Today, I wrote a baseline schematic of how the esp32 board should look like. Thi
 
 ## 10/9/24: Started constructing drone
 
+Today, Adi and I went to Seibel Center of Design to do research on how people construct fixed wing planes with foamboard. We found this one channel called FlightTest that does a lot of crazy builds. After watching a lot of their videos, we analyzed their techniques they used and how they design their drones. From this, we decided to come up with our own design for the drone. We lightly drew out with a pencil and large ruler the design of our PCB including the fuselage and wing. We then double checked the dimensions of everything and started performing cuts using an exacto knife. We also ensured that various components would be able to fit within our design without any trouble. 
+
+Adi and I also gained access to the entire lab facility by going through Canvas training and other necessary processes. This allowed us to get access to various tools and a special card called the GRAIC card. 
 
 ## 10/11/24: PCB Review and Wing Design
 
