@@ -111,6 +111,9 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 
 ## 10/31/24: Tested Servo with SIM7600
 
+We tested the servo in conjunction with the SIM7600. Our theory ended up working, and we were able to send commands from our frontend to move the servo. Our next steps would be to expand this to accomodate for more than 1 servo. We also found out that the BMP280 was not sold anymore so we switched to using a BME280. The good thing is that I did not have to change the board at all because both sensors are the same dimensions and have the same exact pads. We also gain temperature readings on top of the altitude readings we originally got from our BMP280 sensor design. 
+
+![image](https://github.com/user-attachments/assets/2b529b0f-cee0-4570-9e8c-b37e207a7972)
 
 ## 11/02/24: Researched Camera
 
