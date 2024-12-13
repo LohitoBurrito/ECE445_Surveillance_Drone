@@ -27,7 +27,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/08/24: Got the Camera to Work](#11/08/24-got-the-camera-to-work)
 * [11/12/24: Software Update and Cleaned up Soldering](#11/12/24-software-update-and-cleaned-up-soldering)
 * [11/13/24: Completed Soldering and Attempted to Flash Board (Didn't Work)](#11/13/24-completed-soldering-and-attempted-to-flash-board-didnt-work)
-* [11/15/24: Began Programming Board and Removed BME280](#11/15/24-began-programming-board-and-removed-bme280)
+* [11/15/24: Created 3D CAD Models for Gimbal Servo Mount and Board Mounts](#11/15/24-created-3d-cad-models-for-gimbal-servo-mount-and-board-mounts)
 * [11/19/24: Completed Production of Functional PCB](#11/19/24-completed-production-of-functional-pcb)
 * [11/28/24: Ordered Motor, Battery, ESC](#11/28/24-ordered-motor-battery-esc)
 * [11/29/24: Continued working on Drone Pipeline Optimization](#11/29/24-continued-working-on-drone-pipeline-optimization)
@@ -118,8 +118,15 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 ## 11/13/24: Completed Soldering and attemped to flash board (didnt work)
 
 
-## 11/15/24: Began Programming board and removed BME280
+## 11/15/24: Created 3D CAD Models for Gimbal Servo Mount and Board Mounts
 
+Today, I utilized Onshape to create 3 3d CAD models. 2 of the 3d CAD Models were for the mounting the servos that control the camera as well as the OV7670, and the last CAD model was used to mount the gimbal camera structure, SIM7600, and PCB board in a single design. Below shows the 3 designs of our CAD models. 
+
+![image](https://github.com/user-attachments/assets/674ce50c-1ff6-44e5-a6b7-de3fb60fc2c9)
+![image](https://github.com/user-attachments/assets/ff4164a0-73cb-456d-86b3-a04841918257)
+![image](https://github.com/user-attachments/assets/a7319afb-b09d-4fa3-8273-f9985b1fe0ca)
+
+I also was able to learn how to use the Bambu printed in the lab by installing the Bambu software on my machine, importing an STL file, configuring the 3D printing setup and adding braces, exporting the gcode file to the sdcard, and printing the gcode file from the sdcard. I also found out that the Bambu printer was broken so I ended up looking through technical documentation to figure out how to fix it. Aparently, I first had to clean the tip of the 3d printer nozzel and readjust the sensor. After doing this, I was able to print all of my parts.  
 
 ## 11/19/24: Functional PCB with BME280
 Today, during our meeting with our TA, we were able to completely solder the BME280 and test the chip out with our testing code. We also completely replaced the ESP32 S3 Wroom 1 with a new ESP32 chip with PSRAM. This means that our board completely works now and that we are ready to completely switch over from our dev board to our PCB. From this chip, we were able to attain pressure, temperature, and estimated altitude using sea-level-pressure-HPA. 
