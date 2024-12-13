@@ -69,9 +69,7 @@ I started today off by reviewing the design and made some measurements to start 
 
 ## 10/11/24: PCB Review + Wing Completion
 
-Today was a very important day as we were finally able to get our PCB reviewed for the first time since building it. We decided to split the task of building the drone and reviewing the PCB i.e. Kevin and Lohit went to the PCB review while I stayed at SCD to start on the second wing of our drone. I made some solid progress on trying to replicate the wing that we had made a bit earlier, and the team got together after the review to finish it fully. We did end up getting a lot out of the PCB review as we figured out that the nature of DRC requirements was different for different softwares i.e. EasyEDA's DRCs were completely different than KiCad's. The discussion about buying a prebuilt frame for the drone was also put to an end today because of a bit of research on all of our ends and Kevin's final verdict of budget issues. This was a relief as we had a bit more budget to work with now for the more expensive components like the SIM7600 and future unpresedented costs.
-
-// Include a pic of the wing ?
+Today was a very important day as we were finally able to get our PCB reviewed for the first time since building it. We decided to split the task of building the drone and reviewing the PCB i.e. Kevin and Lohit went to the PCB review while I stayed at SCD to start on the second wing of our drone. I made some solid progress on trying to replicate the wing that we had made a bit earlier, and the team got together after the review to finish it fully. We did end up getting a lot out of the PCB review as we figured out that the nature of DRC requirements was different for different softwares i.e. EasyEDA's DRCs were completely different than KiCad's. The discussion about buying a prebuilt frame for the drone was also put to an end today because of a bit of research on all of our ends and Kevin's final verdict of budget issues. This was a relief as we had a bit more budget to work with now for the more expensive components like the SIM7600 and future unpresedented costs. Additionally, I was also able to get done with the map element of our front end, which shows the current location of the plane, which I sent to Lohit for him to integrate it with the rest of the app. 
 
 ## 10/12/24: General Drone Body Completion
 
@@ -98,4 +96,56 @@ Today I spent a lot of time researching the base testing code for the SIM7600 mo
 We had our TA meeting today, and we realized that the BMP280 sensor is not sold anymore, which resulted in us having to switch to a BME280 sensor, which had more capabilities. The SIM7600 module also came in today, which was great as I could start testing it and put on whatever code I had written for it already, but this did not end up being the case. I spent a little bit of time today trying to connect it to the ESP32, and try to flash some code on it, but this resulted in a lot of errors, which didn't make sense to me. I went through the [manual](https://www.waveshare.com/w/upload/a/af/SIM7500_SIM7600_Series_AT_Command_Manual_V3.00.pdf) that came with the module very thoroughly before resuming testing. What I did decide to use was another software that came with the module itself meant for testing, but upon trying it out on Lohit's laptop and my personal computer, we realized that the drivers that came with the module were only meant for Windows 10, and none of us were using this version of Windows, so I borrowed a friend's computer to be able to actually start debugging. The software itself was very complicated to interface with, and upon installing various UART and SIM7600 drivers onto the computer, we were able to establish a solid connection with the module. 
 
 ![image (1)](https://github.com/user-attachments/assets/ae5c7c8b-5673-4282-86a2-ef4a4ec608e0)
+
+We started testing this in the senior design room on the second floor, where the internet connection was really bad and the SIM7600 wasn't able to make a connection with the internet, and the only way we were able to test that was not even with the software, but the on-board LED, which had certain indication modes. We moved to a Grainger Library, where we first saw the indication of the LED working i.e. internet was successfully connected. We then started sending commands to the SIM7600, which gave us valid reponses, and this meant that we were ready to send HTTP commands to the database to retrieve and send data. That's becasue we tried pinging a bunch of websites and the databse itself, where we recieved valid responses.
+
+## 10/25/24: HTTP Send and Recieve Testing
+
+After a lot of issues with authentication and database querying, I was finally able to get to the firebase with an AT command and retieve some data that was stored inside. This gave me a good idea of the order of commands to send to be able to retrieve data - We first need to set the SIM7600 to GET mode, followed by giving it the Firebase URL, and finally getting the data in a JSON format. I also did a lot of testing trying to send data, and I was successfully able to send data to a different databse as well, which meant that we would be able to replicate these commands on the Arduino end and hopefully see the same behaviour.
+
+## 10/28/24: Part List Tracking + SIM7600 Dev Board Attachment
+
+I edited all the code from the past that didn't work with the devboard to a working version that would allow us to connect the module with the ESP32. We started off by using GPIOs 37 and 38 for TX and RX to the SIM7600, which was able to connect with the internet perfectly now. After I spent some time debugging the code and setting the UART connection correctly, I was able to run all of my code and read the output of the SIM7600 just fine, which was another milestone hit for the project. Now, Kevin and Lohit went through the part list to find replacements for all the parts that were not readily available to us, and they were able to come up with replacements for pretty much all of the parts. By the end of today, I was successfully able to reach the database and retrieve data as well as send some set data to another database after playing around a lot with the delays i.e. understand what command takes how long and putting custom delays after each command.
+
+## 10/30/24: Servo Integration
+
+I have spent a lot of time the past 2 days trying to integrate the servos with the rest of the code I worte and the front end, which is in charge of sending commands. Me and Lohit worked alot trying to figure out the best way to send commands and the frequency with which, he should be sending it. I dished out a lot of delay issues, and integrated the threading and servo code that Kevin had written in the past, which turned out to be very simply as all I had to do was simply supply a command. At this point, we were able to command the servo based off of the front end with quite a lot of delay, which spiked up to 10-12s in bad network conditions. I tried a lot fo things to try fixing this, but it was not something I could physically fix as the module itself was not going past the limit it was set to, and we noticed a lot of packet loss even if the network was great sometimes. We decided to look at this issue later on as we had to integrate the sending code with this later on as well. 
+
+## 11/02/24: Soldering + Camera Testing
+
+We started soldering all the components we had already recieved today, and some of the resistors and capacitors turned out to be a real challenge because of how small they were. Me and Kevin spent 2 hours soldering just 7-8 components, but we were able to check these out under the microscope to valide contact as well. We also did a bit of research into the OV7670 camera module to campture a frame, but this turned out to be a lot more complicated than any of us expected, but we were able to find a Github repository with a bunch of drivers for our specific camera. The issue after that was the fact that none of those drivers worked with our board because they were written for a regular ESP32 not an ESP32 s3. We decided to take a look at this drivers tomorrow and see if there was anything that can be done. 
+
+## 11/03/24: Camera
+
+We spent a lot of time today trying to capture a frame with our new camera while Kevin wrote a bit of the surrounding code for encoding and decoding. Me and Lohit spent a couple of hours simply trying to find a good library to use for this, and we tried out a lot of random ones that people made themselves and one made by [expressif](https://github.com/espressif/esp32-camera/tree/master), but none of them seemsed to work with our camera/board. We would either see errors or get a meaningless frame like shown in the image below. We then decided to see if we could manually change the expressif drivers to work with our module, which was a dounting task in an itself because of how complicate the code was to begin with, and we were looking through some things we barely had a grasp of to begin with. This was quite the nightmarish task, but we made some changes there and decided that this was very futile, and maybe we should start looking into a different board to try/ different camera to buy. We felt a bit defeated at this point, but we decided to give this one last shot with a regular ESP32 board the following day to see how that would turn out.
+
+![image](https://github.com/user-attachments/assets/d320d146-eeb1-4493-a6fe-9c0dc8aad2af)
+
+## 11/04/24: Camera Again
+
+We got to ECEB today to find that there was in fact an ESP32 left to borrow, which is exactly what we did to try the code out on that instead. The drivers stopped throwing errors once we correctly connected all the pins, but the image we captured was pretty similar in the ragard that it didn't quite mean anything. 
+
+![image](https://github.com/user-attachments/assets/cf77cf30-8b19-4eee-8f9d-9a0b922c5fd0)
+
+We were now set on ordering the camera we knew would work the following day. In the meantime, I perfected my code to send over the frame we just recieved to Firebase, which worked great and we now had a way to send image frames (although not correct) to the database. 
+
+## 11/05/24: Last Look at Camera  
+
+We spent some today discussing everything that we noticed the past couple of days while debugging the camera. We decided to put our foot down and finally order the OV7670 with the FIFO chip because debugging this camera was very obsolute. I spent a lot of today working on the individual progress report, and made some really good progress on it, but I soon came to realize how long it will be for me as I had to explain the entirety of SIM7600 module. 
+
+## 11/08/24: Design Document + Camera Updates
+
+Me and Lohit spent some time yesterday trying to figure out the new camera, which initially seemed very easy ass we were able to capture a frame quite simply without needed any modifications to a [driver code](https://bitluni.net/ov7670-with-fifo) we found onlineThe issue, however seemed to be the fact that the image was very saturated and seemed to be wrong in a lot of aspects including the chopiness and bluriness. I helped Lohit a little bit trying to fix that, and we were finally able to figure out how to get a perfect frame today. We integrated the code Kevin wrote earlier, which seemed to work with the new images we were able to retrieve, but it seemed to messing up the format a little bit such that the firebase wasn't able to exactly see the image very well, so we will be working on that in a bit. I collaborated with Kevin to update our Design Document for the regrade. We had gotten input from our TA that we should revise our high-level requirements list to include more hardware requirements for our drone. Initially, we had three requirements, two of which were with the drone's software and one with the hardware. So we worked on adding a high-level need for the drone's power subsystem for the most part. In sum, we now have three hardware requirements and two software requirements.
+
+## 11/11/24: ESP32 Code Update
+
+Me and Lohit dished out a lot of the camera and SIM7600 at this point, and we are close to actually having the code robust because it still seems to bootloop once in a while after a couple of frame captures. Now, I am not sure why this is happening and we are still trying to debug it, but adding delays and making the code purposely run slower fixes a lot of our current problems. This, however, is not quite ideal as we would like for the code to run fast because of our application. I experimented with a lot of ways to go about this i.e. re ordering the code many times to figure out how I would best be able to meet all of the requirements we have with the code, and sending images seperately from the sensor data introduces a lot of complexity and delay, which in turn causes for the system to boot loop sometimes. The best way I have it set up in my loop as retrieve commands, send sensor data then send image, but we will work more in the next couple of days to path this out because saudering is very important at this stage. 
+
+## 11/12/24: Soldering
+
+We spent a lot of time today trying to solder on all the components because we did have most of them at this point, and we had to test this PCB before tomorrow to get a feel of what needs ot changed in the design (tomorrow is the last day to order new PCB). I was able to help solder a lot of the components, after which I helped Lohit with the oven to put in the more complicated components. 
+
+
+
+
 
