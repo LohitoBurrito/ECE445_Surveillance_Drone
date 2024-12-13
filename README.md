@@ -108,10 +108,14 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 
 ## 11/03/24: Worked on Camera Software
 
+Today, we started working on writing the code for the OV7670. Adi and I went to Grainger Library and decided to try to retrieve camera frames. We found a lot of online libraries of people who already implemented all of the camera registers and such. We also found an espressif library that works with the OV7670. However, after connected all of the wires from our camera to our ESP32 S3 Wroom 1 devkit, we found out that in some of the libraries, the pin configurations are named differently than what we see on the camera. Regardless, we attempted to create a one-to-one mapping between each camera pin and the library. However, after tested multitudes of libraries, we realized that the camera output we were generating was garbage output.
+
+![image](https://github.com/user-attachments/assets/6452f072-73be-4e7c-9977-7d3d739113fa)
+![image](https://github.com/user-attachments/assets/f6ac7b2b-49a8-40fd-b524-d6052d2301dd)
 
 ## 11/05/24: Camera Software Development testing update
 
-Today, we continued trying to debug our OV7670. We attempted to try to use multiple different techniques such as JPEG encoding and buffering. We also attempted to take our broken JPEG image and convert it to base64 to see if our image was in fact fine all of this while, and none of this ended up working out. 
+Today, we continued trying to debug our OV7670. We attempted to try to use multiple different techniques such as JPEG encoding and buffering. We also attempted to take our broken JPEG image and convert it to base64 to see if our image was in fact fine all of this while, and none of this ended up working out. The interesting observation however we received was that our image actually looked different in terms of the noise output that we generated received for the past 2 days.
 
 ![image](https://github.com/user-attachments/assets/f4eb6058-e9a3-4e2a-b5d3-d402b1fef66f)
 
