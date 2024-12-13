@@ -122,7 +122,7 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 
 
 ## 11/19/24: Functional PCB with BME280
-Today, during our meeting with our TA, we were able to get working code with 
+Today, during our meeting with our TA, we were able to completely solder the BME280 and test the chip out with our testing code. We also completely replaced the ESP32 S3 Wroom 1 with a new ESP32 chip with PSRAM. This means that our board completely works now and that we are ready to completely switch over from our dev board to our PCB. From this chip, we were able to attain pressure, temperature, and estimated altitude using sea-level-pressure-HPA. 
 
 ## 11/28/24: Ordered Motor, Battery, ESC
 
