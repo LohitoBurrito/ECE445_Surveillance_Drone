@@ -19,7 +19,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/15/24: Attempted PCB Order and ESP32 Test](#10/15/24-attempted-pcb-order-and-esp32-test)
 * [10/16/24: Ordered SIM7600 and Servos](#10/16/24-ordered-sim7600-and-servos)
 * [10/21/24: Revised PCB and Ordered OV7670](#10/21/24-revised-pcb-and-ordered-ov7670)
-* [10/23/24: Researched Encoders and JPEG Compression](#10/23/24-researched-encoders-and-jpeg-compression)
+* [10/23/24: Researched Libcurl with C++ Backend](#10/23/24-researched-libcurl-with-c++-backend)
 * [10/31/24: Tested Servo Control with SIM7600](#10/31/24-tested-servo-control-with-sim7600)
 * [11/02/24: Began Soldering PCB and Coded Camera](#11/02/24-researched-camera)
 * [11/03/24: Worked on Camera Software Integration](#11/03/24-worked-on-camera-software-integration)
@@ -120,8 +120,9 @@ Today, we revised our PCB to utilize 2 layers rather than 4 layers. This proved 
 
 We also ended up ordering the OV7670 camera which acts as the main camera for our drone. We bought a 2 pack just in case one of the cameras failed. 
 
-## 10/23/24: Researched Encoders and JPEG Compression
+## 10/23/24: Researched Libcurl with C++ Backend
 
+Today, I decided to work on configuring libcurl with the rest of C++ backend. The main reason for libcurl is its easy support for using HTTP requests to modify a database. Any curl command that one can run on a terminal can be done through the C++ libcurl library. Boost also has an HTTP library, but it would be much more difficult to configure. Therefore, I first figured out how to run a curl command for performing GET and POST requests. After running these commands on the terminal to recieve dummy sensor data and posting dummy command values, I was able to call these curl commands using the libcurl library. This ended up working out and I was able to peform full communication from the frontend to the firebase cloud storage. 
 
 ## 10/31/24: Tested Servo with SIM7600
 
