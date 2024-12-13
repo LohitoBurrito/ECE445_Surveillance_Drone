@@ -65,6 +65,7 @@ Today, I wrote a baseline schematic of how the esp32 board should look like. Thi
 
 ## 10/3/24: Design document
 
+Our team went to BIF to finish the design Document. I mainly worked on writing out how the entire design actually works as well as the flowcharts while my teammembers worked on the other parts such as R/V tables, cost analysis, and technical design analysis. I also wrote out the flow charts using Miro Board to show how our entire design comes together as one fully functional drone. We also wrote up on our pcb design and the various components that comprises of it such as the CP2102, ESP32 S3 Wroom 1, MPU6050, and BMP280. We also found out some issues with our power subsystem so we modified our PCB design to accomodate for our modifications.
 
 ## 10/8/24: TA Meeting and Design Review feedback
 
