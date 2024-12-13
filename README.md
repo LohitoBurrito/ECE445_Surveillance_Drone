@@ -145,6 +145,18 @@ Me and Lohit dished out a lot of the camera and SIM7600 at this point, and we ar
 
 We spent a lot of time today trying to solder on all the components because we did have most of them at this point, and we had to test this PCB before tomorrow to get a feel of what needs ot changed in the design (tomorrow is the last day to order new PCB). I was able to help solder a lot of the components, after which I helped Lohit with the oven to put in the more complicated components. We did a but of research first on the acceptable temperatures for all the componenets, after which we were able to oven them and then we attached buttons. We were missing two components at this point, so we decided to put those in tomorrow to test out the PCB because we can only get them tomorrow. This was because we recieved the wrong capacitor compared to what we had ordered, and the LED was simply faulty.
 
+## 11/13/24: Testing out The PCB
+
+
+We spent a lot of time today trying to verify our baord and resolder whatever it was that we were missing. We ended up taking some pins off of the PCB while trying to connect to it, but we luckily did not use any of the pins that came off. Kevin also found some spare parts in the lab of the part that we were missing and we ended up using that on our board as it fit perfectly. The PCB did not work the first try i.e. power was not supplied to the board, which got us a bit discouraged.
+
+Lohit led the Soldering from this point on and inspired us to not lose hope in our PCB, and after spending all day debugging, we ended up seeing power that was originally blocked off due to a flipped LED. It was all uphill from there and we tried seeing all the components under the microscope to notice a lot of issues that we didn't initially notice. We got our hope back and pushed through it to be able to finally flash code on the board.
+
+![9y2jcelj](https://github.com/user-attachments/assets/e3c282ce-32d7-4874-9c35-85b37dccc0c9)
+
+## 11/14/24: Testing out The PCB 2.0
+
+We did stay up very late last night to try figure the PCB out such that we didn;t actually try out any of the sensors. Upon trying them this morning, we discovered that the BME280 had been destroyed either due to applying too much heat in the oven or a short in the board. This was one of the two things we noticed. The ESP32 chip we had on the board did not contain psram, which was an issue because we heavily relied on that to be able to capture frames and store them teporarlity until they are either printed out or sent to the database. 
 
 
 
