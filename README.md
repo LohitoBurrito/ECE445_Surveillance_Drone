@@ -114,7 +114,7 @@ Link: https://www.amazon.com/waveshare-Raspberry-SIM7600A-H-Supports-Telephone/d
 
 ## 10/21/24: Revised PCB and Ordered OV7670
 
-Today, we revised our PCB to utilize 2 layers rather than 4 layers. This proved to be a massive challenge, but we decided that we would make the top layer a 3.3V layer and the bottom layer as GND as this is what most of our components connected to. We kept the 5V polygon from our original design as there would be a gap between non 3.3V traces and the 3.3V layer. 
+Today, we revised our PCB to utilize 2 layers rather than 4 layers. This proved to be a massive challenge, but we decided that we would make the top layer a 3.3V layer and the bottom layer as GND as this is what most of our components connected to. We kept the 5V polygon from our original design as there would be a gap between non 3.3V traces and the 3.3V layer. We also ensured that the DRC checks would pass and that there would be no error. We completely ignored the 300 warnings that were generated again after making this massive change.
 
 ![image](https://github.com/user-attachments/assets/0e20085f-3254-449b-be7e-1db737b58f7b)
 
