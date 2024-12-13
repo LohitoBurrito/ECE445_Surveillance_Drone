@@ -80,6 +80,9 @@ Our entire group then went to Siebel Center of Design to construct the second dr
 
 ## 10/12/24: Drone Fuselage Completion
 
+Today, Adi and I went to Seibel center of design to finish the drone fuselage and connect our wing to it. We used an exacto knife to cuz out the pieces from our excess foam board and hot glued them together. We also removed excess hot glue to ensure proper connetion and removal of unnecesary weight. We also almost created the V-tail, but we realized we messed up the orientation of the base of V-tail so we completely dismantled the v-tail. We also ensured that the fueselage would be able to be capable of fitting our PCB and external boards such as the SIM7600.   
+
+![image](https://github.com/user-attachments/assets/732af849-1ba0-4753-9978-cd62094e46c0)
 
 ## 10/14/24: Obtained ESP32 Devboard and Kicad DRC Check
 
@@ -109,7 +112,14 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 ## 11/05/24: Camera Software Development testing update
 
 
+
 ## 11/08/24: Camera Worked
+
+Today, I mainly worked on getting the camera to work. Essentially, we found a library by bitluni that allowed us to retrieve Camera Frames from our OV7670 with FIFO chip. We also went through OV7670 technical documentation and modified some of the registers to remove some of the discoloration and pixel noise. Next steps will be to simply find a JPEG encoder library or a method to convert our image to base64 for storing on firebase.  
+
+Library: https://bitluni.net/ov7670-with-fifo
+
+![image](https://github.com/user-attachments/assets/cba158de-d32b-4c33-b8a9-8bf693e9a8b3)
 
 ## 11/13/24: Completed Soldering and attemped to flash board (didnt work)
 
