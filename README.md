@@ -28,7 +28,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/13/24: Completed Soldering and Attempted to Flash Board (Didn't Work)](#111324-completed-soldering-and-attempted-to-flash-board-didnt-work)
 * [11/14/24: Debugged Board in the morning](#111424-debugged-board-in-the-morning)
 * [11/15/24: Created 3D CAD Models for Gimbal Servo Mount and Board Mounts](#111524-created-3d-cad-models-for-gimbal-servo-mount-and-board-mounts)
-* [11/19/24: Completed Production of Functional PCB](#111924-completed-production-of-functional-pcb)
+* [11/19/24: Functional PCB with BME280](#111924-functional-pcb-with-bme280)
 * [11/28/24: Ordered Motor, Battery, ESC](#112824-ordered-motor-battery-esc)
 * [11/29/24: Continued working on Drone Pipeline Optimization](#112924-continued-working-on-drone-pipeline-optimization)
 * [12/01/24: Soldered New PCB](#120124-soldered-new-pcb)
