@@ -143,7 +143,7 @@ Me and Lohit dished out a lot of the camera and SIM7600 at this point, and we ar
 
 ## 11/12/24: Soldering
 
-We spent a lot of time today trying to solder on all the components because we did have most of them at this point, and we had to test this PCB before tomorrow to get a feel of what needs ot changed in the design (tomorrow is the last day to order new PCB). I was able to help solder a lot of the components, after which I helped Lohit with the oven to put in the more complicated components. 
+We spent a lot of time today trying to solder on all the components because we did have most of them at this point, and we had to test this PCB before tomorrow to get a feel of what needs ot changed in the design (tomorrow is the last day to order new PCB). I was able to help solder a lot of the components, after which I helped Lohit with the oven to put in the more complicated components. We did a but of research first on the acceptable temperatures for all the componenets, after which we were able to oven them and then we attached buttons. We were missing two components at this point, so we decided to put those in tomorrow to test out the PCB because we can only get them tomorrow. This was because we recieved the wrong capacitor compared to what we had ordered, and the LED was simply faulty.
 
 
 
