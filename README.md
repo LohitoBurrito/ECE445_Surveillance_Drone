@@ -16,9 +16,9 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/11/24: PCB Review and Wing Completion](#10/11/24-pcb-review-and-wing-completion)
 * [10/12/24: Drone Body Completion](#10/12/24-drone-body-completion)
 * [10/14/24: DRC Warnings and Obtained ESP32 Devboard](#10/14/24-drc-warnings-and-obtained-esp32-devboard)
-* [10/15/24: Attempted PCB Order and Began Programming ESP32 Devkit](#10/15/24-attempted-pcb-order-and-began-programming-esp32-devkit)
+* [10/15/24: Attempted PCB Order and ESP32 Test](#10/15/24-attempted-pcb-order-and-esp32-test)
 * [10/16/24: Ordered SIM7600 and Servos](#10/16/24-ordered-sim7600-and-servos)
-* [10/21/24: Revised PCB and Ordered Image Sensors](#10/21/24-revised-pcb-and-ordered-image-sensors)
+* [10/21/24: Revised PCB and Ordered OV7670](#10/21/24-revised-pcb-and-ordered-ov7670)
 * [10/23/24: Researched Encoders and JPEG Compression](#10/23/24-researched-encoders-and-jpeg-compression)
 * [10/31/24: Tested Servo Control with SIM7600](#10/31/24-tested-servo-control-with-sim7600)
 * [11/02/24: Began Soldering PCB and Coded Camera](#11/02/24-researched-camera)
@@ -98,7 +98,7 @@ Today, Adi and I went to Seibel center of design to finish the drone fuselage an
 
 We met with our TA during the scheduled weekly meeting to talk about the DRC check. When we ran our DRC check on our Kicad schematic, we were able to remove all of the bugs, but there was approximately over 300 warnings. We also realized we could get a devkit for our ESP32 so we checked one out since the PCB wasn't going to come in for a while.
 
-## 10/15/24: Attempted PCB Order and Began Programming ESP32 Devkit
+## 10/15/24: Attempted PCB Order and ESP32 Test
 
 We attemped to order our PCB today, but this proved to be a massive challenge as our PCB costed around $50. The reason behind this is due to the fact that our board utilized 4 layers rather than 2 layers. Therefore, we decided that we would not order today and rather attempt to reduce our board to 2 layers. We believed this would not change the trajectory of our class because the first 2 orders come exactly at the same time. 
 
@@ -112,8 +112,13 @@ Link: https://www.amazon.com/Micro-Servos-Helicopter-Airplane-Controls/dp/B07MLR
 
 Link: https://www.amazon.com/waveshare-Raspberry-SIM7600A-H-Supports-Telephone/dp/B07Q48WNCF/ref=sr_1_4?crid=KHHXSOBI4PZI&dib=eyJ2IjoiMSJ9.fUs1eMGSX8x5TMUiK2GvwS4l_uzZ0KGObNtxo9jk360-T5rwyMDC8fdyi5CxiJUoyhRh_95h0Xb7WWohbHVpBbbF99vLJEqLzXEObQvhv2tno73wM5H_YA74Litgb-nlNF6tcJ3s4nM7zU_GVTHZllq0BPf-FsNyVqJCZCvU462Lwyh93Mn9uz5Tz7t9GHxDn8umfxF0rmk9rOGeABO1SKpd14yvPwXgjeMVYRhp2R4.JTjdTmrEGmhOkV94ypwdhxKr4qR-3agWQRJ7N3l1qMQ&dib_tag=se&keywords=SIM7600A-H&qid=1729121064&sprefix=sim7600a-h%2Caps%2C80&sr=8-4
 
-## 10/21/24: Revised PCB and Ordered Image Sensors
+## 10/21/24: Revised PCB and Ordered OV7670
 
+Today, we revised our PCB to utilize 2 layers rather than 4 layers. This proved to be a massive challenge, but we decided that we would make the top layer a 3.3V layer and the bottom layer as GND as this is what most of our components connected to. We kept the 5V polygon from our original design as there would be a gap between non 3.3V traces and the 3.3V layer. 
+
+![image](https://github.com/user-attachments/assets/0e20085f-3254-449b-be7e-1db737b58f7b)
+
+We also ended up ordering the OV7670 camera which acts as the main camera for our drone. We bought a 2 pack just in case one of the cameras failed. 
 
 ## 10/23/24: Researched Encoders and JPEG Compression
 
