@@ -140,6 +140,7 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 
 ## 12/01/24: Soldered New PCB
 
+While we attemped to flash new code, the USB-B completely ripped off with the solder pads. This is simply worst case scenario because this would mean we need to redo our PCB completely. Previously, we did have a solderpad from the USB-B completely come off, but the main upside was that it was not an important solder pin for flashing since it was completely disconnected. Now, the D+ and D- solder pads came off completely preventing us from flashing code. We then started porting every single component from our previous PCB to our new PCB using a heat gun and soldering iron. This took us about 4-5ish hours until we realized that we completely melted the insides of our spare USB-B connected. We had to approach another group for a new spare USB-B connector which we are luckily receiving the next day. 
 
 ## 12/02/24: Motor, ESC, and Battery full tested for installation and 3D CAD Model
 
@@ -152,6 +153,10 @@ We were able to solder the USB-B connected to our new PCB and get all of the sen
 Today, our team combined all of the various components together to create a finished product. This meant installing the hardware within the drone shell and flashing the software. However, we ran into a small issue with the OV7670 not being able to provide us with frames while running the servo and sensor code in parrallel. Essentially what would happen is that our system would boot loop. We realized that our code introduced memory leaks so we decided to leave that out of our finalized software.
 
 We then 3d printed the rest of the mounts which includes both a servo mount for the v-tail and a motor mount. Below are some images of the motor mount, servo mount, and our finalized ESP32 PCB/SIM7600/Gimbal Camera Mount. 
+
+![image](https://github.com/user-attachments/assets/bee4f15a-993f-4c0a-82e3-577371d6e116)
+![image](https://github.com/user-attachments/assets/a82aa048-7704-4a58-b149-8aeb6ef4cc11)
+![image](https://github.com/user-attachments/assets/337be0a8-33c9-42b2-9005-7b68f416e9b1)
 
 It is also important to note that we were not able to finish attaching everything completely. We were not able to strap the battery, GPS antenna, Cellular antenna, as well as not able to attach the pushrods to the servo for complete aileron/v-tail control. 
 
