@@ -135,8 +135,11 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 ## 11/28/24: Ordered Motor, Battery, ESC
 
 
-## 11/29/24: Worked on Final Demo Script and Final Report
+## 11/29/24: Continued working on Drone Pipeline Optimization
 
+Today, Adi and I realized, we do not actually need to store the base64 image in the storage section of Firebase. Since the base64 encoding resembled a smalled image, we were able to store a smaller base64 encoding on the firestore sensor document itself. This would mean the SIM7600 would only interact with Firebase twice in a single cycle allowing for data transmission speed increase and recieving command speed increase. 
+
+Adi and I rewrote the entire codebase on the ESP side from scratch due to older code being randomly present in our current code. We started a completely new project and ported over a lot of the correct code from our previous codebase. This took us approximately the entirety of the day.
 
 ## 12/01/24: Soldered New PCB
 
