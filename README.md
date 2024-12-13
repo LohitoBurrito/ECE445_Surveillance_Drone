@@ -141,9 +141,11 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 ## 12/01/24: Soldered New PCB
 
 
-## 12/02/24: Motor, ESC, and Battery full tested for installation
+## 12/02/24: Motor, ESC, and Battery full tested for installation and 3D CAD Model
 
+We were able to solder the USB-B connected to our new PCB and get all of the sensors working with it. We then continued by testing the brushless motor, esc, and battery and eventually got it working. Now, in order to connect it with the rest of our design, essentially, we would connect the data line from the esc to the PCB and the 5V output to the 5V pin of the PCB. Note that we would need to disconnect the laptop using USB-B which prevents debugging. Therefore, if we needed to debug, we would essentially connect the laptop to the PCB and run the Serial Terminal while the battery is disconnected. I then continued on working on creating the 3D CAD model for the motor mount which required a bit of effort due to irregular dimensioning.
 
+![image](https://github.com/user-attachments/assets/1e12f168-a982-40b3-af5d-837697fad8ea)
 
 ## 12/03/24: Completed Production of Drone
 
