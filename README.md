@@ -25,8 +25,8 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/03/24: Worked on Camera Software Integration](#11/03/24-worked-on-camera-software-integration)
 * [11/05/24: Camera Software Development Continued](#11/05/24-camera-software-development-continued)
 * [11/08/24: Got the Camera to Work](#11/08/24-got-the-camera-to-work)
-* [11/12/24: Software Update and Cleaned up Soldering](#11/12/24-software-update-and-cleaned-up-soldering)
 * [11/13/24: Completed Soldering and Attempted to Flash Board (Didn't Work)](#11/13/24-completed-soldering-and-attempted-to-flash-board-didnt-work)
+* [11/14/24: Debugged Board in the morning](#11/12/24-debugged-board-in-the-morning)
 * [11/15/24: Created 3D CAD Models for Gimbal Servo Mount and Board Mounts](#11/15/24-created-3d-cad-models-for-gimbal-servo-mount-and-board-mounts)
 * [11/19/24: Completed Production of Functional PCB](#11/19/24-completed-production-of-functional-pcb)
 * [11/28/24: Ordered Motor, Battery, ESC](#11/28/24-ordered-motor-battery-esc)
@@ -111,20 +111,19 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 
 ## 11/08/24: Camera Worked
 
-
-## 11/12/24: Software Update and Cleaned up Soldering
-
-
 ## 11/13/24: Completed Soldering and attemped to flash board (didnt work)
 
+We spent the entirety of today finishing the board
+
+## 11/14/24: Debugged Board in the morning
 
 ## 11/15/24: Created 3D CAD Models for Gimbal Servo Mount and Board Mounts
 
 Today, I utilized Onshape to create 3 3d CAD models. 2 of the 3d CAD Models were for the mounting the servos that control the camera as well as the OV7670, and the last CAD model was used to mount the gimbal camera structure, SIM7600, and PCB board in a single design. Below shows the 3 designs of our CAD models. 
 
-![image](https://github.com/user-attachments/assets/674ce50c-1ff6-44e5-a6b7-de3fb60fc2c9)
 ![image](https://github.com/user-attachments/assets/ff4164a0-73cb-456d-86b3-a04841918257)
 ![image](https://github.com/user-attachments/assets/a7319afb-b09d-4fa3-8273-f9985b1fe0ca)
+![image](https://github.com/user-attachments/assets/674ce50c-1ff6-44e5-a6b7-de3fb60fc2c9)
 
 I also was able to learn how to use the Bambu printed in the lab by installing the Bambu software on my machine, importing an STL file, configuring the 3D printing setup and adding braces, exporting the gcode file to the sdcard, and printing the gcode file from the sdcard. I also found out that the Bambu printer was broken so I ended up looking through technical documentation to figure out how to fix it. Aparently, I first had to clean the tip of the 3d printer nozzel and readjust the sensor. After doing this, I was able to print all of my parts.  
 
