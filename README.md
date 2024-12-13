@@ -32,7 +32,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/21/24: Completed Camera Verification](#11/21/24-completed-camera-verification)
 * [11/22/24: Completed MPU6050 and BME280 Verification](#11/22/24-completed-mpu6050-and-bme280-verification)
 * [11/28/24: Ordered Motor, Battery, ESC](#11/28/24-ordered-motor-battery-esc)
-* [11/29/24: Worked on Final Demo Script and Final Report](#11/29/24-worked-on-final-demo-script-and-final-report)
+* [11/29/24: Continued working on Drone Pipeline Optimization](#11/29/24-continued-working-on-drone-pipeline-optimization)
 * [12/01/24: Soldered New PCB](#12/01/24-soldered-new-pcb)
 * [12/02/24: Tested Motor, Battery, and Prepared Drone for Installation](#12/02/24-tested-motor-battery-and-prepared-drone-for-installation)
 * [12/03/24: Completed Production of Drone](#12/03/24-completed-production-of-drone)
