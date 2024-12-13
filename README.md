@@ -21,7 +21,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [10/21/24: Revised PCB and Ordered Image Sensors](#10/21/24-revised-pcb-and-ordered-image-sensors)
 * [10/23/24: Researched Encoders and JPEG Compression](#10/23/24-researched-encoders-and-jpeg-compression)
 * [10/31/24: Tested Servo Control with SIM7600](#10/31/24-tested-servo-control-with-sim7600)
-* [11/02/24: Began Soldering PCB and Coded Camera](#11/02/24-began-soldering-pcb-and-coded-camera)
+* [11/02/24: Began Soldering PCB and Coded Camera](#11/02/24-researched-camera)
 * [11/03/24: Worked on Camera Software Integration](#11/03/24-worked-on-camera-software-integration)
 * [11/05/24: Camera Software Development Continued](#11/05/24-camera-software-development-continued)
 * [11/08/24: Got the Camera to Work](#11/08/24-got-the-camera-to-work)
@@ -103,12 +103,15 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 ## 10/31/24: Tested Servo with SIM7600
 
 
-## 11/02/24: Began Soldering PCB and Programmed Camera
+## 11/02/24: Researched Camera
 
+Today, Adi and I were researching on how to connect the camera to the ESP board. There are exactly 20 camera pins on the OV7670 and required us to use the entire left side of the ESP32 S3 Wroom 1. We also did research on every pin to figure out what exactly it means and read through some technical documentation. We also did some light research on online libraries and implementation for the camera drivers just in case we needed to create our own camera drivers from scratch. We found a youtube channel called Bitluni that did an entire tutorial on how his drivers worked. 
+
+Link: https://www.youtube.com/watch?v=S2yTQHM82jc
 
 ## 11/03/24: Worked on Camera Software
 
-Today, we started working on writing the code for the OV7670. Adi and I went to Grainger Library and decided to try to retrieve camera frames. We found a lot of online libraries of people who already implemented all of the camera registers and such. We also found an espressif library that works with the OV7670. However, after connected all of the wires from our camera to our ESP32 S3 Wroom 1 devkit, we found out that in some of the libraries, the pin configurations are named differently than what we see on the camera. Regardless, we attempted to create a one-to-one mapping between each camera pin and the library. However, after tested multitudes of libraries, we realized that the camera output we were generating was garbage output.
+Today, we continued working on writing the code for the OV7670. Adi and I went to Grainger Library and decided to try to retrieve camera frames. We found a lot of online libraries of people who already implemented all of the camera registers and such. We also found an espressif library that works with the OV7670. However, after connected all of the wires from our camera to our ESP32 S3 Wroom 1 devkit, we found out that in some of the libraries, the pin configurations are named differently than what we see on the camera. Regardless, we attempted to create a one-to-one mapping between each camera pin and the library. However, after tested multitudes of libraries, we realized that the camera output we were generating was garbage output.
 
 ![image](https://github.com/user-attachments/assets/6452f072-73be-4e7c-9977-7d3d739113fa)
 ![image](https://github.com/user-attachments/assets/f6ac7b2b-49a8-40fd-b524-d6052d2301dd)
