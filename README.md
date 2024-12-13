@@ -9,7 +9,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [09/16/24: Working on Project Proposal](#09/16/24:-Working-on-Project-Proposal)
 * [09/17/24: Completed Project Proposal](#09/17/24:-Completed-Project-Proposal)
 * [09/18/24: Completed Team Contract](#09/18/24:-Completed-Team-Contract)
-* [09/30/24: Worked on Design Document](#09/30/24-worked-on-design-document)
+* [09/30/24: Worked on Design Document](#09/30/24-wrote-a-4-layer-pcb-design-in-easy-eda)
 * [10/03/24: Design Document](#10/03/24-design-document)
 * [10/08/24: TA Meeting and Design Review Feedback](#10/08/24-ta-meeting-and-design-review-feedback)
 * [10/09/24: Started Building Drone](#10/09/24-started-building-drone)
@@ -60,7 +60,12 @@ Today, our group met at and completed the Team Contract. We had some discussion 
 
 Today, I wrote a baseline schematic of how the esp32 board should look like. This is essentially a breakout board with no sensors on it. We are planning on discussing whether or not we are allowed to buy the sensor breakout boards for the MPU6050 and BMP280, but according to previous years, it the pcb is complex enough, we are allowed to, but it is very likely that we are not allowed to. It is important to mention that we sourced out circuit schematics for the sensor breakout boards as well so in theory, we can just place it on our original esp32 schematic. 
 
-## 9/30/24: Worked on Design Document
+## 9/30/24: Wrote a 4-layer PCB Design in Easy EDA
+
+This past week I got really busy in another class, but I decided to pick up the pace today. Today, I attached the breakout boards to the overall PCB schematic using our sourced online breakout board examples. I then generated a PCB file on EasyEDA and wrote out all of the traces. I set the trace widths to 10 mils and I had a seperate GND and 3.3V layer. For the 5V layer, I used the polygon tool to combine all of the 5V pads together allowed for more free flow current through the entire polygon.
+
+![image](https://github.com/user-attachments/assets/b426136a-f0a5-4c41-98dd-17e7748ed3d7)
+![image](https://github.com/user-attachments/assets/03fda017-41f7-4b4f-89c8-753786b184ec)
 
 
 ## 10/3/24: Design document
