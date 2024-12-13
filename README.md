@@ -72,6 +72,7 @@ Kevin started the document for us by copying over some of the things we already 
 We were having a lot of issues truly deducing the scope of our project, so we decided to have a meeting with our TA to discuss it thoroughly. She was able to give us some great feedback on how to narrow down our focus. We came up with the compromise that the drone needs to have two phases, where the first phase will be to finish the software suite fully, and the second focusing on actually getting the drone to fly. After the meeting we switched focus to the design document to incorporate this new advice and refactor some of the older advice we had gotten. We reviewed some of the older design documents to get a good sense of what was expected from us. We discussed one of the requirements we wrote for the drone which dealt with the drone uptime, and it seemed to be a bit unrealistic upon some back and forth with out TA and Prof. Fliflet's advice. The main concern for me was the revision of some of the solutions for solving ethical problems, and the main one here was the absence of an absolute fail safe system. This helped us formulate a new plan of action that signified changing the uptime requirement to something that is more trivial to the safety of our drone. We decided to incorporate an additional servo to our drone that would act as a holster for the parachute to deploy under certain circumstances like network loss, restricted properties, and collision avoidance. This would allow the drone to safely land both through user input in the case where that's feasible and autonomously when bad network connection is observed. 
 
 <img width="674" alt="Screenshot 2024-12-08 at 2 57 48 PM" src="https://github.com/user-attachments/assets/39a3d405-6d33-4304-8a2a-baebcb3de087">
+Figure 1
 
 I hadn't worked with the schematic much at this point because my main focus had been to figure out the Arduino software and the SIM7600 interfacing. I reviewed our first draft to realize a wrong pin set high on the pressure sensor, which ended up getting fixed. 
 
@@ -84,6 +85,7 @@ We had our TA meeting today, where we discussed a lot of the feedback we receive
 We received a lot of feedback upon how we wrote our project proposal. The main issue was the fact that we did not include a lot of details regarding the drone itself. In other words, we only focused on writing about the software suite of the drone and the PCB with little to no information on what the drone will actually look like or how it will fly. We took this advice and made sure to write down everything we discussed so far alongside some visuals to better show what the overall drone will look like, and how we are planning on actually flying it including some of the aerodynamics. We also spent a couple of hours today going through what we had written so far in the design document, and wrote more regarding the R/V tables and high level requirements. I was able to get through a lot of the description for the SIM7600 including the specific requirements for the module to work, and some of the logistics regarding the power subsystem.
 
 ![image](https://github.com/user-attachments/assets/590777e8-254c-462e-855b-e25064d6f37c)
+Figure 2
 
 We made considerable progress today, but were unable to finish the whole report, so we plan on meeting up tomorrow to finalize the rest of it and give it one last overview before submission.
 
@@ -96,6 +98,7 @@ Although we had made a significant amount of progress on this report, we weren't
 We got a bit of feedback from the design review from the professor today, and it seems like the professor seems very concerned with the scope of our project. We also had a TA meeting today, where this was the main point of discussion. We doubled down on the fact that we would stick to our initial plan of having the electronics and software as a phase one and that would be what we demo at the end of it. We would still keep flying the drone as a phase 2 to ensure that we are within a realistic scope for completion at the end of the semester. We had another long conversation about the attainability of building our own SIM7600 and ESC. The SIM7600 schematic and power board itself are incredibly complex, and we are simply not skilled enough to be able to design much less solder everything on. We also did a bit of research on the pricing of the module itself on the approved vendors and the pricing of buying the individual components. I spent a lot of time today with Lohit going over a bunch of different drone designs and bought styrofoam. We referenced a specific image for the design of our drone and make our own modifications based off of our pcb design. 
 
 ![image](https://github.com/user-attachments/assets/f945cf3b-be19-45c5-90e6-a6258869324c)
+Figure 3
 
 ## 10/09/24: Started Building the Drone
 
@@ -110,6 +113,7 @@ Today was a very important day as we were finally able to get our PCB reviewed f
 We spent a lot of time today figuring out how to hold the wings of our drone properly with the body, and were able to come up with a solid plan of execution. We spent 5 hours finishing up this design and being extremely careful so as not to make minor calculation errors as this could result in actual issues with the aerodynamics of the drone. At the end of today, we had most of it except the back flaps, and it came out exactly how we wanted it to without any issues at all. After this, I spent a lot of time looking over the various options of the SIM7600 module we had to work with. There were way too many options regarding the functionalities and capabilities of the numerous chips I was researching. I was able to find a lot of details regarding the naming convention of these chips and how certain ones only worked in certain regions. I used this [datasheet](https://download.mikroe.com/documents/datasheets/SIM7600_datasheet.pdf) for a lot of the distinctions and figuring out what we needed out of all of them. The final choice I got set on was the SIM7600A-H, which is the fastest module I could find for sale that had all the antennas we needed to be able to use my specific cellular provider. Next was the question of what housing we would go for i.e. since we were buying a prebuilt breakout board for it, it would make the most sense to have an antenna and a sim card holder attached rather than having to manually solder that. Meanwhile, Kevin spent some time looking into how we could port over the EasyEDA design over to KiCad, and he was successful to a great extent, which meant that we had a lot of the preliminary tasks handled.
 
 ![image](https://github.com/user-attachments/assets/366d4a0a-4d2e-4c3f-9f6d-93fa8f2e2209)
+Figure 4
 
 ## 10/15/24: TA Meeting + PCB Order
 
@@ -130,6 +134,7 @@ Today I spent a lot of time researching the base testing code for the SIM7600 mo
 We had our TA meeting today, and we realized that the BMP280 sensor is not sold anymore, which resulted in us having to switch to a BME280 sensor, which had more capabilities. The SIM7600 module also came in today, which was great as I could start testing it and put on whatever code I had written for it already, but this did not end up being the case. I spent a little bit of time today trying to connect it to the ESP32, and try to flash some code on it, but this resulted in a lot of errors, which didn't make sense to me. I went through the [manual](https://www.waveshare.com/w/upload/a/af/SIM7500_SIM7600_Series_AT_Command_Manual_V3.00.pdf) that came with the module very thoroughly before resuming testing. What I did decide to use was another software that came with the module itself meant for testing, but upon trying it out on Lohit's laptop and my personal computer, we realized that the drivers that came with the module were only meant for Windows 10, and none of us were using this version of Windows, so I borrowed a friend's computer to be able to actually start debugging. The software itself was very complicated to interface with, and upon installing various UART and SIM7600 drivers onto the computer, we were able to establish a solid connection with the module. 
 
 ![image (1)](https://github.com/user-attachments/assets/ae5c7c8b-5673-4282-86a2-ef4a4ec608e0)
+Figure 5
 
 We started testing this in the senior design room on the second floor, where the internet connection was really bad and the SIM7600 wasn't able to make a connection with the internet, and the only way we were able to test that was not even with the software, but the on-board LED, which had certain indication modes. We moved to a Grainger Library, where we first saw the indication of the LED working i.e. internet was successfully connected. We then started sending commands to the SIM7600, which gave us valid responses, and this meant that we were ready to send HTTP commands to the database to retrieve and send data. That's because we tried pinging a bunch of websites and the database itself, where we received valid responses.
 
@@ -154,12 +159,14 @@ We started soldering all the components we had already received today, and some 
 We spent a lot of time today trying to capture a frame with our new camera while Kevin wrote a bit of the surrounding code for encoding and decoding. Me and Lohit spent a couple of hours simply trying to find a good library to use for this, and we tried out a lot of random ones that people made themselves and one made by [expressif](https://github.com/espressif/esp32-camera/tree/master), but none of them seemed to work with our camera/board. We would either see errors or get a meaningless frame like shown in the image below. We then decided to see if we could manually change the expressif drivers to work with our module, which was a doubting task in itself because of how complicated the code was to begin with, and we were looking through some things we barely had a grasp of to begin with. This was quite the nightmarish task, but we made some changes there and decided that this was very futile, and maybe we should start looking into a different board to try/ different camera to buy. We felt a bit defeated at this point, but we decided to give this one last shot with a regular ESP32 board the following day to see how that would turn out.
 
 ![image](https://github.com/user-attachments/assets/d320d146-eeb1-4493-a6fe-9c0dc8aad2af)
+Figure 6
 
 ## 11/04/24: Camera Again
 
 We got to ECEB today to find that there was in fact an ESP32 left to borrow, which is exactly what we did to try the code out on that instead. The drivers stopped throwing errors once we correctly connected all the pins, but the image we captured was pretty similar in the regard that it didn't quite mean anything. 
 
 ![image](https://github.com/user-attachments/assets/cf77cf30-8b19-4eee-8f9d-9a0b922c5fd0)
+Figure 7
 
 We were now set on ordering the camera we knew would work the following day. In the meantime, I perfected my code to send over the frame we just received to Firebase, which worked great and we now had a way to send image frames (although not correct) to the database. 
 
@@ -186,6 +193,7 @@ We spent a lot of time today trying to verify our board and resolder whatever it
 Lohit led the Soldering from this point on and inspired us to not lose hope in our PCB, and after spending all day debugging, we ended up seeing power that was originally blocked off due to a flipped LED. It was all uphill from there and we tried seeing all the components under the microscope to notice a lot of issues that we didn't initially notice. We got our hope back and pushed through it to be able to finally flash code on the board.
 
 ![9y2jcelj](https://github.com/user-attachments/assets/e3c282ce-32d7-4874-9c35-85b37dccc0c9)
+Figure 8
 
 ## 11/14/24: Testing out The PCB 2.0
 
@@ -206,12 +214,14 @@ While Kevin worked on the camera verification and Lohit worked on the 3D module 
 Me and Kevin finished the entirety of sensor verification today according to our R-V table. The two sensors we tested were the MPU-6050 IMU and BME280 barometer. The BME280 took the longest to verify because of the various ways we decided to go about it. The first way was to test it it indoors and do a relative measurement i.e. have a starting point and raise the drone up in measured increments and see how much the sensor picked up to validate. We ended up seeing these results where the error was under the margin on 15 percent.
 
 ![image](https://github.com/user-attachments/assets/3baeb024-0021-492c-9388-f216b021717a)
+Figure 9
 
 The second test was going to an outdoor location and testing it that way. We first tested ground level near ECEB, and then went to the HERE terrace for the second extreme case. Upon testing both, we noticed around a 12 percent error which was amazing. 
 
 The second sensor we tested was the IMU, which was tested under 3 conditions - room temp, fridge, and outside, which gave us results as shown in the image where the error was sub 15 percent.
 
 ![image](https://github.com/user-attachments/assets/ade267d2-6021-46e9-92ae-7f559f7a3034)
+Figure 10
 
 ## 11/28/24: Ordering the Last Few Components
 
