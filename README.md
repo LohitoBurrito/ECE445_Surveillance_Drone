@@ -32,7 +32,7 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/28/24: Ordered Motor, Battery, ESC](#112824-ordered-motor-battery-esc)
 * [11/29/24: Continued working on Drone Pipeline Optimization](#112924-continued-working-on-drone-pipeline-optimization)
 * [12/01/24: Soldered New PCB](#120124-soldered-new-pcb)
-* [12/02/24: Tested Motor, Battery, and Prepared Drone for Installation](#120224-tested-motor-battery-and-prepared-drone-for-installation)
+[12/02/24: Motor, ESC, and Battery full tested for installation and 3D CAD Model](#120224-motor-esc-and-battery-full-tested-for-installation-and-3d-cad-model)
 * [12/03/24: Completed Production of Drone](#120324-completed-production-of-drone)
 
 
