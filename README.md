@@ -100,6 +100,9 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 
 ## 10/15/24: Attempted PCB Order and Began Programming ESP32 Devkit
 
+We attemped to order our PCB today, but this proved to be a massive challenge as our PCB costed around $50. The reason behind this is due to the fact that our board utilized 4 layers rather than 2 layers. Therefore, we decided that we would not order today and rather attempt to reduce our board to 2 layers. We believed this would not change the trajectory of our class because the first 2 orders come exactly at the same time. 
+
+Also, we attempted to program our ESP32 S3 Wroom 1 Devboard today. We attemped to use Servos and Leds that were randomly in the room to see if we can operate on these devices. The code we wrote moved the servos from 0 to 180 degrees and back to 0 degrees on repeat. We also created a blinking LED sketch with our arduino IDE. Lastly, we learned how to use FreeRTOS with our devkit as we may or may not need to have parrallelism with our application in the future to reduce latency. 
 
 ## 10/16/24: Ordered SIM7600 and Servos
 
