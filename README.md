@@ -103,6 +103,11 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 
 ## 10/16/24: Ordered SIM7600 and Servos
 
+Today, we decided to order our first big parts. This included a SIM7600 and a Servo combo pack. The servos would be used for drone control and the SIM7600 would be used as our main source of communication. I do want to point out that the SIM7600 costed $70 off of amazon and we had to look for a specific encoding (A-H) which represents the fact that this module would work in North America. We did find a cheaper alternative which was SIM7600A, but this module only supported 2G which isn't used in the United States anymore. The links to our buy orders are shown below.
+
+Link: https://www.amazon.com/Micro-Servos-Helicopter-Airplane-Controls/dp/B07MLR1498/ref=mp_s_a_1_3?crid=BS5S38CTNWFJ&dib=eyJ2IjoiMSJ9.lRrzFkSvx8GhZXXbAhDTVjP2EBkmoPc78-c-JdjWfKTZ6G91lio_kdzjsWDqFwzZbVMuHW53QXTXvd5kfqbGZxT01VcxdXrQXmVcz2irdLU8r-hZiCjRjDyBukToNBy4xd74BJK_PQM3IyMXwPWK8UFQcaVyQ6iBeXTjT_QOXfQ8Dsqh7YOIkUniuTDJHiwcsXS4pFbd0KSDWaLCZ7v8UQ.yJ2ZDPWrq5zxWtyR6YiXr8_OJHXUBhh5KqmaoInMx0o&dib_tag=se&keywords=servos&qid=1729118694&sprefix=servos%2Caps%2C117&sr=8-3&th=1
+
+Link: https://www.amazon.com/waveshare-Raspberry-SIM7600A-H-Supports-Telephone/dp/B07Q48WNCF/ref=sr_1_4?crid=KHHXSOBI4PZI&dib=eyJ2IjoiMSJ9.fUs1eMGSX8x5TMUiK2GvwS4l_uzZ0KGObNtxo9jk360-T5rwyMDC8fdyi5CxiJUoyhRh_95h0Xb7WWohbHVpBbbF99vLJEqLzXEObQvhv2tno73wM5H_YA74Litgb-nlNF6tcJ3s4nM7zU_GVTHZllq0BPf-FsNyVqJCZCvU462Lwyh93Mn9uz5Tz7t9GHxDn8umfxF0rmk9rOGeABO1SKpd14yvPwXgjeMVYRhp2R4.JTjdTmrEGmhOkV94ypwdhxKr4qR-3agWQRJ7N3l1qMQ&dib_tag=se&keywords=SIM7600A-H&qid=1729121064&sprefix=sim7600a-h%2Caps%2C80&sr=8-4
 
 ## 10/21/24: Revised PCB and Ordered Image Sensors
 
