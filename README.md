@@ -29,8 +29,6 @@ Notebook for daily records, logs, design plans, decisions, and outcomes in ECE 4
 * [11/13/24: Completed Soldering and Attempted to Flash Board (Didn't Work)](#11/13/24-completed-soldering-and-attempted-to-flash-board-didnt-work)
 * [11/15/24: Began Programming Board and Removed BME280](#11/15/24-began-programming-board-and-removed-bme280)
 * [11/19/24: Completed Production of Functional PCB](#11/19/24-completed-production-of-functional-pcb)
-* [11/21/24: Completed Camera Verification](#11/21/24-completed-camera-verification)
-* [11/22/24: Completed MPU6050 and BME280 Verification](#11/22/24-completed-mpu6050-and-bme280-verification)
 * [11/28/24: Ordered Motor, Battery, ESC](#11/28/24-ordered-motor-battery-esc)
 * [11/29/24: Continued working on Drone Pipeline Optimization](#11/29/24-continued-working-on-drone-pipeline-optimization)
 * [12/01/24: Soldered New PCB](#12/01/24-soldered-new-pcb)
@@ -124,16 +122,15 @@ We met with our TA during the scheduled weekly meeting to talk about the DRC che
 
 
 ## 11/19/24: Functional PCB with BME280
-
-
-## 11/21/24: Camera Verification
-
-
-## 11/22/24: MPU6050 and BME280 Verification
-
+Today, during our meeting with our TA, we were able to get working code with 
 
 ## 11/28/24: Ordered Motor, Battery, ESC
 
+To complete the drone, we needed to have a battery, ESC, and motor. The motor would act as our main source of thrust while the ESC controls the brushless motor. The battery would be there to power our motor while its voltages gets dropped to 5V by our ESC. Our ESC would then power our entire PCB and the SIM7600. Therefore, these parts were extremely necessary to the succesful completion of our project. Below shows the links of the ESC and Motor combo pack we bought and the battery. We also made the big decision of not making our drone fly as that would result in a hefty expense from our side. One thing to note is that our combo pack uses an ESC with a T-connector which makes the 2200mAh 3S LiPo battery we bought completely compatible since it also utilizes a T-connected.
+
+Link: https://www.amazon.com/abcGoodefg-Brushless-Propeller-Accessories-Quadcopter/dp/B08DXYLFQQ?crid=BMRTHCMCWNH9&dib=eyJ2IjoiMSJ9.JntwHLhnCboXlpKIAsr43_YDrZUKtGF4cnhptSxuZvYIHTJSKzYlUtAE4qCpVHrfRVMdmmvQ0FKj645M_6sHLOnVYctmEIgMqAT91PNLk2VCR1rfwa5xUnlvx4YGv-g9vgZ-NDsn5uZSgxIVMlDqktdA6olIA3q4dFwpuDI5-zQQhpPqOgR12cBxA7xajhYz0JURzMbyZ80iUj9KfL3OAAjfuhltb1Y59KkR66E2h23asFpNghiLfPW7dXYI-KKd2qSuv4-p1Ocjoqx-ctWMiNc6Zzn4wymGeb_sdOZ2Vwo.MLJCt6ehMJtpJkNjKv9tkxXw_WHxGnjhi2vj8blet30&dib_tag=se&keywords=esc+with+motor&qid=1732854615&sprefix=esc+with+moto%2Caps%2C152&sr=8-8
+
+Link: https://www.amazon.com/2200mAh-Connector-Airplane-Quadcopter-Helicopter/dp/B08CZF373Y/ref=sxin_16_pa_sp_search_thematic_sspa?content-id=amzn1.sym.1bfb7020-bc2b-4494-b17e-0160f1a71ab1%3Aamzn1.sym.1bfb7020-bc2b-4494-b17e-0160f1a71ab1&crid=17HTV8X3PU8OL&cv_ct_cx=2200mAh+3S&keywords=2200mAh+3S&pd_rd_i=B08CZF373Y&pd_rd_r=80fea7bd-c90c-4ae2-aa3d-0ade595dbf5d&pd_rd_w=Dx12d&pd_rd_wg=y4t5C&pf_rd_p=1bfb7020-bc2b-4494-b17e-0160f1a71ab1&pf_rd_r=P9RJQQ44EKH1SFDGA0WQ&qid=1734055115&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=2200mah+3s%2Caps%2C149&sr=1-1-7efdef4d-9875-47e1-927f-8c2c1c47ed49-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1
 
 ## 11/29/24: Continued working on Drone Pipeline Optimization
 
