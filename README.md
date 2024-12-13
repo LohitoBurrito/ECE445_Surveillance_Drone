@@ -95,6 +95,6 @@ Today I spent a lot of time researching the base testing code for the SIM7600 mo
 
 ## 10/23/24: TA Meeting + SIM7600 Arrival
 
-We had our TA meeting today, and we realized that the BMP280 sensor is not sold anymore, which resulted in us having to switch to a BME280 sensor, which had more capabilities. The SIM7600 module also came in today, which was great as I could start testing it and put on whatever code I had written for it already, but this did not end up being the case. I spent a little bit of time today trying to connect it to the ESP32, and try to flash some code on it, but this resulted in a lot of errors, which didn't make sense to me. I went through the [manual](file:///Users/aditya/Downloads/SIM7500_SIM7600_Series_AT_Command_Manual_V3.00.pdf) that came with the module 
+We had our TA meeting today, and we realized that the BMP280 sensor is not sold anymore, which resulted in us having to switch to a BME280 sensor, which had more capabilities. The SIM7600 module also came in today, which was great as I could start testing it and put on whatever code I had written for it already, but this did not end up being the case. I spent a little bit of time today trying to connect it to the ESP32, and try to flash some code on it, but this resulted in a lot of errors, which didn't make sense to me. I went through the [manual](https://www.waveshare.com/w/upload/a/af/SIM7500_SIM7600_Series_AT_Command_Manual_V3.00.pdf) that came with the module very thoroughly before resuming testing. 
 
 
