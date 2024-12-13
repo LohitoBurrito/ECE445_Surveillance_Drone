@@ -74,6 +74,7 @@ Our team went to BIF to finish the design Document. I mainly worked on writing o
 
 ## 10/8/24: TA Meeting and Design Review feedback
 
+We had our team meeting today mainly to have an overall design review. However, some of my teammates and the professor was extremely concerned with the scope of our project. Therefore, we talked to our TA, and we came up with a solution. Our solution was simply to split our design in 2 seperate phases where the first phase is simply to get all of our electronics working and mounted to our drone. The second phase would be there for extra credit. I personally wanted this drone to fly but the professor did have concerns as our team also did meet with him in person to discuss. He seemed pretty afraid of getting it to fly for 2 main reasons which he pointed out. The first reason was safety, and the second reason was legal reasons. I found solutions to these problems, but my teammates were concerned due having flight as a factor for our grades.
 
 ## 10/9/24: Started constructing drone
 
