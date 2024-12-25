@@ -3,128 +3,171 @@
     margin: 0;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-}
-
 .App {
-    height: 95vh;
-    width: 95vw;
-}
-
-.container_video {
-    height: 65%;
-    width: 100%;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
-.container_features {
-    height: 35%;
+.leftPanel {
+    height: 100vh;
+    width: 20vw;
+    display: block;
+    background-color: #222222;
+}
+
+.leftPanel .drones {
+    height: 85%;
     width: 100%;
-    display: flex;
 }
 
-.container_regular_feed {
-    border: 1px solid black;
-    height: 100%;
-    width: 50%;
+.leftPanel .set_ip {
+    padding-top: 20px;
+    height: 15%;
+    width: 100%; 
+    text-align: center;
 }
 
-.container_annotated_feed {
-    border: 1px solid black;
-    height: 100%;
-    width: 50%;
+.leftPanel .set_ip .ip_submit, .ip_input {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.container_realtime_data {
-    border: 1px solid black;
-    height: 100%;
-    width: 10%;
-    display: flex;
-    justify-content: center;
+.middle {
+    position: relative;
+    height: 100vh;
+    width: 50vw;
 }
 
-.container_realtime_data button {
-    background-color: red;
-    border: none;
-    border-radius: 10px;
+.middle .abort_mission {
+    position: absolute;
+    z-index: 5;
+    bottom: 20px;
+    left: 20px;
     width: 100px;
+    height: 50px;
+}
+
+.abort_mission button {
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    border: 0px solid black;
+    background-color: red;
     color: white;
-    height: 30px;
-    margin-top: 20px;
     font-weight: bold;
 }
 
-.container_realtime_data button:hover {
+.abort_mission button:hover {
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    border: 0px solid black;
+    background-color: red;
+    color: white;
+    font-weight: bold;
     cursor: pointer;
+}
+
+.middle .container_map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.middle .container_feed {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    background-color: white;
+    width: 240px;
+    height: 180px;
+}
+
+.middle .container_feed2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    background-color: #222222;
+    width: 170px;
+    border: 0.5px solid white;
+    height: 230px;
+    color: white;
+    padding: 5px;
+}
+
+.rightPanel {
+    height: 100vh;
+    width: 30vw;
+    background-color: #222222;
 }
 
 .roll_data {
-    border: 1px solid black;
-    height: 100%;
-    width: 20%;
-}
-
-.pitch_data {
-    border: 1px solid black;
-    height: 100%;
-    width: 20%;
-}
-
-.yaw_data {
-    border: 1px solid black;
-    height: 100%;
-    width: 20%;
-}
-
-.container_controller {
-    border: 1px solid black;
-    height: 100%;
-    width: 15%;
-}
-
-.first_row, .third_row {
-    height: 33%;
     width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.second_row {
     height: 33%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.left, .up, .down, .right {
-    width: 33%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
-.left .active, .up .active, .down .active, .right .active {
-    background-color: transparent;
-    border: none;
-    font-size: 80px;
+.pitch_data {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.controller {
+    width: 100%;
+    height: 33%;
+    display: flex;
+}
 
-.left button, .up button, .down button, .right button {
+.container_controller {
+    width: 50%;
+}
+
+.container_controller button {
     background-color: transparent;
     border: none;
+    color: black;
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+}
+
+.container_controller .first_row {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+}
+
+.container_controller .third_row {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+}
+
+.container_controller .second_row {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.container_controller .active, .container_controller button:hover {
     font-size: 50px;
-}
-
-.left button:hover, .up button:hover, .down button:hover, .right button:hover {
-    background-color: transparent;
-    border: none;
     cursor: pointer;
-    font-size: 80px;
 }
 
+.container_controller button { 
+    color: white;
+}

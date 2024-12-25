@@ -1,0 +1,2 @@
+curl -X POST -H "Content-Type: application/json" -d "{\"fields\": {\"command\": {\"stringValue\": \"w\"}}}" "https://firestore.googleapis.com/v1/projects/ece445-early-response-drone/databases/(default)/documents/Commands?documentId=command3"
+curl -X GET -H "Content-Type: application/json" "https://firestore.googleapis.com/v1/projects/ece445-early-response-drone/databases/(default)/documents/Commands?documentId=command3"
