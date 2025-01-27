@@ -10,9 +10,14 @@ The Early Response Drone aims to be a cost-effective drone system for early emer
 
 #### Initial Server Build
 
+From your root directory of the project, run the following commands.
+
 ```
  cd server
 ```
+
+Create and run a docker container by building a docker image, create a docker network, and building a docker container. Make sure to replace {filepath} with the filepath to the project on your system. After running "docker run," a bash terminal corresponding to the docker container should open. 
+
 ```
  docker build -t drone_server_image .
 ```
@@ -22,6 +27,8 @@ The Early Response Drone aims to be a cost-effective drone system for early emer
 ```
  docker run --name drone_server --network drone_network -p 5000:5000 -p 5001:5001 -v {filepath}\ECE445_SURVEILLANCE_DRONE:/workspace -it drone_server_image /bin/bash
 ```
+
+Run the following commands to build the project.
 ```
  mkdir build
  cd build
@@ -38,18 +45,16 @@ The Early Response Drone aims to be a cost-effective drone system for early emer
 
 #### Future Server Build
 
+Assuming that you already have the docker container, run the following commands from the root directory to re-run the server code. 
 ```
  cd server
-```
-```
- rm -rf build
- mkdir build
- cd build
 ```
 ```
  docker start -ai drone_server
 ```
 ```
+ rm -rf build
+ mkdir build
  cd build
 ```
 ```
@@ -64,9 +69,10 @@ The Early Response Drone aims to be a cost-effective drone system for early emer
 
 #### Client Run
 
-Ensure that you have installed nodeJS on your machine
+Ensure that you have installed nodeJS on your machine. On a seperate terminal from root directory of project, run the following commands to run the client application on your web browser.
 
 ```
+ cd client
  npm install
  npm start
 ```
