@@ -248,8 +248,7 @@ void CommandControl::doWriteCommandValue() {
 
         if (!queueCommand.empty()) {
             auto data = queueCommand.front().data();
-            queueCommand.pop();
-            string commandValue(net::buffer_cast<const char*>(data), net::buffer_size(data));
+            string commandValue(net::buffer_cast<const char*>(data), data.size());
 
             cout << commandValue << endl;
 
@@ -274,6 +273,8 @@ void CommandControl::doWriteCommandValue() {
                     }
                 }
             })";
+
+            queueCommand.pop();
         }
     }
 
