@@ -77,6 +77,10 @@ Ensure that you have installed nodeJS on your machine. On a seperate terminal fr
  npm start
 ```
 
+### ③ ESP Drone Run
+
+Open the esp32_code folder in an arduino ide and flash an esp32 board with psram with the following code. We created our own esp32 flight controller, and all of the schematic and pcb files are within the kicad_files folder. The entire drone setup is described within the report link in the abstract of this readme and the independence c++ files.
+
 ## Some Test Videos:
 📡 Watch our [Sensor Test](https://drive.google.com/file/d/1JHddWSbrLJgTwXRT1GT1PC6u4QnlyP4Z/view?usp=sharing) here
 
