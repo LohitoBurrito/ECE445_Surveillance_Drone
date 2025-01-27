@@ -4,7 +4,7 @@
 
 The Early Response Drone aims to be a cost-effective drone system for early emergency reconnaissance. This drone, equipped with a camera and sensors, transmits real-time data such as video frames, altitude, and orientation to a user-friendly frontend interface via cellular connectivity. The system comprises four key components: a drone, backend, frontend, and cloud storage. Data captured by the drone is temporarily stored and processed for visual and analytical feedback. By integrating rapid deployment and reliable communication, the drone can assist in crime monitoring, fire hazard assessment, and medical triage, providing first responders with the critical information needed to make timely, informed decisions and improve overall emergency response outcomes. Although in-air trials were not performed to validate flight performance, the drone’s core software and electronics were thoroughly tested and demonstrated reliable functionality.
 
-[Report](https://docs.google.com/document/d/1GGGv41obI-07fPF-_esPq27CqVMIz6DOAviRRR1eaIU/edit?tab=t.0)
+🚀 Check out our [Report](https://docs.google.com/document/d/1GGGv41obI-07fPF-_esPq27CqVMIz6DOAviRRR1eaIU/edit?tab=t.0) here
 
 ## Installation
 
@@ -78,6 +78,6 @@ Ensure that you have installed nodeJS on your machine. On a seperate terminal fr
 ```
 
 ## Some Test Videos:
-[Sensor Test](https://drive.google.com/file/d/1JHddWSbrLJgTwXRT1GT1PC6u4QnlyP4Z/view?usp=sharing)
+📡 Watch our [Sensor Test](https://drive.google.com/file/d/1JHddWSbrLJgTwXRT1GT1PC6u4QnlyP4Z/view?usp=sharing) here
 
-[Command Test](https://drive.google.com/file/d/1ZHc8pTtDRF40xnmZzDQPJSrRR4m5kNAQ/view?usp=sharing)
+🤖 Watch our [Command Test](https://drive.google.com/file/d/1ZHc8pTtDRF40xnmZzDQPJSrRR4m5kNAQ/view?usp=sharing) here
