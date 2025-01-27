@@ -4,7 +4,9 @@
       "name": "windows-clang-x64",
       "includePath": [
         "${workspaceFolder}/**",
-        "C:/Users/lohit/boost_1_86_0/boost_1_86_0"
+        "C:/Users/lohit/boost_1_86_0/boost_1_86_0",
+        "C:/Users/lohit/libcurl/curl-8.10.1_2-win64-mingw/include",
+        "C:/Users/lohit/json_cpp/include/"
       ],
       "defines": [
         "_DEBUG",

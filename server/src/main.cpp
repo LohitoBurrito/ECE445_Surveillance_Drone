@@ -43,11 +43,11 @@ int main(int argc, char* argv[]) {
     );
     
     thread thread_command(&CommandControl::bootRWCommand, cc);
-    thread thread_sensor(&CommandControl::bootRWSensor, cc);
+    // thread thread_sensor(&CommandControl::bootRWSensor, cc);
     
     
     thread_command.join();
-    thread_sensor.join();
+    // thread_sensor.join();
 
     ioc.run();
 
