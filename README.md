@@ -1,3 +1,5 @@
+![github-header-image](https://github.com/user-attachments/assets/4e651e73-99ea-4827-9356-7bf62af4c347)
+
 # ECE445_Surveillance_Drone
 
 ## Abstract
