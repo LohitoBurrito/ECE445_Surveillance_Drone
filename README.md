@@ -8,7 +8,7 @@ The Early Response Drone aims to be a cost-effective drone system for early emer
 
 ## Installation
 
-#### ① Initial Server Build
+### ① Initial Server Build
 
 From your root directory of the project, run the following commands if you do not have the docker setup for our project.
 
@@ -43,7 +43,7 @@ Run the following commands to build the project.
  ./drone_server 0.0.0.0 5000 5001
 ```
 
-#### ② Future Server Build
+### ② Future Server Build
 
 Do not run if you completed the first step. Assuming that you already have the docker container, run the following commands from the root directory to re-run the server code. 
 ```
@@ -67,7 +67,7 @@ Do not run if you completed the first step. Assuming that you already have the d
  ./drone_server 0.0.0.0 5000 5001
 ```
 
-#### ③ Client Run
+### ③ Client Run
 
 Ensure that you have installed nodeJS on your machine. On a seperate terminal from root directory of project, run the following commands to run the client application on your web browser.
 
