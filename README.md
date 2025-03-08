@@ -85,3 +85,5 @@ Open the esp32_code folder in an arduino ide and flash an esp32 board with psram
 📡 Watch our [Sensor Test](https://drive.google.com/file/d/1JHddWSbrLJgTwXRT1GT1PC6u4QnlyP4Z/view?usp=sharing) here
 
 🤖 Watch our [Command Test](https://drive.google.com/file/d/1ZHc8pTtDRF40xnmZzDQPJSrRR4m5kNAQ/view?usp=sharing) here
+
+Note: Yes, I know that the lin_accel has wrong units, and we updated the info. Also, we post-processed the lin_accel value wrong. The value must be divided by 2g to get the accurate acceleration value produced by the accelerometer inside the MPU6050 
